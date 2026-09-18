@@ -9,6 +9,10 @@ const FILES = [
   "data/content-en.json",
   "data/products.json",
   "data/products-en.json",
+  // ⚠️ 2026-09-18: blog + basın da taranır. Silinen "Bemis vs <rakip>" yazıları
+  // app/blog/posts.ts içindeydi ve bekçi orayı HİÇ taramıyordu — kapsam açığıydı.
+  "app/blog/posts.ts",
+  "app/blog/press.ts",
 ];
 
 // Sadece belirsiz olmayan rakip markalar. ABB/KEBA büyük-harf duyarlı ("grabbing"
@@ -24,6 +28,13 @@ const BRANDS = [
   /\bTritium\b/i,
   /\bFronius\b/i,
   /\bgo-e\b/i,
+  // 2026-09-18: asıl rakipler cihaz markaları değil PERAKENDECİLER. Kullanıcı
+  // "onların müşterisini alalım" derken bile kural aynı: adları sitemizde GEÇMEZ;
+  // yalnız Google Ads'te anahtar kelime olarak hedeflenir (reklam METNİNDE de geçmez).
+  /\belektro\s?marketim\b/i,
+  /\btruwatt\b/i,
+  /\bhims\b/i,
+  /\bemev\b/i,
 ];
 
 const hits = [];

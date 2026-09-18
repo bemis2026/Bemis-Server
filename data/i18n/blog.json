@@ -2413,6 +2413,9 @@
       ],
       "related": [
         {
+          "label": "Apartment and Housing Complex Charging Station"
+        },
+        {
           "label": "Charging Station Regulation: What Is Mandatory?"
         },
         {
@@ -5734,6 +5737,9 @@
       ],
       "related": [
         {
+          "label": "Apartment and Housing Complex Charging Station"
+        },
+        {
           "label": "AC wallbox charging stations"
         },
         {
@@ -6452,6 +6458,348 @@
         },
         {
           "label": "Portable Charger: What Is It, What Does It Cost?"
+        }
+      ]
+    },
+    "sarj-istasyonu-bakim-periyodik-kontrol": {
+      "title": "Charging Station Maintenance and Periodic Checks",
+      "description": "Periodic checks on a charging station: residual current device test, connector wear, gasket and cable inspection, software and record keeping.",
+      "excerpt": "A charger is not equipment you install and forget. Its only moving part is the connector, and that is where wear begins. A regular checklist catches a fault at the desk instead of on site.",
+      "category": "Technical",
+      "body": [
+        {
+          "text": "A charging station is at its best on the day it is installed; what wears it down afterwards is not electricity but use. The connector is plugged in and pulled out every day, the cable drops to the ground, the lid gasket cycles between sun and cold. This article gives the practical checklist that applies to everything from a home wallbox to a unit in a shared car park. Every step that involves electrical work belongs to a qualified person; the list below explains what to watch, not how to open the device."
+        },
+        {
+          "text": "The part that wears most: connector and cable"
+        },
+        {
+          "text": "The only moving part of a charger is the connector, and most faults start there. What to look for is clear: darkening or burn marks on the pins, cracks in the plastic housing, a loose locking latch, crushing or cuts in the cable sheath. Check the point where the cable enters the unit and the point where it enters the connector with particular care, because that is where the cable bends most. If the connector falls to the ground, using a holster noticeably reduces this wear."
+        },
+        {
+          "text": "The protection side: residual current device and distribution board"
+        },
+        {
+          "text": "The way to confirm that the residual current device protecting the charging circuit still works is the test button on it; pressing it should trip the device. This is a simple check that can be done without opening the unit and that electricians recommend at regular intervals. On the board side, a qualified person checks whether terminal connections have loosened and whether there are signs of heating; a loose connection heats up over time and produces a fault."
+        },
+        {
+          "text": "Water and dust on outdoor units"
+        },
+        {
+          "text": "On an outdoor unit, what keeps the protection rating intact is the gaskets and covers as much as the housing itself. Points to check: the lid gasket is not crushed or dislodged, cable glands are tight, and any ventilation opening is not blocked. The Bemis home AC series is rated IP65 and the BEVDC series IP54; these ratings apply while the unit is closed and its gaskets are sound."
+        },
+        {
+          "text": "Software and records"
+        },
+        {
+          "text": "On units used in shared areas or businesses, the checklist does not end with physical items. On a device managed over OCPP, make sure the connection has not dropped, that records are being kept properly and that authorisation cards are up to date. An RFID card belonging to someone who has left the company still showing as authorised is a non-technical but very real problem. If a management panel with per-user reporting is in use, reading the monthly consumption report also gives an early fault signal: if one point's consumption drops unexpectedly, that unit may have an issue."
+        },
+        {
+          "text": "Practical checklist"
+        },
+        {
+          "items": [
+            "Any darkening, burn marks or cracks on the connector pins?",
+            "Any crushing, cuts or sharp bend marks in the cable sheath?",
+            "Does the residual current device trip when the test button is pressed?",
+            "Are the lid gasket and cable glands sound and tight?",
+            "Any impact damage, water ingress or corrosion on the housing?",
+            "Do the display and status lights work normally, or show an error?",
+            "Are authorisation cards current, and have departed users been removed?",
+            "Are charging records and the consumption report within the expected range?"
+          ]
+        },
+        {
+          "text": "When should you call service?"
+        },
+        {
+          "text": "If the unit does not start charging, cuts out repeatedly on its own, shows a persistent error on the display, trips the residual current device again and again, or the connector feels hot, there is nothing left for the user to do. In these cases the unit should be left de-energised and authorised service contacted. Bemis products come with a 2-year manufacturer warranty; on our support page you will find step by step what to do for each symptom and which details are needed when you get in touch."
+        },
+        {
+          "text": "If your unit is not working, start with the quick check here.",
+          "label": "Fault and warranty support"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Does an electric vehicle charging station need maintenance?",
+          "a": "Yes, but this maintenance is a regular inspection rather than a complex procedure. The only moving part of the unit is the connector and wear largely starts there; darkening on the pins, crushing in the cable sheath and a loose locking latch are the items to look for by eye. Alongside that, confirming the residual current device works using its test button and, on outdoor units, checking that the lid gasket and cable glands are sound is recommended. Any task that requires opening the unit belongs to a qualified person; the user side is limited to the outside of the housing."
+        },
+        {
+          "q": "How often should a charger be checked?",
+          "a": "Usage intensity is what decides. A home wallbox used once a day and a unit in an apartment car park plugged in and out several times a day do not wear at the same rate. The practical approach is to repeat the visual connector and cable check at regular intervals matched to usage, and never to skip the residual current device test. On units in shared areas or businesses, assigning the check to one named person is the healthiest arrangement; on unattended units a small amount of wear turns into a fault before anyone notices."
+        },
+        {
+          "q": "What happens if the charging connector wears out, is it replaced?",
+          "a": "Connector wear shows itself first as contact quality rather than performance: charging cuts out frequently, the connection feels loose, or darkening appears on the pins. Continuing to use it with these symptoms can lead to heating and greater damage, so the assessment should be left to authorised service. Using a holster that keeps the cable off the ground prevents the connector from falling and noticeably delays this wear. On DC stations the cable set is in any case planned as a part that may be replaced over the station's life."
+        },
+        {
+          "q": "Is the charger's software updated?",
+          "a": "On units that work connected to a management system over the OCPP protocol, the software side is also part of the checklist. What matters here is not only updates but that the connection has not dropped and that records are being kept properly, because if billing or per-user tracking is in use, a lost record creates a direct problem. On the authorisation side the user list must be kept current; a departed user whose card still shows as authorised is a non-technical but very real gap. These operations are carried out through the management panel without opening the unit."
+        }
+      ],
+      "related": [
+        {
+          "label": "Fault and warranty support"
+        },
+        {
+          "label": "Is charging at home safe?"
+        },
+        {
+          "label": "Installation guide"
+        },
+        {
+          "label": "AC Charging Cables"
+        },
+        {
+          "label": "Home Charging Station (AC Wallbox)"
+        }
+      ]
+    },
+    "fabrika-osb-sanayi-sitesi-sarj-istasyonu": {
+      "title": "Charging Stations for Staff Car Parks at Factories and Industrial Estates",
+      "description": "Charging stations in staff car parks at factories and industrial estates: existing transformer, power factor correction, unit count by shift pattern and billing.",
+      "excerpt": "Installing a charging station at a factory is a different decision from fitting a wallbox at home. The site already has a transformer, a power factor correction panel and a production load that changes by the hour. A correct installation sits on top of those three facts.",
+      "category": "Guide",
+      "body": [
+        {
+          "text": "Every factory, warehouse and industrial estate with a growing number of electric cars among its staff arrives at the same question: we want to put chargers in the car park, where do we start? This is not like fitting a wallbox at home. In a house the only issue is whether the supply is adequate; in a production facility there is already a transformer, a power factor correction panel and a load that changes hour by hour. Chargers are added on top of that picture. This article takes the factory and industrial estate decision in order."
+        },
+        {
+          "text": "A staff car park is not the same as a fleet"
+        },
+        {
+          "text": "This distinction has to be made first, because every later decision depends on it. If a company car fleet is being charged, the vehicles are yours, they stay on site overnight and the planning is yours; we covered that scenario in a separate article. A staff car park is different: the cars belong to employees, they arrive at the start of the shift and leave at the end of it. So the charging window is not the whole night but the length of the shift, and who consumed how much has to be separated per person."
+        },
+        {
+          "text": "How many units are needed? The shift pattern answers that"
+        },
+        {
+          "text": "In a staff car park one unit can serve more than one car during the day, because an employee's car sits parked for hours. In a single-shift facility where the car arrives in the morning and leaves in the evening, a 7.4 kW unit delivers far more than enough energy for daily use across an 8-hour window; what works here is duration, not speed. In a three-shift facility the same unit can serve three different drivers in turn. That is why the number of units should be planned against the number of electric cars parked at the same time, not the total headcount."
+        },
+        {
+          "items": [
+            "Count the electric cars parked at the same time, not the total number of employees.",
+            "Note the shift changeover times; that is when units get shared.",
+            "Lay the infrastructure for 2-3 years ahead rather than today's number: cable and panel work is cheap during the first dig, not later.",
+            "Plan a separate point for visitors and suppliers; you may want to keep staff points behind authorisation."
+          ]
+        },
+        {
+          "text": "The electrical side on industrial estates"
+        },
+        {
+          "text": "On organised industrial estates, electricity distribution often runs through the estate's own legal entity; in other words, when adding new load your counterpart may be the estate management rather than the regional distribution company. On smaller industrial sites, a shared transformer serves several businesses, so capacity sharing comes into play. In both cases the question to answer before installation is the same: is there room in your existing transformer and main board for the load you are about to add?"
+        },
+        {
+          "text": "The second technical heading is power factor correction. Industrial customers are billed for reactive energy, and when new load is added to a facility the correction panel has to be reviewed against the new situation. How the chargers will affect that picture should be assessed, once the count and power are set, by whoever knows the site's electrical design. This is one of the most important items in the pre-installation survey."
+        },
+        {
+          "text": "Do not touch your production peak"
+        },
+        {
+          "text": "A factory's electrical load is not flat through the day; it peaks when machines come online. The worst case for chargers is drawing full power together at exactly that peak. The answer is not fewer units but dynamic load management: the system sees the facility's live consumption and automatically reduces charging power, then raises it again once the facility eases. The Bemis Charger Plus 2 and Charger Pro 2 series carry this load balancing feature; because the units work in steps across a 6-32 A range, the reduction happens without interrupting the charge."
+        },
+        {
+          "text": "Who pays for the electricity? Decide up front"
+        },
+        {
+          "text": "In a staff car park this is an administrative rather than a technical question, and it is answered in one of three ways: charging is offered free as a benefit, the cost is passed on to the employee, or a model is set up that is free up to a certain number of kWh and charged after that. Whichever you choose, you cannot manage what you cannot see. On the Charger Plus 2 and Charger Pro 2 series, user authorisation by RFID card and the shared-area management panel with per-person reporting are provided free of charge; no licence or subscription fee follows. If the measurement is to serve as a billing basis, models with a built-in MID meter are preferred."
+        },
+        {
+          "text": "Which unit: AC or DC?"
+        },
+        {
+          "text": "In staff and visitor car parks the right answer is almost always AC. Because the car sits parked for hours, an AC wallbox between 7.4 kW and 22 kW covers the need comfortably and the infrastructure cost is far lower. DC fast charging is for scenarios where the vehicle stays on site only for minutes: logistics arrivals and departures, an administrative building with heavy visitor traffic, or a decision to position the site as a public charging point. Not confusing the two is the easiest saving in the whole investment."
+        },
+        {
+          "text": "Why is a pre-installation survey essential?"
+        },
+        {
+          "text": "None of the items above can be answered by picking from a catalogue: the existing board, the transformer load, the distance to the car park, the cable route and the mounting surface all have to be seen on site. At Bemis this process runs through the authorised dealer; the choice of unit becomes clear after the survey, installation is carried out by a qualified electrician, and products are delivered with a 2-year manufacturer warranty."
+        },
+        {
+          "text": "Let us work out together which model and how many points your facility needs.",
+          "label": "Your nearest authorised dealer"
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is needed to install a charging station at a factory?",
+          "a": "Three things have to be settled: how many electric cars will be parked at the same time, whether there is room in the existing transformer and main board for the added load, and who will pay for the electricity. Once those three are set, the number and power of the units are chosen. In practice the order runs like this: on-site survey, deciding the number of units and points, reviewing the board and power factor correction side if required, laying the cable route, then mounting and commissioning. Picking a unit from a catalogue without a survey produces costly surprises such as a later board replacement."
+        },
+        {
+          "q": "Who gives permission for a charging station on an industrial estate?",
+          "a": "On organised industrial estates, electricity distribution is often run by the estate's own legal entity. In that case your counterpart for a new load notification and the capacity question is the estate management rather than the regional distribution company. On smaller industrial sites a shared transformer serves several businesses, so capacity has to be discussed with the site management. If the facility has its own transformer the situation is simpler, but the existing load and power factor correction still have to be assessed. Because the process differs from region to region, the first step is to ask your own management in writing."
+        },
+        {
+          "q": "How many chargers are needed for a staff car park?",
+          "a": "The decisive number is not the total headcount but how many electric cars are parked at the same time. Because an employee's car stays parked through the shift, a single unit can serve more than one car during the day; across an 8-hour window 7.4 kW comfortably delivers the energy needed for daily use. In a three-shift facility the same point can serve three drivers in turn. The practical approach is to install units for today's number of electric cars but to lay the cable and panel infrastructure for a few years ahead; adding units later is easy, pulling cable is expensive."
+        },
+        {
+          "q": "Will the chargers strain the factory's electricity supply?",
+          "a": "They can without load management, because in the worst case the units draw full power together at the hour when production load peaks. Dynamic load balancing solves this: the system monitors the facility's live consumption, automatically reduces charging power and raises it again once the facility eases. The Bemis Charger Plus 2 and Charger Pro 2 series carry this feature, and because the units work in steps across a 6-32 A range the reduction happens without interrupting the charge. A timer can also be used to move charging to hours outside production."
+        },
+        {
+          "q": "How do we track the electricity our employees use?",
+          "a": "Per-person tracking needs two things: user authorisation and records. With an RFID card each employee starts the charge with their own card and the system records who consumed how many kWh. At Bemis the shared-area management panel is provided free of charge on the Charger Plus 2 and Charger Pro 2 series, with no separate subscription or licence fee. If the measurement is to serve as a billing basis, models with a built-in MID meter are chosen. This structure matters even where charging is offered free as a benefit, simply to see the cost."
+        },
+        {
+          "q": "Should I buy an AC wallbox or DC fast charging for my business?",
+          "a": "What decides is how long the vehicle stays on site. In staff and visitor car parks the car is parked for hours, so an AC wallbox in the 7.4-22 kW range covers the need comfortably and the infrastructure cost is markedly lower. DC fast charging is for scenarios where the vehicle stays only minutes: heavy visitor traffic, logistics arrivals and departures, or a decision to position the site as a public charging point. For most production facilities the right answer is AC; where DC is needed it is usually at a separate point and few in number."
+        }
+      ],
+      "related": [
+        {
+          "label": "Home Charging Station (AC Wallbox)"
+        },
+        {
+          "label": "Fleet charging solutions"
+        },
+        {
+          "label": "What is load management?"
+        },
+        {
+          "label": "Shared-area charging management panel"
+        },
+        {
+          "label": "Installation guide"
+        }
+      ]
+    },
+    "dc-sarj-unitesi-duvar-tipi-mi-direk-tipi-mi": {
+      "title": "DC Charging Unit: Wall Mounted or Pedestal?",
+      "description": "Choosing between wall mounted and pedestal for a DC charging unit: mounting surface, site layout, dimensions and weight. Compared on the 40 kW example.",
+      "excerpt": "A DC charging unit of the same power can come in two different enclosures: one mounted on a wall, one standing on its own pedestal. The difference is not electrical but on site: where you mount it and how the car pulls up decide it.",
+      "category": "Guide",
+      "body": [
+        {
+          "text": "When choosing a DC fast charging unit, the first thing discussed is usually power: 40 kW, 80 kW or 120 kW? Once the power is settled, a second decision appears that most buyers do not expect: the same unit can be offered in two different enclosures. One is mounted on a wall, the other stands on its own pedestal. Electrically they do the same job; the difference is entirely on site."
+        },
+        {
+          "text": "The real difference between the two types"
+        },
+        {
+          "text": "A wall mounted unit is fixed to a load-bearing surface. The wall carries the weight, the unit sits clear of the ground and the area in front of it stays completely free. A pedestal unit stands with its own body on a base; it can be placed where there is no wall behind it, such as an open car park, the middle of a parking island or the edge of a landscaped area. For that reason the pedestal type is deeper and noticeably heavier."
+        },
+        {
+          "caption": "Two enclosures on the Bemis BEVDC 40 example",
+          "headers": [
+            "",
+            "Wall mounted",
+            "Pedestal"
+          ],
+          "rows": [
+            [
+              "Output power",
+              "40 kW",
+              "40 kW"
+            ],
+            [
+              "Connector",
+              "CCS2",
+              "CCS2"
+            ],
+            [
+              "Width x Depth x Height",
+              "600 x 320 x 900 mm",
+              "600 x 425 x 1770 mm"
+            ],
+            [
+              "Weight",
+              "80 kg",
+              "105 kg"
+            ],
+            [
+              "Mounting",
+              "Fixed to a load-bearing wall",
+              "On its own pedestal, anchored to the ground"
+            ],
+            [
+              "Typical location",
+              "Indoor car park, building facade, site wall",
+              "Open car park, parking island, area without a wall"
+            ]
+          ]
+        },
+        {
+          "text": "When is wall mounted the right choice?"
+        },
+        {
+          "text": "If the mounting location has a solid wall or column able to carry the weight of the unit, wall mounted is almost always the more practical option. No base is poured, the ground is not drilled, the unit stays out of the vehicle impact line and no parking space is lost. Indoor car parks, building facades and site perimeter walls are the natural home of this type."
+        },
+        {
+          "text": "When is the pedestal type needed?"
+        },
+        {
+          "text": "If there is no wall where the car pulls up, the decision has been made for you. The middle of parking islands, the central lanes of open car parks and the edges of landscaping have no wall; there the unit has to stand on its own pedestal. The second advantage of the pedestal type is visibility: a body 1770 mm tall is noticed from a distance, which matters for businesses positioning their site as a public charging point."
+        },
+        {
+          "text": "The third factor: cable and approach"
+        },
+        {
+          "text": "Regardless of enclosure type, the unit has to reach the vehicle's charging socket. DC cables are heavy, so unnecessary length tires the user while a cable that is too short forces the car to be parked in a particular direction. That is why enclosure choice and parking layout are planned together: which direction the car approaches from, which side of the car the charging socket is on and whether the cable reaches without dragging on the ground are measured during the survey."
+        },
+        {
+          "text": "How is a load-bearing surface assessed for the wall type?"
+        },
+        {
+          "text": "Before choosing the wall type there is a simple question that often gets skipped: can this wall carry a unit of 80 kilograms, together with the cable hung on it, for years? Reinforced concrete walls and columns present no problem with this load; a lightweight partition, a hollow block wall or a surface built later is not considered load-bearing. The mounting height is also decided here: a level where the connector is easy to reach but the cable does not drag on the ground. This assessment is not made from a catalogue but by looking on site."
+        },
+        {
+          "text": "At higher power the enclosure question disappears"
+        },
+        {
+          "text": "The wall and pedestal distinction belongs to the lower power class. As power rises, the converter and cooling volume inside the unit grow, the device leaves the range of an enclosure that can hang on a wall and becomes a floor-standing cabinet. In the Bemis BEVDC series 40 kW is offered in two enclosures while 80 kW and above are cabinet type; models of 120 kW and above additionally have a 10 inch capacitive touchscreen and IK10 impact resistance. So the enclosure choice actually narrows by itself along with the power class."
+        },
+        {
+          "text": "The electrical specification is the same on both types"
+        },
+        {
+          "text": "Do not assume that choosing by enclosure costs you features. In the Bemis BEVDC series both enclosures carry the same electrical platform: CCS2 connector, AC 380-480 V three phase input, 150-1000 V DC output range, IP54 protection class, -25 °C to +55 °C operating temperature, OCPP 1.6J / 2.0.1 protocol support and user authentication by RFID card and mobile app. The series extends from 40 kW to 200 kW; at higher power classes the enclosure becomes cabinet type."
+        },
+        {
+          "text": "Let us confirm with a survey which enclosure suits your site layout.",
+          "label": "See the DC fast charging units"
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is a DC charging unit?",
+          "a": "A DC charging unit is a fast charger that converts the alternating current it takes from the grid into direct current inside itself and delivers it straight to the vehicle battery. In AC charging that conversion is done by the car's own on-board charger, which limits the power; in DC the conversion happens inside the unit, so the on-board charger is bypassed and far higher power becomes possible. That is why DC units provide charging on a scale of minutes and are used where vehicles stop only briefly. In the field the same product is also called a DC charger, a fast charging unit or a DC charging station."
+        },
+        {
+          "q": "Is there a power difference between wall mounted and pedestal DC units?",
+          "a": "No. For the same model the enclosure type does not change the electrical specification; output power, connector type, protection class, operating temperature and protocol support are identical on both. The difference appears on the physical side: the pedestal type carries its own base and is therefore deeper and heavier. On the Bemis BEVDC 40 example the wall mounted unit is 600 x 320 x 900 mm and 80 kg while the pedestal type comes in at 600 x 425 x 1770 mm and 105 kg. The choice is therefore made on mounting surface and site layout, not on performance."
+        },
+        {
+          "q": "Does a pedestal charging station need ground preparation?",
+          "a": "Yes. Because a pedestal unit transfers its own weight to the ground, the place where it is anchored has to be prepared to carry that load; in practice this usually means a concrete base and anchors. In addition, since the cable enters from below, the route has to be planned together with the base; opening a cable duct later is far more costly. With the wall type this step does not exist, as the unit is fixed to a load-bearing surface. In both cases the ground and mounting detail should be determined on site during the pre-installation survey."
+        },
+        {
+          "q": "Which DC power class should I choose for my business?",
+          "a": "What decides is how long the vehicle will stay at your site. If the car stops for half an hour or more, the 40 kW class covers most scenarios; where the visit drops to fifteen minutes, on roadside locations, higher classes start to make sense. As power rises it is not only the unit but also the grid connection and transformer side that grow, so the decision should not be made by looking at the unit price alone. The Bemis BEVDC series covers the 40, 80, 120, 160, 180 and 200 kW classes; the right class is selected by weighing visit duration and existing electrical infrastructure together."
+        },
+        {
+          "q": "Can a DC charging unit be installed outdoors?",
+          "a": "Yes, these units are designed for outdoor installation. The Bemis BEVDC series has an IP54 protection class and is specified to operate between -25 °C and +55 °C; in other words it can be positioned in an open car park exposed to rain and seasonal temperatures. Even so, two points get attention on site: the unit and its cable should stay outside the vehicle manoeuvring line, and it is preferable that the screen is not in direct sunlight all day. The installation position is chosen during the survey with these details in mind."
+        }
+      ],
+      "related": [
+        {
+          "label": "DC Fast Charging Units"
+        },
+        {
+          "label": "What is a 40 kW DC charging station?"
+        },
+        {
+          "label": "DC investment guide for businesses"
+        },
+        {
+          "label": "The difference between AC and DC charging"
+        },
+        {
+          "label": "Choosing a DC charging cable and CCS2 connector"
         }
       ]
     }
@@ -8869,6 +9217,9 @@
         }
       ],
       "related": [
+        {
+          "label": "Ladestation für Mehrfamilienhaus und Wohnanlage"
+        },
         {
           "label": "Ladestationsverordnung: Was ist Pflicht?"
         },
@@ -12191,6 +12542,9 @@
       ],
       "related": [
         {
+          "label": "Ladestation für Mehrfamilienhaus und Wohnanlage"
+        },
+        {
           "label": "AC-Wallbox-Ladestationen"
         },
         {
@@ -12909,6 +13263,348 @@
         },
         {
           "label": "Tragbares Ladegerät: was ist das, was kostet es?"
+        }
+      ]
+    },
+    "sarj-istasyonu-bakim-periyodik-kontrol": {
+      "title": "Wartung und regelmaessige Kontrolle der Ladestation",
+      "description": "Regelmaessige Kontrolle an der Ladestation: Test des Fehlerstromschutzschalters, Steckerverschleiss, Dichtung und Kabel, Software und Aufzeichnungen.",
+      "excerpt": "Ein Ladegeraet ist kein Geraet, das man einbaut und vergisst. Sein einziges bewegliches Teil ist der Stecker, und dort beginnt der Verschleiss. Eine regelmaessige Checkliste erkennt den Fehler am Schreibtisch statt vor Ort.",
+      "category": "Technik",
+      "body": [
+        {
+          "text": "Eine Ladestation ist am Tag der Installation in ihrem besten Zustand; was sie danach abnutzt, ist nicht der Strom, sondern der Gebrauch. Der Stecker wird taeglich ein- und ausgesteckt, das Kabel faellt zu Boden, die Deckeldichtung wechselt zwischen Sonne und Kaelte. Dieser Beitrag liefert die praktische Checkliste, die von der Heim-Wallbox bis zum Geraet in der Tiefgarage fuer alle gilt. Jeder Schritt mit elektrischem Eingriff gehoert in die Hand einer Fachkraft; die Liste beschreibt, was zu beobachten ist, und empfiehlt nicht, das Geraet zu oeffnen."
+        },
+        {
+          "text": "Das am staerksten beanspruchte Teil: Stecker und Kabel"
+        },
+        {
+          "text": "Das einzige bewegliche Teil des Ladegeraets ist der Stecker, und dort beginnen die meisten Stoerungen. Worauf zu achten ist, liegt auf der Hand: Dunkelfaerbung oder Brandspuren an den Kontakten, Risse im Kunststoffgehaeuse, eine lose Verriegelung, Quetschungen oder Schnitte im Kabelmantel. Pruefen Sie besonders die Stelle, an der das Kabel in das Geraet eintritt, und die Stelle am Stecker, denn dort wird das Kabel am staerksten gebogen. Faellt der Stecker zu Boden, verringert eine Halterung diesen Verschleiss deutlich."
+        },
+        {
+          "text": "Die Schutzseite: Fehlerstromschutzschalter und Verteiler"
+        },
+        {
+          "text": "Um zu bestaetigen, dass der Fehlerstromschutzschalter der Ladeinstallation funktioniert, dient die Testtaste an ihm; beim Druecken soll er ausloesen. Das ist eine einfache Kontrolle, die ohne Oeffnen des Geraets moeglich ist und die Elektrofachkraefte in regelmaessigen Abstaenden empfehlen. Im Verteiler prueft eine Fachkraft, ob sich Klemmverbindungen geloest haben und ob Spuren von Erwaermung sichtbar sind; eine lose Verbindung erwaermt sich mit der Zeit und erzeugt eine Stoerung."
+        },
+        {
+          "text": "Wasser und Staub bei Geraeten im Aussenbereich"
+        },
+        {
+          "text": "Bei einem Geraet im Aussenbereich halten die Dichtungen und Abdeckungen die Schutzart ebenso aufrecht wie das Gehaeuse selbst. Zu pruefen sind: Deckeldichtung weder gequetscht noch verrutscht, Kabelverschraubungen fest, eine vorhandene Belueftung nicht verdeckt. Die Bemis AC-Serie fuer den Hausgebrauch ist mit IP65, die BEVDC-Serie mit IP54 angegeben; diese Angaben gelten bei geschlossenem Geraet und intakten Dichtungen."
+        },
+        {
+          "text": "Software und Aufzeichnungen"
+        },
+        {
+          "text": "Bei Geraeten in Gemeinschaftsbereichen oder Betrieben endet die Checkliste nicht bei den physischen Punkten. Bei einem ueber OCPP verwalteten Geraet ist sicherzustellen, dass die Verbindung nicht abgerissen ist, dass die Aufzeichnungen sauber gefuehrt werden und dass die Autorisierungskarten aktuell sind. Wenn die Karte einer ausgeschiedenen Person weiterhin als berechtigt erscheint, ist das ein nicht technisches, aber sehr reales Problem. Wird ein Verwaltungspanel mit personenbezogener Auswertung genutzt, liefert auch der monatliche Verbrauchsbericht ein Fruehwarnsignal: sinkt der Verbrauch eines Punktes unerwartet, kann dort ein Problem vorliegen."
+        },
+        {
+          "text": "Praktische Checkliste"
+        },
+        {
+          "items": [
+            "Dunkelfaerbung, Brandspuren oder Risse an den Steckerkontakten?",
+            "Quetschungen, Schnitte oder scharfe Knickstellen im Kabelmantel?",
+            "Loest der Fehlerstromschutzschalter beim Druecken der Testtaste aus?",
+            "Sind Deckeldichtung und Kabelverschraubungen intakt und fest?",
+            "Gibt es am Gehaeuse Schlagschaeden, Wasserspuren oder Korrosion?",
+            "Arbeiten Display und Statusleuchten normal oder zeigen sie einen Fehler?",
+            "Sind die Autorisierungskarten aktuell, ausgeschiedene Nutzer entfernt?",
+            "Liegen Ladeaufzeichnungen und Verbrauchsbericht im erwarteten Bereich?"
+          ]
+        },
+        {
+          "text": "Wann wird der Service verstaendigt?"
+        },
+        {
+          "text": "Startet das Geraet den Ladevorgang nicht, bricht es haeufig von selbst ab, zeigt das Display einen dauerhaften Fehler, loest der Fehlerstromschutzschalter immer wieder aus oder erwaermt sich der Stecker spuerbar, bleibt fuer die Nutzerin oder den Nutzer nichts mehr zu tun. In diesen Faellen wird das Geraet spannungsfrei gelassen und der autorisierte Service kontaktiert. Bemis Produkte werden mit 2 Jahren Herstellergarantie geliefert; auf unserer Supportseite finden Sie Schritt fuer Schritt, was je nach Symptom zu tun ist und welche Angaben bei der Meldung benoetigt werden."
+        },
+        {
+          "text": "Wenn Ihr Geraet nicht funktioniert, starten Sie mit der Schnellpruefung hier.",
+          "label": "Stoerungs- und Garantiesupport"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Braucht eine Ladestation fuer Elektroautos Wartung?",
+          "a": "Ja, doch diese Wartung ist eher eine regelmaessige Kontrolle als ein aufwendiger Vorgang. Das einzige bewegliche Teil ist der Stecker, und dort beginnt der Verschleiss weitgehend; Dunkelfaerbung an den Kontakten, Quetschungen im Kabelmantel und eine lose Verriegelung sind die Punkte fuer die Sichtpruefung. Ergaenzend empfiehlt sich, die Funktion des Fehlerstromschutzschalters ueber die Testtaste zu bestaetigen und bei Aussengeraeten Deckeldichtung sowie Kabelverschraubungen zu pruefen. Alles, was das Oeffnen des Geraets erfordert, gehoert einer Fachkraft; die Nutzerseite bleibt auf das Gehaeuseaeussere beschraenkt."
+        },
+        {
+          "q": "Wie oft sollte ein Ladegeraet kontrolliert werden?",
+          "a": "Entscheidend ist die Nutzungsintensitaet. Eine Wallbox zu Hause, die einmal taeglich genutzt wird, verschleisst nicht so schnell wie ein Geraet in der Wohnanlage, das mehrmals taeglich gesteckt wird. Praktisch bedeutet das, die Sichtpruefung von Stecker und Kabel in an die Nutzung angepassten Abstaenden zu wiederholen und den Test des Fehlerstromschutzschalters nicht auszulassen. Bei Geraeten in Gemeinschaftsbereichen oder Betrieben ist es am sinnvollsten, die Kontrolle einer benannten Person zu uebertragen; bei unbeaufsichtigten Geraeten wird aus einer kleinen Abnutzung unbemerkt eine Stoerung."
+        },
+        {
+          "q": "Was passiert, wenn der Ladestecker verschleisst, wird er getauscht?",
+          "a": "Steckerverschleiss zeigt sich zuerst nicht als Leistung, sondern als Kontaktqualitaet: der Ladevorgang bricht haeufig ab, die Verbindung fuehlt sich lose an oder die Kontakte verfaerben sich dunkel. Bei diesen Anzeichen weiterzunutzen kann zu Erwaermung und groesseren Schaeden fuehren, daher sollte die Beurteilung dem autorisierten Service ueberlassen werden. Eine Halterung, die das Kabel vom Boden fernhaelt, verhindert das Herunterfallen des Steckers und verzoegert diesen Verschleiss deutlich. Bei DC-Stationen ist der Kabelsatz ohnehin als ueber die Lebensdauer austauschbares Teil eingeplant."
+        },
+        {
+          "q": "Wird die Software des Ladegeraets aktualisiert?",
+          "a": "Bei Geraeten, die ueber das OCPP-Protokoll mit einem Managementsystem verbunden arbeiten, gehoert auch die Softwareseite zur Checkliste. Wichtig ist hier nicht nur das Update, sondern dass die Verbindung nicht abgerissen ist und die Aufzeichnungen sauber gefuehrt werden, denn bei Abrechnung oder personenbezogener Erfassung erzeugt ein fehlender Datensatz unmittelbar ein Problem. Auf der Autorisierungsseite muss die Nutzerliste aktuell gehalten werden; eine ausgeschiedene Person, deren Karte weiterhin berechtigt erscheint, ist eine nicht technische, aber reale Luecke. Diese Vorgaenge erfolgen ueber das Verwaltungspanel, ohne das Geraet zu oeffnen."
+        }
+      ],
+      "related": [
+        {
+          "label": "Stoerungs- und Garantiesupport"
+        },
+        {
+          "label": "Ist Laden zu Hause sicher?"
+        },
+        {
+          "label": "Installationsleitfaden"
+        },
+        {
+          "label": "AC-Ladekabel"
+        },
+        {
+          "label": "Heimladestation (AC-Wallbox)"
+        }
+      ]
+    },
+    "fabrika-osb-sanayi-sitesi-sarj-istasyonu": {
+      "title": "Ladestationen fuer Mitarbeiterparkplaetze in Fabriken und Industriegebieten",
+      "description": "Ladestationen auf Mitarbeiterparkplaetzen in Fabrik und Industriegebiet: vorhandener Trafo, Blindstromkompensation, Anzahl nach Schichtmodell und Abrechnung.",
+      "excerpt": "Eine Ladestation in der Fabrik zu installieren ist eine andere Entscheidung als eine Wallbox zu Hause. Der Betrieb hat bereits einen Trafo, eine Kompensationsanlage und eine Produktionslast, die sich stuendlich aendert. Eine korrekte Installation baut auf diesen drei Tatsachen auf.",
+      "category": "Ratgeber",
+      "body": [
+        {
+          "text": "Jede Fabrik, jedes Lager und jedes Industriegebiet mit wachsender Zahl an Elektroautos in der Belegschaft kommt zur gleichen Frage: Wir wollen Ladepunkte auf dem Parkplatz, wo fangen wir an? Das ist nicht wie eine Wallbox zu Hause. In einem Wohnhaus geht es nur darum, ob der Anschluss ausreicht; in einem Produktionsbetrieb gibt es bereits einen Trafo, eine Kompensationsanlage und eine Last, die sich von Stunde zu Stunde aendert. Die Ladepunkte kommen zu diesem Bild hinzu. Dieser Beitrag geht die Entscheidung auf der Fabrik- und Industriegebietsseite der Reihe nach durch."
+        },
+        {
+          "text": "Ein Mitarbeiterparkplatz ist nicht dasselbe wie ein Fuhrpark"
+        },
+        {
+          "text": "Diese Unterscheidung muss zuerst getroffen werden, denn jede weitere Entscheidung haengt daran. Wird ein Firmenfuhrpark geladen, gehoeren die Fahrzeuge Ihnen, sie stehen nachts im Betrieb und die Planung liegt bei Ihnen; dieses Szenario haben wir in einem eigenen Beitrag behandelt. Der Mitarbeiterparkplatz ist anders: die Fahrzeuge gehoeren den Beschaeftigten, sie kommen zu Schichtbeginn und fahren zu Schichtende. Das Ladefenster ist also nicht die ganze Nacht, sondern die Dauer der Schicht, und wer wie viel verbraucht hat, muss personenbezogen getrennt werden."
+        },
+        {
+          "text": "Wie viele Ladepunkte braucht es? Das Schichtmodell gibt die Antwort"
+        },
+        {
+          "text": "Auf einem Mitarbeiterparkplatz kann ein Ladepunkt im Tagesverlauf mehrere Fahrzeuge bedienen, weil das Auto der Beschaeftigten stundenlang steht. In einem Einschichtbetrieb, in dem das Fahrzeug morgens kommt und abends faehrt, liefert ein Ladepunkt mit 7,4 kW in einem Fenster von 8 Stunden weit mehr Energie als fuer den taeglichen Bedarf noetig; hier wirkt die Dauer, nicht die Geschwindigkeit. In einem Dreischichtbetrieb kann derselbe Ladepunkt nacheinander drei Fahrerinnen und Fahrer bedienen. Deshalb sollte die Anzahl nicht an der Fahrzeugzahl, sondern an der Zahl der gleichzeitig geparkten Elektroautos geplant werden."
+        },
+        {
+          "items": [
+            "Zaehlen Sie die gleichzeitig geparkten Elektroautos, nicht die Gesamtzahl der Beschaeftigten.",
+            "Notieren Sie die Schichtwechselzeiten; dann werden Ladepunkte geteilt.",
+            "Legen Sie die Infrastruktur fuer 2-3 Jahre im Voraus aus: Kabel und Verteiler sind beim ersten Aushub guenstig, spaeter nicht.",
+            "Planen Sie einen eigenen Punkt fuer Besuch und Lieferanten; die Mitarbeiterpunkte moechten Sie vielleicht per Autorisierung sperren."
+          ]
+        },
+        {
+          "text": "Die Stromseite im Industriegebiet"
+        },
+        {
+          "text": "In organisierten Industriegebieten laeuft die Stromverteilung haeufig ueber die Rechtspersoenlichkeit des Gebiets; das heisst, beim Anmelden neuer Last ist Ihr Gegenueber moeglicherweise die Gebietsverwaltung und nicht der regionale Netzbetreiber. In kleineren Industriesiedlungen versorgt ein gemeinsamer Trafo mehrere Betriebe, sodass die Aufteilung der Kapazitaet zum Thema wird. In beiden Faellen lautet die Frage vor der Installation gleich: Ist in Ihrem vorhandenen Trafo und in der Hauptverteilung Platz fuer die zusaetzliche Last?"
+        },
+        {
+          "text": "Das zweite technische Thema ist die Blindstromkompensation. Industriekunden wird Blindenergie in Rechnung gestellt, und wenn dem Betrieb neue Last hinzugefuegt wird, muss die Kompensationsanlage auf die neue Situation hin geprueft werden. Wie sich die Ladepunkte darauf auswirken, sollte nach Festlegung von Anzahl und Leistung von der Person beurteilt werden, die die Elektroplanung des Betriebs kennt. Das ist einer der wichtigsten Punkte der Begehung vor der Installation."
+        },
+        {
+          "text": "Ruehren Sie nicht an Ihre Produktionsspitze"
+        },
+        {
+          "text": "Die elektrische Last einer Fabrik ist ueber den Tag nicht konstant; sie hat Spitzen, wenn Maschinen anlaufen. Der schlechteste Fall fuer Ladepunkte ist, genau in dieser Spitze gemeinsam mit voller Leistung zu ziehen. Die Loesung ist nicht, die Zahl der Punkte zu kuerzen, sondern dynamisches Lastmanagement: das System sieht den aktuellen Verbrauch des Betriebs, reduziert die Ladeleistung automatisch und hebt sie wieder an, sobald es der Betrieb zulaesst. Die Serien Bemis Charger Plus 2 und Charger Pro 2 verfuegen ueber diesen Lastausgleich; da die Geraete im Bereich 6-32 A stufig arbeiten, erfolgt die Reduzierung ohne Unterbrechung des Ladevorgangs."
+        },
+        {
+          "text": "Wer bezahlt den Strom? Entscheiden Sie das vorab"
+        },
+        {
+          "text": "Auf dem Mitarbeiterparkplatz ist das keine technische, sondern eine organisatorische Frage, und sie wird auf drei Arten beantwortet: das Laden wird als Zusatzleistung kostenfrei angeboten, die Kosten werden an die Beschaeftigten weitergegeben, oder es wird ein Modell aufgesetzt, das bis zu einer bestimmten kWh-Menge kostenfrei und danach kostenpflichtig ist. Was Sie auch waehlen, ohne zu sehen, wer wie viel verbraucht, koennen Sie es nicht steuern. In den Serien Charger Plus 2 und Charger Pro 2 werden die Nutzerautorisierung per RFID-Karte und das Verwaltungspanel fuer Gemeinschaftsbereiche mit personenbezogener Auswertung kostenfrei bereitgestellt; es faellt keine Lizenz- oder Abogebuehr an. Soll die Messung als Abrechnungsgrundlage dienen, werden Modelle mit integriertem MID-Zaehler bevorzugt."
+        },
+        {
+          "text": "Welches Geraet: AC oder DC?"
+        },
+        {
+          "text": "Auf Mitarbeiter- und Besucherparkplaetzen lautet die richtige Antwort fast immer AC. Da das Fahrzeug stundenlang steht, deckt eine AC-Wallbox zwischen 7,4 kW und 22 kW den Bedarf mehr als ausreichend, und die Infrastrukturkosten sind deutlich niedriger. DC-Schnellladen ist fuer Szenarien gedacht, in denen das Fahrzeug nur Minuten im Betrieb bleibt: Logistikein- und -ausfahrt, ein Verwaltungsgebaeude mit starkem Besucherverkehr oder die Entscheidung, den Standort als oeffentlichen Ladepunkt zu positionieren. Beides nicht zu vermischen ist die einfachste Einsparung der gesamten Investition."
+        },
+        {
+          "text": "Warum ist eine Begehung vor der Installation unerlaesslich?"
+        },
+        {
+          "text": "Keiner der obigen Punkte laesst sich durch Auswahl aus einem Katalog beantworten: vorhandene Verteilung, Trafolast, Entfernung zum Parkplatz, Kabelfuehrung und Montageflaeche muessen vor Ort gesehen werden. Bei Bemis laeuft dieser Prozess ueber den autorisierten Haendler; die Geraeteauswahl steht nach der Begehung fest, die Installation erfolgt durch eine qualifizierte Elektrofachkraft, und die Produkte werden mit 2 Jahren Herstellergarantie geliefert."
+        },
+        {
+          "text": "Lassen Sie uns gemeinsam bestimmen, welches Modell und wie viele Punkte Ihr Betrieb braucht.",
+          "label": "Ihr naechstgelegener Haendler"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Was wird fuer die Installation einer Ladestation in einer Fabrik benoetigt?",
+          "a": "Drei Dinge muessen geklaert sein: wie viele Elektroautos gleichzeitig parken werden, ob im vorhandenen Trafo und in der Hauptverteilung Platz fuer die zusaetzliche Last ist, und wer den Strom bezahlt. Sind diese drei festgelegt, werden Anzahl und Leistung der Geraete gewaehlt. In der Praxis laeuft es so ab: Begehung vor Ort, Festlegung von Geraete- und Punktzahl, bei Bedarf Pruefung von Verteilung und Kompensation, Verlegung der Kabeltrasse, dann Montage und Inbetriebnahme. Ein Geraet ohne Begehung aus dem Katalog zu waehlen, erzeugt teure Ueberraschungen wie einen spaeteren Verteilertausch."
+        },
+        {
+          "q": "Wer erteilt im Industriegebiet die Genehmigung fuer eine Ladestation?",
+          "a": "In organisierten Industriegebieten wird die Stromverteilung haeufig von der Rechtspersoenlichkeit des Gebiets betrieben. In diesem Fall ist Ihr Gegenueber fuer die Anmeldung neuer Last und die Kapazitaetsfrage die Gebietsverwaltung und nicht der regionale Netzbetreiber. In kleineren Industriesiedlungen versorgt ein gemeinsamer Trafo mehrere Betriebe, daher muss die Kapazitaet mit der Siedlungsverwaltung besprochen werden. Hat der Betrieb einen eigenen Trafo, ist die Lage einfacher, doch vorhandene Last und Kompensation sind trotzdem zu bewerten. Da der Ablauf je nach Region unterschiedlich ist, besteht der erste Schritt darin, die zustaendige Verwaltung schriftlich zu fragen."
+        },
+        {
+          "q": "Wie viele Ladepunkte braucht ein Mitarbeiterparkplatz?",
+          "a": "Massgeblich ist nicht die Gesamtzahl der Beschaeftigten, sondern wie viele Elektroautos gleichzeitig auf dem Parkplatz stehen. Da das Fahrzeug waehrend der Schicht steht, kann ein einzelner Ladepunkt im Tagesverlauf mehrere Autos bedienen; in einem Fenster von 8 Stunden liefert 7,4 kW die fuer den taeglichen Bedarf noetige Energie bequem. In einem Dreischichtbetrieb kann derselbe Punkt nacheinander drei Fahrerinnen und Fahrer bedienen. Praktisch heisst das: Geraete nach der heutigen Zahl der Elektroautos setzen, Kabel- und Verteilerinfrastruktur aber fuer einige Jahre im Voraus auslegen; Geraete nachzuruesten ist einfach, Kabel zu ziehen teuer."
+        },
+        {
+          "q": "Belasten die Ladepunkte den Strom der Fabrik?",
+          "a": "Ohne Lastmanagement koennen sie das, denn im schlechtesten Fall ziehen die Geraete gemeinsam volle Leistung, wenn die Produktionslast ihre Spitze hat. Dynamischer Lastausgleich loest das: das System beobachtet den aktuellen Verbrauch des Betriebs, senkt die Ladeleistung automatisch und hebt sie wieder an, sobald es der Betrieb zulaesst. Die Serien Bemis Charger Plus 2 und Charger Pro 2 verfuegen ueber diese Funktion, und da die Geraete im Bereich 6-32 A stufig arbeiten, erfolgt die Reduzierung ohne Unterbrechung des Ladevorgangs. Zusaetzlich laesst sich per Zeitschaltung das Laden in produktionsfreie Stunden verlegen."
+        },
+        {
+          "q": "Wie erfassen wir den Stromverbrauch der Beschaeftigten?",
+          "a": "Personenbezogene Erfassung braucht zweierlei: Nutzerautorisierung und Aufzeichnung. Mit einer RFID-Karte startet jede Person den Ladevorgang mit der eigenen Karte, und das System haelt fest, wer wie viele kWh verbraucht hat. Bei Bemis wird das Verwaltungspanel fuer Gemeinschaftsbereiche in den Serien Charger Plus 2 und Charger Pro 2 kostenfrei bereitgestellt, ohne separate Abo- oder Lizenzgebuehr. Soll die Messung als Abrechnungsgrundlage dienen, werden Modelle mit integriertem MID-Zaehler gewaehlt. Diese Struktur ist selbst dann wichtig, wenn das Laden als kostenfreie Zusatzleistung angeboten wird, allein um die Kosten zu sehen."
+        },
+        {
+          "q": "Sollte ich fuer meinen Betrieb eine AC-Wallbox oder DC-Schnellladen kaufen?",
+          "a": "Entscheidend ist, wie lange das Fahrzeug im Betrieb bleibt. Auf Mitarbeiter- und Besucherparkplaetzen steht das Auto stundenlang, daher deckt eine AC-Wallbox im Bereich 7,4-22 kW den Bedarf mehr als ausreichend, und die Infrastrukturkosten sind deutlich niedriger. DC-Schnellladen ist fuer Szenarien gedacht, in denen das Fahrzeug nur Minuten bleibt: starker Besucherverkehr, Logistikein- und -ausfahrt oder die Entscheidung, den Standort als oeffentlichen Ladepunkt zu positionieren. Fuer die meisten Produktionsbetriebe lautet die richtige Antwort AC; wird DC gebraucht, dann meist an einem separaten und zahlenmaessig kleinen Punkt."
+        }
+      ],
+      "related": [
+        {
+          "label": "Heimladestation (AC-Wallbox)"
+        },
+        {
+          "label": "Ladeloesungen fuer Fuhrparks"
+        },
+        {
+          "label": "Was ist Lastmanagement?"
+        },
+        {
+          "label": "Verwaltungspanel fuer Gemeinschaftsbereiche"
+        },
+        {
+          "label": "Installationsleitfaden"
+        }
+      ]
+    },
+    "dc-sarj-unitesi-duvar-tipi-mi-direk-tipi-mi": {
+      "title": "DC-Ladeeinheit: Wandmontage oder Standsaeule?",
+      "description": "Wandmontage oder Standsaeule bei der DC-Ladeeinheit: Montageflaeche, Standortlayout, Abmessungen und Gewicht. Verglichen am Beispiel mit 40 kW.",
+      "excerpt": "Eine DC-Ladeeinheit gleicher Leistung kann in zwei Gehaeusen kommen: an der Wand montiert oder auf eigener Saeule stehend. Der Unterschied ist nicht elektrisch, sondern vor Ort: wo montiert wird und wie das Fahrzeug heranfaehrt, entscheidet.",
+      "category": "Ratgeber",
+      "body": [
+        {
+          "text": "Bei der Auswahl einer DC-Schnellladeeinheit wird zuerst meist ueber die Leistung gesprochen: 40 kW, 80 kW oder 120 kW? Ist die Leistung geklaert, folgt eine zweite Entscheidung, mit der die meisten Kaeufer nicht rechnen: dieselbe Einheit kann in zwei verschiedenen Gehaeusen angeboten werden. Eines wird an der Wand montiert, das andere steht auf einer eigenen Saeule. Elektrisch leisten sie dasselbe; der Unterschied liegt vollstaendig vor Ort."
+        },
+        {
+          "text": "Der echte Unterschied zwischen beiden Bauformen"
+        },
+        {
+          "text": "Eine wandmontierte Einheit wird an einer tragenden Flaeche befestigt. Die Wand traegt das Gewicht, das Geraet sitzt ueber dem Boden und die Flaeche davor bleibt vollstaendig frei. Die Standsaeule steht mit dem eigenen Koerper auf einem Fundament; sie kann dort stehen, wo keine Wand vorhanden ist, etwa auf einem offenen Parkplatz, in der Mitte einer Parkinsel oder am Rand einer Gruenflaeche. Deshalb ist die Standsaeule tiefer und deutlich schwerer."
+        },
+        {
+          "caption": "Zwei Gehaeuse am Beispiel Bemis BEVDC 40",
+          "headers": [
+            "",
+            "Wandmontage",
+            "Standsaeule"
+          ],
+          "rows": [
+            [
+              "Ausgangsleistung",
+              "40 kW",
+              "40 kW"
+            ],
+            [
+              "Stecker",
+              "CCS2",
+              "CCS2"
+            ],
+            [
+              "Breite x Tiefe x Hoehe",
+              "600 x 320 x 900 mm",
+              "600 x 425 x 1770 mm"
+            ],
+            [
+              "Gewicht",
+              "80 kg",
+              "105 kg"
+            ],
+            [
+              "Montage",
+              "An tragender Wand befestigt",
+              "Auf eigener Saeule, im Boden verankert"
+            ],
+            [
+              "Typischer Ort",
+              "Tiefgarage, Gebaeudefassade, Aussenmauer",
+              "Offener Parkplatz, Parkinsel, Flaeche ohne Wand"
+            ]
+          ]
+        },
+        {
+          "text": "Wann ist Wandmontage die richtige Wahl?"
+        },
+        {
+          "text": "Gibt es am Montageort eine tragfaehige Wand oder Stuetze, die das Gewicht der Einheit aufnehmen kann, ist die Wandmontage fast immer die praktischere Loesung. Es wird kein Fundament gegossen, der Boden nicht geoeffnet, das Geraet bleibt ausserhalb der Anfahrlinie der Fahrzeuge und es geht kein Stellplatz verloren. Tiefgaragen, Gebaeudefassaden und Aussenmauern sind der natuerliche Ort dieser Bauform."
+        },
+        {
+          "text": "Wann wird die Standsaeule gebraucht?"
+        },
+        {
+          "text": "Gibt es am Anfahrpunkt des Fahrzeugs keine Wand, ist die Entscheidung von selbst gefallen. Die Mitte von Parkinseln, die mittleren Spuren offener Parkplaetze und die Raender von Gruenflaechen haben keine Wand; dort muss die Einheit auf der eigenen Saeule stehen. Der zweite Vorteil der Standsaeule ist die Sichtbarkeit: ein Koerper von 1770 mm Hoehe faellt aus der Ferne auf, was fuer Betriebe zaehlt, die ihren Standort als oeffentlichen Ladepunkt positionieren."
+        },
+        {
+          "text": "Der dritte Faktor: Kabel und Anfahrt"
+        },
+        {
+          "text": "Unabhaengig von der Bauform muss die Einheit die Ladebuchse des Fahrzeugs erreichen. DC-Kabel sind schwer, daher ermuedet unnoetige Laenge die Nutzenden, waehrend ein zu kurzes Kabel das Fahrzeug in eine bestimmte Parkrichtung zwingt. Deshalb werden Gehaeusewahl und Parkanordnung gemeinsam geplant: aus welcher Richtung das Fahrzeug heranfaehrt, auf welcher Seite die Ladebuchse sitzt und ob das Kabel ohne Schleifen am Boden reicht, wird bei der Begehung gemessen."
+        },
+        {
+          "text": "Wie wird die tragende Flaeche fuer die Wandmontage beurteilt?"
+        },
+        {
+          "text": "Vor der Wahl der Wandmontage steht eine einfache, aber oft uebergangene Frage: kann diese Wand eine Einheit von 80 Kilogramm samt dem daran haengenden Kabel ueber Jahre tragen? Stahlbetonwaende und Stuetzen bereiten bei dieser Last keine Probleme; eine leichte Trennwand, Hohlblockmauerwerk oder eine nachtraeglich errichtete Flaeche gilt nicht als tragend. Auch die Montagehoehe wird hier festgelegt: ein Mass, bei dem der Stecker bequem erreichbar ist, das Kabel aber nicht am Boden schleift. Diese Beurteilung erfolgt nicht nach Katalog, sondern durch Ansehen vor Ort."
+        },
+        {
+          "text": "Bei hoeherer Leistung entfaellt die Gehaeusefrage"
+        },
+        {
+          "text": "Die Unterscheidung zwischen Wand und Saeule gehoert zur unteren Leistungsklasse. Mit steigender Leistung wachsen Umrichter und Kuehlvolumen im Inneren, das Geraet verlaesst die Groesse eines an der Wand haengenden Gehaeuses und wird zum bodenstehenden Schrank. In der Bemis BEVDC-Serie wird 40 kW in zwei Gehaeusen angeboten, waehrend 80 kW und darueber Schrankbauform sind; Modelle ab 120 kW haben zusaetzlich einen kapazitiven Touchscreen mit 10 Zoll und Schlagfestigkeit IK10. Die Gehaeusewahl verengt sich also mit der Leistungsklasse von selbst."
+        },
+        {
+          "text": "Die elektrischen Daten sind bei beiden Bauformen gleich"
+        },
+        {
+          "text": "Gehen Sie nicht davon aus, dass die Wahl nach Gehaeuse Funktionen kostet. In der Bemis BEVDC-Serie tragen beide Gehaeuse dieselbe elektrische Plattform: CCS2-Stecker, AC 380-480 V dreiphasiger Eingang, 150-1000 V DC Ausgangsbereich, Schutzart IP54, Betriebstemperatur -25 °C bis +55 °C, Protokollunterstuetzung OCPP 1.6J / 2.0.1 sowie Nutzerauthentifizierung per RFID-Karte und mobiler App. Die Serie reicht von 40 kW bis 200 kW; in hoeheren Leistungsklassen wird das Gehaeuse zur Schrankbauform."
+        },
+        {
+          "text": "Lassen Sie uns per Begehung klaeren, welches Gehaeuse zu Ihrem Standort passt.",
+          "label": "DC-Schnellladeeinheiten ansehen"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Was ist eine DC-Ladeeinheit?",
+          "a": "Eine DC-Ladeeinheit ist ein Schnellladegeraet, das den aus dem Netz bezogenen Wechselstrom im Inneren in Gleichstrom wandelt und direkt an die Fahrzeugbatterie abgibt. Beim AC-Laden uebernimmt das fahrzeugeigene Ladegeraet diese Wandlung und begrenzt damit die Leistung; beim DC-Laden findet die Wandlung im Geraet statt, das fahrzeugeigene Ladegeraet wird umgangen und deutlich hoehere Leistungen werden moeglich. Deshalb liefern DC-Einheiten Ladevorgaenge im Minutenbereich und werden dort eingesetzt, wo Fahrzeuge nur kurz halten. Im Feld heisst dasselbe Produkt auch DC-Ladegeraet, Schnellladeeinheit oder DC-Ladestation."
+        },
+        {
+          "q": "Gibt es einen Leistungsunterschied zwischen Wand- und Saeulenausfuehrung?",
+          "a": "Nein. Beim selben Modell aendert die Bauform die elektrischen Daten nicht; Ausgangsleistung, Steckertyp, Schutzart, Betriebstemperatur und Protokollunterstuetzung sind bei beiden gleich. Der Unterschied zeigt sich auf der physischen Seite: die Standsaeule traegt ihre eigene Basis und ist deshalb tiefer und schwerer. Am Beispiel Bemis BEVDC 40 misst die Wandausfuehrung 600 x 320 x 900 mm bei 80 kg, waehrend die Saeulenausfuehrung mit 600 x 425 x 1770 mm und 105 kg kommt. Die Wahl richtet sich daher nicht nach Leistung, sondern nach Montageflaeche und Standortlayout."
+        },
+        {
+          "q": "Braucht eine Standsaeule eine Vorbereitung des Untergrunds?",
+          "a": "Ja. Da die Standsaeule ihr Gewicht in den Boden abtraegt, muss die Verankerungsstelle fuer diese Last vorbereitet sein; in der Praxis bedeutet das meist ein Betonfundament und Anker. Da der Kabeleintritt von unten erfolgt, muss die Trasse zusammen mit dem Fundament geplant werden; einen Kabelkanal spaeter zu oeffnen ist deutlich teurer. Bei der Wandausfuehrung entfaellt dieser Schritt, weil die Einheit an einer tragenden Flaeche befestigt wird. In beiden Faellen werden Untergrund und Montagedetail bei der Begehung vor der Installation vor Ort festgelegt."
+        },
+        {
+          "q": "Welche DC-Leistungsklasse sollte ich fuer meinen Betrieb waehlen?",
+          "a": "Entscheidend ist, wie lange das Fahrzeug an Ihrem Standort bleibt. Haelt das Auto eine halbe Stunde und laenger, deckt die Klasse mit 40 kW die meisten Szenarien ab; sinkt der Besuch auf fuenfzehn Minuten, etwa an Standorten entlang der Strasse, werden hoehere Klassen sinnvoll. Mit steigender Leistung waechst nicht nur das Geraet, sondern auch Netzanschluss und Trafoseite, daher sollte die Entscheidung nicht allein am Geraetepreis haengen. Die Bemis BEVDC-Serie umfasst die Klassen 40, 80, 120, 160, 180 und 200 kW; die richtige Klasse ergibt sich aus Besuchsdauer und vorhandener Elektroinfrastruktur zusammen."
+        },
+        {
+          "q": "Kann eine DC-Ladeeinheit im Aussenbereich installiert werden?",
+          "a": "Ja, diese Einheiten sind fuer die Aussenaufstellung ausgelegt. Die Bemis BEVDC-Serie hat die Schutzart IP54 und ist fuer den Betrieb zwischen -25 °C und +55 °C angegeben; sie kann also auf einem offenen Parkplatz Regen und jahreszeitlichen Temperaturen ausgesetzt aufgestellt werden. Dennoch wird vor Ort auf zwei Punkte geachtet: Einheit und Kabel sollten ausserhalb der Rangierlinie der Fahrzeuge bleiben, und es ist vorzuziehen, dass das Display nicht ganztags in direkter Sonne steht. Der Aufstellort wird bei der Begehung unter Beruecksichtigung dieser Details gewaehlt."
+        }
+      ],
+      "related": [
+        {
+          "label": "DC-Schnellladeeinheiten"
+        },
+        {
+          "label": "Was ist eine DC-Ladestation mit 40 kW?"
+        },
+        {
+          "label": "DC-Investitionsleitfaden fuer Betriebe"
+        },
+        {
+          "label": "Unterschied zwischen AC- und DC-Laden"
+        },
+        {
+          "label": "DC-Ladekabel und CCS2-Stecker auswaehlen"
         }
       ]
     }
@@ -15326,6 +16022,9 @@
         }
       ],
       "related": [
+        {
+          "label": "Estación de carga para edificios y urbanizaciones"
+        },
         {
           "label": "Reglamento de estaciones de carga: ¿qué es obligatorio?"
         },
@@ -18648,6 +19347,9 @@
       ],
       "related": [
         {
+          "label": "Estación de carga para edificios y urbanizaciones"
+        },
+        {
           "label": "Estaciones de carga AC wallbox"
         },
         {
@@ -19366,6 +20068,348 @@
         },
         {
           "label": "Cargador portátil: qué es y cuánto cuesta"
+        }
+      ]
+    },
+    "sarj-istasyonu-bakim-periyodik-kontrol": {
+      "title": "Mantenimiento y revision periodica de la estacion de carga",
+      "description": "Revision periodica de la estacion de carga: prueba del diferencial, desgaste del conector, junta y cable, software y registro de datos.",
+      "excerpt": "Un cargador no es un equipo que se instala y se olvida. Su unica pieza movil es el conector, y ahi empieza el desgaste. Una lista de control periodica detecta la averia en la mesa y no en el sitio.",
+      "category": "Técnico",
+      "body": [
+        {
+          "text": "Una estacion de carga esta en su mejor momento el dia en que se instala; lo que la desgasta despues no es la electricidad sino el uso. El conector se enchufa y se desenchufa a diario, el cable cae al suelo, la junta de la tapa alterna entre sol y frio. Este articulo ofrece la lista de control practica que sirve para todo, desde un wallbox domestico hasta una unidad en un aparcamiento comunitario. Todo paso que implique intervencion electrica corresponde a una persona cualificada; esta lista explica que vigilar, no como abrir el equipo."
+        },
+        {
+          "text": "La pieza que mas se desgasta: conector y cable"
+        },
+        {
+          "text": "La unica pieza movil del cargador es el conector, y alli empieza la mayoria de las averias. Lo que hay que mirar esta claro: oscurecimiento o marcas de quemadura en los contactos, grietas en la carcasa de plastico, holgura en el pestillo de bloqueo, aplastamiento o cortes en la funda del cable. Revise con especial atencion el punto donde el cable entra en el equipo y donde entra en el conector, porque ahi es donde mas se dobla. Si el conector cae al suelo, usar un soporte reduce notablemente este desgaste."
+        },
+        {
+          "text": "El lado de la proteccion: diferencial y cuadro electrico"
+        },
+        {
+          "text": "La forma de confirmar que el diferencial que protege la instalacion de carga sigue funcionando es el boton de prueba que lleva; al pulsarlo debe dispararse. Es una comprobacion sencilla que puede hacerse sin abrir el equipo y que los instaladores recomiendan a intervalos regulares. En el cuadro, una persona cualificada comprueba si las conexiones de los bornes se han aflojado y si hay senales de calentamiento; una conexion floja se calienta con el tiempo y acaba generando una averia."
+        },
+        {
+          "text": "Agua y polvo en equipos de exterior"
+        },
+        {
+          "text": "En un equipo de exterior, lo que mantiene el grado de proteccion son las juntas y las tapas tanto como la propia carcasa. Puntos a revisar: la junta de la tapa no esta aplastada ni desplazada, los prensaestopas estan apretados y, si hay ventilacion, no esta obstruida. La serie AC domestica de Bemis se indica con IP65 y la serie BEVDC con IP54; estos grados son validos con el equipo cerrado y las juntas en buen estado."
+        },
+        {
+          "text": "Software y registros"
+        },
+        {
+          "text": "En equipos usados en zonas comunes o en empresas, la lista de control no termina en los puntos fisicos. En un equipo gestionado por OCPP hay que asegurarse de que la conexion no se ha caido, de que los registros se guardan correctamente y de que las tarjetas de autorizacion estan al dia. Que la tarjeta de una persona que ya no trabaja alli siga apareciendo como autorizada es un problema no tecnico pero muy real. Si se usa un panel de gestion con informes por usuario, leer el informe mensual de consumo tambien da una senal temprana de averia: si el consumo de un punto baja de forma inesperada, ese equipo puede tener un problema."
+        },
+        {
+          "text": "Lista de control practica"
+        },
+        {
+          "items": [
+            "Hay oscurecimiento, marcas de quemadura o grietas en los contactos?",
+            "Hay aplastamiento, cortes o dobleces marcados en la funda del cable?",
+            "Se dispara el diferencial al pulsar su boton de prueba?",
+            "Estan la junta de la tapa y los prensaestopas en buen estado y apretados?",
+            "Hay golpes, rastros de agua o corrosion en la carcasa?",
+            "Funcionan con normalidad la pantalla y los pilotos de estado?",
+            "Estan al dia las tarjetas de autorizacion y retirados los usuarios que ya no estan?",
+            "Estan los registros de carga y el informe de consumo en el rango esperado?"
+          ]
+        },
+        {
+          "text": "Cuando se avisa al servicio tecnico?"
+        },
+        {
+          "text": "Si el equipo no inicia la carga, la interrumpe con frecuencia por si solo, muestra un error permanente en pantalla, el diferencial se dispara una y otra vez o se nota calentamiento en el conector, ya no queda nada por hacer del lado del usuario. En estos casos se deja el equipo sin tension y se contacta con el servicio autorizado. Los productos Bemis se entregan con 2 anos de garantia del fabricante; en nuestra pagina de soporte encontrara paso a paso que hacer segun el sintoma y que datos hacen falta al ponerse en contacto."
+        },
+        {
+          "text": "Si su equipo no funciona, empiece por la comprobacion rapida de aqui.",
+          "label": "Soporte de averías y garantía"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Necesita mantenimiento una estacion de carga para vehiculo electrico?",
+          "a": "Si, aunque ese mantenimiento es una revision periodica mas que una operacion compleja. La unica pieza movil del equipo es el conector y el desgaste empieza en gran medida ahi; oscurecimiento en los contactos, aplastamiento en la funda del cable y holgura en el pestillo son los puntos a mirar a simple vista. Ademas se recomienda confirmar con el boton de prueba que el diferencial funciona y, en equipos de exterior, revisar la junta de la tapa y los prensaestopas. Cualquier trabajo que exija abrir el equipo corresponde a una persona cualificada; la parte del usuario se limita al exterior de la carcasa."
+        },
+        {
+          "q": "Con que frecuencia hay que revisar el cargador?",
+          "a": "Lo determinante es la intensidad de uso. Un wallbox domestico usado una vez al dia no se desgasta al mismo ritmo que un equipo de un aparcamiento comunitario que se enchufa varias veces al dia. El enfoque practico es repetir la revision visual del conector y del cable a intervalos ajustados al uso, y no saltarse nunca la prueba del diferencial. En equipos de zonas comunes o de empresa lo mas sano es asignar la revision a una persona concreta; en los equipos sin responsable, un pequeno desgaste se convierte en averia sin que nadie lo note."
+        },
+        {
+          "q": "Que pasa si el conector de carga se desgasta, se cambia?",
+          "a": "El desgaste del conector se manifiesta primero como calidad de contacto y no como prestaciones: la carga se corta con frecuencia, la conexion se nota floja o los contactos se oscurecen. Seguir usandolo con esos sintomas puede provocar calentamiento y danos mayores, asi que la valoracion debe dejarse al servicio autorizado. Usar un soporte que mantenga el cable levantado del suelo evita que el conector caiga y retrasa notablemente ese desgaste. En las estaciones de corriente continua el juego de cable ya se planifica como una pieza que puede cambiarse a lo largo de la vida util."
+        },
+        {
+          "q": "Se actualiza el software del cargador?",
+          "a": "En equipos que trabajan conectados a un sistema de gestion mediante el protocolo OCPP, la parte de software tambien forma parte de la lista de control. Aqui no solo importa la actualizacion, sino que la conexion no se haya caido y que los registros se guarden bien, porque si hay facturacion o seguimiento por usuario un registro perdido genera un problema directo. En la parte de autorizacion hay que mantener al dia la lista de usuarios; que la tarjeta de alguien que ya se fue siga apareciendo como valida es un hueco no tecnico pero real. Estas operaciones se hacen desde el panel de gestion sin abrir el equipo."
+        }
+      ],
+      "related": [
+        {
+          "label": "Soporte de averías y garantía"
+        },
+        {
+          "label": "Es segura la carga en casa?"
+        },
+        {
+          "label": "Guía de instalación"
+        },
+        {
+          "label": "Cables de carga AC"
+        },
+        {
+          "label": "Estación de carga doméstica (AC Wallbox)"
+        }
+      ]
+    },
+    "fabrika-osb-sanayi-sitesi-sarj-istasyonu": {
+      "title": "Estaciones de carga en aparcamientos de personal de fabricas y poligonos",
+      "description": "Estaciones de carga en el aparcamiento de personal de fabricas y poligonos: transformador existente, compensacion, numero de puntos segun turnos y facturacion.",
+      "excerpt": "Instalar una estacion de carga en una fabrica es una decision distinta a poner un wallbox en casa. La planta ya tiene un transformador, un cuadro de compensacion y una carga de produccion que cambia cada hora. Una instalacion correcta se apoya en esos tres hechos.",
+      "category": "Guía",
+      "body": [
+        {
+          "text": "Toda fabrica, almacen y poligono industrial con un numero creciente de coches electricos entre su personal llega a la misma pregunta: queremos poner puntos de carga en el aparcamiento, por donde empezamos? Esto no se parece a instalar un wallbox en casa. En una vivienda el unico asunto es si la acometida da; en una planta de produccion ya hay un transformador, un cuadro de compensacion y una carga que cambia hora a hora. Los cargadores se suman a ese cuadro. Este articulo recorre en orden la decision del lado de la fabrica y del poligono."
+        },
+        {
+          "text": "El aparcamiento de personal no es lo mismo que una flota"
+        },
+        {
+          "text": "Esta distincion hay que hacerla primero, porque de ella depende todo lo demas. Si se carga una flota de vehiculos de empresa, los coches son suyos, pasan la noche en la planta y la planificacion le corresponde; ese escenario lo tratamos en otro articulo. El aparcamiento de personal es distinto: los coches son de los empleados, llegan al inicio del turno y se van al terminarlo. Es decir, la ventana de carga no es toda la noche sino la duracion del turno, y quien ha consumido cuanto debe separarse por persona."
+        },
+        {
+          "text": "Cuantos puntos hacen falta? La respuesta la da el turno"
+        },
+        {
+          "text": "En un aparcamiento de personal un punto puede atender a mas de un coche a lo largo del dia, porque el vehiculo del empleado permanece aparcado durante horas. En una planta de un solo turno, donde el coche llega por la manana y se va por la tarde, un punto de 7,4 kW entrega en una ventana de 8 horas mucha mas energia de la necesaria para el uso diario; aqui trabaja la duracion, no la velocidad. En una planta de tres turnos el mismo punto puede atender por orden a tres conductores. Por eso el numero de puntos debe planificarse segun los coches electricos aparcados a la vez, no segun la plantilla total."
+        },
+        {
+          "items": [
+            "Cuente los coches electricos aparcados a la vez, no el total de empleados.",
+            "Anote las horas de cambio de turno; es cuando se comparten los puntos.",
+            "Dimensione la infraestructura para 2-3 anos vista y no para la cifra de hoy: el cable y el cuadro salen baratos en la primera zanja, no despues.",
+            "Prevea un punto aparte para visitas y proveedores; quiza quiera dejar los puntos del personal tras autorizacion."
+          ]
+        },
+        {
+          "text": "El lado electrico en el poligono industrial"
+        },
+        {
+          "text": "En los poligonos industriales organizados, la distribucion electrica suele ir a traves de la entidad juridica del propio poligono; es decir, al anadir nueva carga su interlocutor puede ser la direccion del poligono y no la distribuidora regional. En los poligonos mas pequenos, un transformador compartido da servicio a varias empresas, por lo que entra en juego el reparto de capacidad. En ambos casos la pregunta previa a la instalacion es la misma: hay sitio en su transformador y en su cuadro general para la carga que va a anadir?"
+        },
+        {
+          "text": "El segundo asunto tecnico es la compensacion. A los clientes industriales se les factura la energia reactiva, y cuando se anade nueva carga a la planta el cuadro de compensacion debe revisarse frente a la nueva situacion. Como afectaran los cargadores a ese cuadro debe evaluarlo, una vez fijados numero y potencia, quien conoce el proyecto electrico de la planta. Es uno de los puntos mas importantes de la visita previa a la instalacion."
+        },
+        {
+          "text": "No toque la punta de su carga de produccion"
+        },
+        {
+          "text": "La carga electrica de una fabrica no es constante a lo largo del dia; hace punta cuando entran las maquinas. El peor escenario para los cargadores es consumir a plena potencia justo en esa punta. La solucion no es reducir el numero de puntos sino la gestion dinamica de carga: el sistema ve el consumo instantaneo de la planta, baja automaticamente la potencia de carga y la vuelve a subir cuando la planta se alivia. Las series Bemis Charger Plus 2 y Charger Pro 2 incorporan este equilibrado de carga; como los equipos trabajan por escalones en el rango 6-32 A, la reduccion se hace sin cortar la carga."
+        },
+        {
+          "text": "Quien paga la electricidad? Decidalo desde el principio"
+        },
+        {
+          "text": "En el aparcamiento de personal esta no es una cuestion tecnica sino administrativa, y se responde de tres formas: la carga se ofrece gratis como beneficio, el coste se repercute al empleado, o se monta un modelo gratuito hasta cierto numero de kWh y de pago a partir de ahi. Elija lo que elija, no puede gestionar lo que no ve. En las series Charger Plus 2 y Charger Pro 2 la autorizacion de usuario mediante tarjeta RFID y el panel de gestion de zonas comunes con informes por persona se ofrecen sin coste; no aparece despues ninguna cuota de licencia o suscripcion. Si la medicion debe servir de base de facturacion, se prefieren los modelos con contador MID integrado."
+        },
+        {
+          "text": "Que equipo: AC o DC?"
+        },
+        {
+          "text": "En aparcamientos de personal y visitas la respuesta correcta es casi siempre AC. Como el coche permanece aparcado durante horas, un wallbox AC entre 7,4 kW y 22 kW cubre la necesidad de sobra y el coste de infraestructura es mucho menor. La carga rapida en DC es para escenarios en los que el vehiculo solo esta unos minutos: entradas y salidas de logistica, un edificio administrativo con mucho trafico de visitas, o la decision de posicionar la planta como punto de carga publico. No mezclar ambas cosas es el ahorro mas facil de toda la inversion."
+        },
+        {
+          "text": "Por que es imprescindible una visita previa?"
+        },
+        {
+          "text": "Ninguno de los puntos anteriores se responde eligiendo en un catalogo: el cuadro existente, la carga del transformador, la distancia al aparcamiento, el trazado del cable y la superficie de montaje deben verse en el sitio. En Bemis este proceso se lleva a traves del distribuidor autorizado; la eleccion del equipo se concreta despues de la visita, la instalacion la realiza un electricista cualificado y los productos se entregan con 2 anos de garantia del fabricante."
+        },
+        {
+          "text": "Determinemos juntos que modelo y cuantos puntos necesita su planta.",
+          "label": "Su distribuidor autorizado mas cercano"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Que hace falta para instalar una estacion de carga en una fabrica?",
+          "a": "Deben quedar claras tres cosas: cuantos coches electricos estaran aparcados a la vez, si hay sitio en el transformador y el cuadro general para la carga que se anade, y quien pagara la electricidad. Fijadas esas tres, se eligen el numero y la potencia de los equipos. En la practica el orden es este: visita al sitio, definicion del numero de equipos y puntos, revision del cuadro y de la compensacion si hace falta, tendido del trazado de cable, y despues montaje y puesta en marcha. Elegir equipo del catalogo sin visita produce sorpresas caras, como un cambio de cuadro posterior."
+        },
+        {
+          "q": "Quien da permiso para una estacion de carga en un poligono industrial?",
+          "a": "En los poligonos industriales organizados, la distribucion electrica suele gestionarla la entidad juridica del propio poligono. En ese caso su interlocutor para comunicar la nueva carga y preguntar por la capacidad es la direccion del poligono y no la distribuidora regional. En poligonos mas pequenos un transformador compartido da servicio a varias empresas, por lo que hay que hablar de capacidad con la direccion del poligono. Si la planta tiene su propio transformador la situacion es mas sencilla, pero aun asi deben evaluarse la carga existente y la compensacion. Como el proceso varia de una zona a otra, el primer paso es preguntar por escrito a su direccion."
+        },
+        {
+          "q": "Cuantos cargadores hacen falta para un aparcamiento de personal?",
+          "a": "La cifra determinante no es la plantilla total sino cuantos coches electricos estan aparcados a la vez. Como el coche del empleado permanece aparcado durante el turno, un solo punto puede atender a varios coches durante el dia; en una ventana de 8 horas, 7,4 kW entregan de sobra la energia necesaria para el uso diario. En una planta de tres turnos el mismo punto puede atender por orden a tres conductores. El enfoque practico es instalar equipos para la cifra de coches electricos de hoy pero dimensionar la infraestructura de cable y cuadro para unos anos vista; anadir equipos luego es facil, tirar cable es caro."
+        },
+        {
+          "q": "Forzaran los cargadores la electricidad de la fabrica?",
+          "a": "Pueden hacerlo sin gestion de carga, porque en el peor escenario los equipos consumen a plena potencia justo a la hora en que la carga de produccion hace punta. El equilibrado dinamico lo resuelve: el sistema vigila el consumo instantaneo de la planta, baja automaticamente la potencia de carga y la vuelve a subir cuando la planta se alivia. Las series Bemis Charger Plus 2 y Charger Pro 2 incorporan esta funcion y, como los equipos trabajan por escalones en el rango 6-32 A, la reduccion se hace sin cortar la carga. Ademas puede usarse un temporizador para llevar la carga a horas fuera de produccion."
+        },
+        {
+          "q": "Como controlamos la electricidad que gastan los empleados?",
+          "a": "El seguimiento por persona necesita dos cosas: autorizacion de usuario y registro. Con tarjeta RFID cada empleado inicia la carga con su propia tarjeta y el sistema registra quien ha consumido cuantos kWh. En Bemis el panel de gestion de zonas comunes se ofrece sin coste en las series Charger Plus 2 y Charger Pro 2, sin cuota aparte de suscripcion ni licencia. Si la medicion debe servir de base de facturacion, se eligen modelos con contador MID integrado. Esta estructura importa incluso cuando la carga se ofrece gratis como beneficio, aunque solo sea para ver el coste."
+        },
+        {
+          "q": "Debo comprar wallbox AC o carga rapida DC para mi empresa?",
+          "a": "Lo determinante es cuanto tiempo permanece el vehiculo en la planta. En aparcamientos de personal y visitas el coche esta aparcado durante horas, asi que un wallbox AC en el rango 7,4-22 kW cubre la necesidad de sobra y el coste de infraestructura es notablemente menor. La carga rapida en DC es para escenarios en los que el vehiculo solo esta unos minutos: mucho trafico de visitas, entradas y salidas de logistica, o la decision de posicionar la planta como punto de carga publico. Para la mayoria de plantas de produccion la respuesta correcta es AC; si hace falta DC suele ser en un punto aparte y poco numeroso."
+        }
+      ],
+      "related": [
+        {
+          "label": "Estación de carga doméstica (AC Wallbox)"
+        },
+        {
+          "label": "Soluciones de carga para flotas"
+        },
+        {
+          "label": "Qué es la gestión de carga?"
+        },
+        {
+          "label": "Panel de gestión de zonas comunes"
+        },
+        {
+          "label": "Guía de instalación"
+        }
+      ]
+    },
+    "dc-sarj-unitesi-duvar-tipi-mi-direk-tipi-mi": {
+      "title": "Unidad de carga DC: mural o con pedestal?",
+      "description": "Elegir entre mural y pedestal en una unidad de carga DC: superficie de montaje, distribucion del emplazamiento, dimensiones y peso. Comparado con el ejemplo de 40 kW.",
+      "excerpt": "Una unidad de carga DC de la misma potencia puede venir en dos carcasas: montada en pared o de pie sobre su propio pedestal. La diferencia no es electrica sino de emplazamiento: donde se monta y como se acerca el coche lo deciden.",
+      "category": "Guía",
+      "body": [
+        {
+          "text": "Al elegir una unidad de carga rapida DC lo primero que se habla suele ser la potencia: 40 kW, 80 kW o 120 kW? Una vez fijada la potencia aparece una segunda decision que la mayoria de los compradores no espera: la misma unidad puede ofrecerse en dos carcasas distintas. Una se monta en pared, la otra se sostiene sobre su propio pedestal. Electricamente hacen lo mismo; la diferencia esta por completo en el emplazamiento."
+        },
+        {
+          "text": "La diferencia real entre los dos tipos"
+        },
+        {
+          "text": "Una unidad mural se fija a una superficie portante. La pared soporta el peso, el equipo queda elevado del suelo y el espacio delante queda totalmente libre. La de pedestal se sostiene con su propio cuerpo sobre una base; puede colocarse donde no hay pared detras, como un aparcamiento al aire libre, el centro de una isla de aparcamiento o el borde de una zona ajardinada. Por eso el tipo pedestal es mas profundo y notablemente mas pesado."
+        },
+        {
+          "caption": "Dos carcasas en el ejemplo Bemis BEVDC 40",
+          "headers": [
+            "",
+            "Mural",
+            "Pedestal"
+          ],
+          "rows": [
+            [
+              "Potencia de salida",
+              "40 kW",
+              "40 kW"
+            ],
+            [
+              "Conector",
+              "CCS2",
+              "CCS2"
+            ],
+            [
+              "Ancho x Fondo x Alto",
+              "600 x 320 x 900 mm",
+              "600 x 425 x 1770 mm"
+            ],
+            [
+              "Peso",
+              "80 kg",
+              "105 kg"
+            ],
+            [
+              "Montaje",
+              "Fijada a pared portante",
+              "Sobre su propio pedestal, anclada al suelo"
+            ],
+            [
+              "Ubicacion tipica",
+              "Aparcamiento cubierto, fachada, muro del recinto",
+              "Aparcamiento abierto, isla de aparcamiento, zona sin pared"
+            ]
+          ]
+        },
+        {
+          "text": "Cuando es el mural la eleccion correcta?"
+        },
+        {
+          "text": "Si en el lugar de montaje hay una pared o un pilar solido capaz de soportar el peso de la unidad, el mural es casi siempre la opcion mas practica. No se hormigona una base, no se perfora el suelo, el equipo queda fuera de la linea de impacto de los vehiculos y no se pierde plaza de aparcamiento. Los aparcamientos cubiertos, las fachadas y los muros perimetrales son el sitio natural de este tipo."
+        },
+        {
+          "text": "Cuando hace falta el tipo pedestal?"
+        },
+        {
+          "text": "Si en el punto al que se acerca el coche no hay pared, la decision ya esta tomada. El centro de las islas de aparcamiento, los carriles centrales de los aparcamientos abiertos y los bordes ajardinados no tienen pared; alli la unidad tiene que sostenerse sobre su propio pedestal. La segunda ventaja del pedestal es la visibilidad: un cuerpo de 1770 mm de altura se distingue de lejos, algo que importa a las empresas que posicionan su emplazamiento como punto de carga publico."
+        },
+        {
+          "text": "El tercer factor: cable y aproximacion"
+        },
+        {
+          "text": "Al margen del tipo de carcasa, la unidad tiene que llegar a la toma de carga del vehiculo. Los cables DC son pesados, de modo que una longitud innecesaria cansa al usuario mientras que un cable corto obliga a aparcar el coche en una direccion concreta. Por eso la eleccion de carcasa y la disposicion del aparcamiento se planifican juntas: desde que lado se acerca el coche, en que lado del vehiculo esta la toma de carga y si el cable llega sin arrastrar por el suelo se miden durante la visita."
+        },
+        {
+          "text": "Como se valora la superficie portante para el tipo mural?"
+        },
+        {
+          "text": "Antes de elegir el tipo mural hay una pregunta sencilla que suele saltarse: puede esta pared soportar durante anos una unidad de 80 kilogramos junto con el cable colgado de ella? Los muros y pilares de hormigon armado no dan problema con esta carga; un tabique ligero, un muro de bloque hueco o una superficie levantada despues no se consideran portantes. La altura de montaje tambien se decide aqui: una cota en la que el conector se alcance comodamente pero el cable no arrastre por el suelo. Esta valoracion no se hace por catalogo sino mirando en el sitio."
+        },
+        {
+          "text": "A mayor potencia la discusion de la carcasa desaparece"
+        },
+        {
+          "text": "La distincion entre mural y pedestal pertenece a la clase de potencia baja. Al subir la potencia crecen el convertidor y el volumen de refrigeracion del interior, el equipo deja de caber en una carcasa colgable y pasa a ser un armario apoyado en el suelo. En la serie Bemis BEVDC los 40 kW se ofrecen en dos carcasas, mientras que 80 kW y por encima son de tipo armario; los modelos de 120 kW en adelante llevan ademas una pantalla tactil capacitiva de 10 pulgadas y resistencia al impacto IK10. Asi que la eleccion de carcasa se estrecha por si sola junto con la clase de potencia."
+        },
+        {
+          "text": "Las caracteristicas electricas son iguales en los dos tipos"
+        },
+        {
+          "text": "No piense que al elegir por carcasa renuncia a prestaciones. En la serie Bemis BEVDC ambas carcasas llevan la misma plataforma electrica: conector CCS2, entrada trifasica AC 380-480 V, rango de salida 150-1000 V DC, clase de proteccion IP54, temperatura de trabajo de -25 °C a +55 °C, soporte de protocolo OCPP 1.6J / 2.0.1 y autenticacion de usuario mediante tarjeta RFID y aplicacion movil. La serie se extiende de 40 kW a 200 kW; en las clases de potencia superiores la carcasa pasa a tipo armario."
+        },
+        {
+          "text": "Confirmemos con una visita que carcasa encaja en la distribucion de su emplazamiento.",
+          "label": "Ver las unidades de carga rápida DC"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Que es una unidad de carga DC?",
+          "a": "Una unidad de carga DC es un cargador rapido que convierte internamente en corriente continua la corriente alterna que toma de la red y la entrega directamente a la bateria del vehiculo. En la carga AC esa conversion la hace el cargador de a bordo del coche, que limita la potencia; en DC la conversion ocurre dentro del equipo, por lo que el cargador de a bordo queda fuera de juego y se pueden alcanzar potencias mucho mayores. Por eso las unidades DC ofrecen cargas del orden de minutos y se emplean donde los vehiculos paran poco tiempo. En el sector el mismo producto se llama tambien cargador DC, unidad de carga rapida o estacion de carga DC."
+        },
+        {
+          "q": "Hay diferencia de potencia entre la unidad DC mural y la de pedestal?",
+          "a": "No. Para el mismo modelo el tipo de carcasa no cambia las caracteristicas electricas; potencia de salida, tipo de conector, clase de proteccion, temperatura de trabajo y soporte de protocolo son identicos en ambas. La diferencia aparece en el lado fisico: la de pedestal lleva su propia base y por eso es mas profunda y mas pesada. En el ejemplo Bemis BEVDC 40 la mural mide 600 x 320 x 900 mm y 80 kg, mientras que la de pedestal queda en 600 x 425 x 1770 mm y 105 kg. La eleccion, por tanto, se hace por superficie de montaje y distribucion del emplazamiento, no por prestaciones."
+        },
+        {
+          "q": "Necesita preparacion del suelo una estacion de carga con pedestal?",
+          "a": "Si. Como la unidad de pedestal transmite su peso al suelo, el punto donde se ancla debe prepararse para soportar esa carga; en la practica esto suele significar una base de hormigon y anclajes. Ademas, como la entrada de cable se hace desde abajo, el trazado debe planificarse junto con la base; abrir una canalizacion despues resulta mucho mas costoso. En el tipo mural este paso no existe, ya que la unidad se fija a una superficie portante. En ambos casos el suelo y el detalle de montaje deben determinarse en el sitio durante la visita previa a la instalacion."
+        },
+        {
+          "q": "Que clase de potencia DC debo elegir para mi negocio?",
+          "a": "Lo determinante es cuanto tiempo permanecera el vehiculo en su emplazamiento. Si el coche para media hora o mas, la clase de 40 kW cubre la mayoria de escenarios; donde la visita baja a quince minutos, en puntos junto a la carretera, las clases superiores empiezan a tener sentido. Al subir la potencia no solo crece el equipo sino tambien la conexion a red y el lado del transformador, asi que la decision no debe tomarse mirando solo el precio del equipo. La serie Bemis BEVDC abarca las clases de 40, 80, 120, 160, 180 y 200 kW; la clase adecuada se elige valorando juntas la duracion de la visita y la infraestructura electrica existente."
+        },
+        {
+          "q": "Se puede instalar en exterior una unidad de carga DC?",
+          "a": "Si, estas unidades estan disenadas para instalacion en exterior. La serie Bemis BEVDC tiene clase de proteccion IP54 y se especifica para trabajar entre -25 °C y +55 °C; es decir, puede colocarse en un aparcamiento abierto expuesta a la lluvia y a las temperaturas de cada estacion. Aun asi, en el sitio se cuidan dos puntos: que la unidad y el cable queden fuera de la linea de maniobra de los vehiculos, y se prefiere que la pantalla no reciba sol directo todo el dia. La ubicacion se elige durante la visita teniendo en cuenta estos detalles."
+        }
+      ],
+      "related": [
+        {
+          "label": "Unidades de carga rápida DC"
+        },
+        {
+          "label": "Qué es una estación de carga DC de 40 kW?"
+        },
+        {
+          "label": "Guía de inversión DC para empresas"
+        },
+        {
+          "label": "Diferencia entre carga AC y DC"
+        },
+        {
+          "label": "Elegir cable de carga DC y conector CCS2"
         }
       ]
     }
@@ -21783,6 +22827,9 @@
         }
       ],
       "related": [
+        {
+          "label": "محطة شحن للمباني والمجمعات السكنية"
+        },
         {
           "label": "لائحة محطات الشحن: ما هو الإلزامي؟"
         },
@@ -25105,6 +26152,9 @@
       ],
       "related": [
         {
+          "label": "محطة شحن للمباني والمجمعات السكنية"
+        },
+        {
           "label": "محطات شحن AC wallbox"
         },
         {
@@ -25823,6 +26873,348 @@
         },
         {
           "label": "الشاحن المحمول: ما هو وكم يكلّف؟"
+        }
+      ]
+    },
+    "sarj-istasyonu-bakim-periyodik-kontrol": {
+      "title": "صيانة محطة الشحن والفحص الدوري",
+      "description": "الفحص الدوري لمحطة الشحن: اختبار قاطع التسرب الأرضي، تآكل الموصّل، الحشوة والكابل، والبرمجيات والسجلات.",
+      "excerpt": "جهاز الشحن ليس معدة تُركَّب ثم تُنسى. الجزء المتحرك الوحيد فيه هو الموصّل، ومن هناك يبدأ التآكل. قائمة فحص منتظمة تكتشف العطل على المكتب لا في الموقع.",
+      "category": "تقني",
+      "body": [
+        {
+          "text": "تكون محطة الشحن في أفضل حالاتها يوم تركيبها؛ وما يستهلكها بعد ذلك ليس الكهرباء بل الاستخدام. يُوصَل الموصّل ويُفصَل كل يوم، ويسقط الكابل على الأرض، وتتقلب حشوة الغطاء بين الشمس والبرد. يقدّم هذا المقال قائمة الفحص العملية التي تنطبق على الجميع، من وحدة منزلية مثبتة على الجدار إلى جهاز في موقف مشترك. كل خطوة تتطلب تدخلاً كهربائياً تعود إلى شخص مؤهل؛ وهذه القائمة تشرح ما يجب مراقبته ولا تقترح على المستخدم فتح الجهاز."
+        },
+        {
+          "text": "الجزء الأكثر تآكلاً: الموصّل والكابل"
+        },
+        {
+          "text": "الجزء المتحرك الوحيد في جهاز الشحن هو الموصّل، ومن هناك تبدأ معظم الأعطال. ما يجب النظر إليه واضح: اسوداد أو آثار احتراق على الأطراف، وشقوق في الهيكل البلاستيكي، وارتخاء في مزلاج القفل، وانضغاط أو قطع في غلاف الكابل. يُفحص بعناية خاصة موضع دخول الكابل إلى الجهاز وموضع دخوله إلى الموصّل، لأن الكابل ينثني هناك أكثر من غيره. وإذا كان الموصّل يسقط على الأرض، فإن استخدام حامل يقلل هذا التآكل بوضوح."
+        },
+        {
+          "text": "جانب الحماية: قاطع التسرب الأرضي واللوحة"
+        },
+        {
+          "text": "الطريقة للتأكد من أن قاطع التسرب الأرضي الذي يحمي دائرة الشحن ما زال يعمل هي زر الاختبار الموجود عليه؛ وعند الضغط عليه يُتوقَّع أن يفصل. وهو فحص بسيط يمكن إجراؤه دون فتح الجهاز ويوصي به الفنيون على فترات منتظمة. أما في اللوحة فيتحقق شخص مؤهل مما إذا كانت وصلات المشابك قد ارتخت وما إذا كانت هناك آثار سخونة؛ فالوصلة المرتخية تسخن مع الوقت وتنتج عطلاً."
+        },
+        {
+          "text": "الماء والغبار في الأجهزة الخارجية"
+        },
+        {
+          "text": "في الجهاز الخارجي، تحافظ الحشوات والأغطية على فئة الحماية بقدر ما يفعل الهيكل نفسه. ما يُفحص: ألا تكون حشوة الغطاء مهروسة أو خارج موضعها، وأن تكون مداخل الكابلات محكمة، وألا تكون التهوية إن وُجدت مسدودة. سلسلة Bemis المنزلية للتيار المتردد مذكورة بفئة IP65 وسلسلة BEVDC بفئة IP54؛ وهذه الفئات سارية والجهاز مغلق وحشواته سليمة."
+        },
+        {
+          "text": "جانب البرمجيات والسجلات"
+        },
+        {
+          "text": "في الأجهزة المستخدمة في المساحات المشتركة أو في المنشآت، لا تنتهي قائمة الفحص عند البنود المادية. في جهاز يُدار عبر OCPP يجب التأكد من أن الاتصال لم ينقطع، وأن السجلات تُحفظ بشكل سليم، وأن بطاقات التفويض محدَّثة. وبقاء بطاقة موظف غادر العمل ظاهرة كمصرَّح لها مشكلة غير تقنية لكنها حقيقية تماماً. وإذا كانت لوحة إدارة بتقارير على مستوى الشخص قيد الاستخدام، فإن قراءة تقرير الاستهلاك الشهري تعطي أيضاً إشارة مبكرة للعطل: فإذا انخفض استهلاك نقطة ما بشكل غير متوقع، فقد تكون فيها مشكلة."
+        },
+        {
+          "text": "قائمة فحص عملية"
+        },
+        {
+          "items": [
+            "هل هناك اسوداد أو آثار احتراق أو شقوق على أطراف الموصّل؟",
+            "هل هناك انضغاط أو قطع أو آثار انثناء حاد في غلاف الكابل؟",
+            "هل يفصل قاطع التسرب الأرضي عند الضغط على زر الاختبار؟",
+            "هل حشوة الغطاء ومداخل الكابلات سليمة ومحكمة؟",
+            "هل توجد على الهيكل آثار صدم أو ماء أو تآكل؟",
+            "هل تعمل الشاشة ومؤشرات الحالة بشكل طبيعي أم تظهر خطأ؟",
+            "هل بطاقات التفويض محدَّثة وهل أُزيل المستخدمون الذين غادروا؟",
+            "هل سجلات الشحن وتقرير الاستهلاك ضمن النطاق المتوقع؟"
+          ]
+        },
+        {
+          "text": "متى يتم إبلاغ الخدمة؟"
+        },
+        {
+          "text": "إذا كان الجهاز لا يبدأ الشحن، أو يقطعه من تلقاء نفسه بشكل متكرر، أو يظهر خطأ دائماً على الشاشة، أو يفصل قاطع التسرب الأرضي مرة بعد مرة، أو يُحس بسخونة في الموصّل، فلم يعد لدى المستخدم ما يفعله. في هذه الحالات يُترك الجهاز دون كهرباء ويُتواصل مع الخدمة المعتمدة. تُقدَّم منتجات Bemis بضمان مصنّع مدته 2 سنة؛ وستجد في صفحة الدعم خطوة بخطوة ما ينبغي فعله حسب العَرَض وما المعلومات المطلوبة عند التواصل."
+        },
+        {
+          "text": "إذا كان جهازك لا يعمل، ابدأ بالفحص السريع هنا.",
+          "label": "دعم الأعطال والضمان"
+        }
+      ],
+      "faq": [
+        {
+          "q": "هل تحتاج محطة شحن السيارات الكهربائية إلى صيانة؟",
+          "a": "نعم، لكن هذه الصيانة فحص منتظم أكثر منها عملية معقدة. الجزء المتحرك الوحيد في الجهاز هو الموصّل ومن هناك يبدأ التآكل إلى حد كبير؛ فاسوداد الأطراف وانضغاط غلاف الكابل وارتخاء المزلاج بنود تُفحص بالعين. إلى جانب ذلك يُنصح بالتأكد من عمل قاطع التسرب الأرضي عبر زر الاختبار، وفي الأجهزة الخارجية بفحص حشوة الغطاء ومداخل الكابلات. وكل عمل يتطلب فتح الجهاز يعود إلى شخص مؤهل؛ أما جانب المستخدم فيقتصر على خارج الهيكل."
+        },
+        {
+          "q": "كم مرة ينبغي فحص جهاز الشحن؟",
+          "a": "العامل الحاسم هو كثافة الاستخدام. فالوحدة المنزلية التي تُستخدم مرة واحدة يومياً لا تتآكل بالسرعة نفسها التي يتآكل بها جهاز في موقف مبنى سكني يُوصَل ويُفصَل مرات عديدة في اليوم. والنهج العملي هو تكرار الفحص البصري للموصّل والكابل على فترات تتناسب مع الاستخدام، وعدم إهمال اختبار قاطع التسرب الأرضي. وفي الأجهزة داخل المساحات المشتركة أو المنشآت، الأسلم إسناد الفحص إلى شخص محدد؛ ففي الأجهزة المتروكة بلا مسؤول يتحول تآكل بسيط إلى عطل دون أن ينتبه أحد."
+        },
+        {
+          "q": "ماذا يحدث إذا تآكل موصّل الشحن، وهل يُستبدل؟",
+          "a": "يظهر تآكل الموصّل أولاً كجودة تلامس لا كأداء: ينقطع الشحن كثيراً، أو يبدو التوصيل مرتخياً، أو يظهر اسوداد على الأطراف. والاستمرار في الاستخدام مع هذه الأعراض قد يؤدي إلى سخونة وأضرار أكبر، لذا ينبغي ترك التقييم للخدمة المعتمدة. واستخدام حامل يبقي الكابل مرفوعاً عن الأرض يمنع سقوط الموصّل ويؤخّر هذا التآكل بوضوح. أما في محطات التيار المستمر فمجموعة الكابل مخطط لها أصلاً كقطعة قد تُستبدل خلال عمر المحطة."
+        },
+        {
+          "q": "هل يتم تحديث برمجيات جهاز الشحن؟",
+          "a": "في الأجهزة التي تعمل متصلة بنظام إدارة عبر بروتوكول OCPP، يدخل جانب البرمجيات أيضاً ضمن قائمة الفحص. وما يهم هنا ليس التحديث وحده، بل ألا يكون الاتصال قد انقطع وأن تُحفظ السجلات بشكل سليم، لأنه عند وجود فوترة أو متابعة على مستوى الشخص فإن أي سجل مفقود ينتج مشكلة مباشرة. أما في جانب التفويض فيجب إبقاء قائمة المستخدمين محدَّثة؛ فبقاء بطاقة شخص غادر ظاهرة كمصرَّح لها ثغرة غير تقنية لكنها حقيقية. وتُنفَّذ هذه العمليات عبر لوحة الإدارة دون فتح الجهاز."
+        }
+      ],
+      "related": [
+        {
+          "label": "دعم الأعطال والضمان"
+        },
+        {
+          "label": "هل الشحن في المنزل آمن؟"
+        },
+        {
+          "label": "دليل التركيب"
+        },
+        {
+          "label": "كابلات الشحن AC"
+        },
+        {
+          "label": "محطة شحن منزلية (AC Wallbox)"
+        }
+      ]
+    },
+    "fabrika-osb-sanayi-sitesi-sarj-istasyonu": {
+      "title": "محطات الشحن في مواقف موظفي المصانع والمناطق الصناعية",
+      "description": "محطات الشحن في موقف الموظفين بالمصنع والمنطقة الصناعية: المحوّل القائم، تصحيح معامل القدرة، عدد الوحدات حسب الورديات والفوترة.",
+      "excerpt": "تركيب محطة شحن في مصنع قرار مختلف عن تركيب وحدة جدارية في المنزل. فالمنشأة لديها بالفعل محوّل ولوحة تصحيح وحمل إنتاجي يتغير بالساعة. والتركيب الصحيح يقوم على هذه الحقائق الثلاث.",
+      "category": "دليل",
+      "body": [
+        {
+          "text": "كل مصنع ومستودع ومنطقة صناعية يتزايد فيها عدد السيارات الكهربائية لدى الموظفين يصل إلى السؤال نفسه: نريد وضع شواحن في الموقف، من أين نبدأ؟ هذا لا يشبه تركيب وحدة جدارية في المنزل. ففي المسكن المسألة الوحيدة هي كفاية التغذية؛ أما في منشأة إنتاجية فهناك بالفعل محوّل ولوحة تصحيح وحمل يتغير من ساعة إلى أخرى. وتُضاف الشواحن فوق هذه الصورة. يتناول هذا المقال القرار من جانب المصنع والمنطقة الصناعية بالترتيب."
+        },
+        {
+          "text": "موقف الموظفين ليس كأسطول الشركة"
+        },
+        {
+          "text": "هذا التمييز يجب أن يُحسم أولاً، لأن كل قرار لاحق يعتمد عليه. فإذا كان الشحن لأسطول سيارات الشركة، فالمركبات ملككم وتبيت في المنشأة والتخطيط يخصكم؛ وقد تناولنا هذا السيناريو في مقال منفصل. أما موقف الموظفين فمختلف: المركبات تعود للعاملين، تصل مع بداية الوردية وتغادر مع نهايتها. أي أن نافذة الشحن ليست الليل كله بل مدة الوردية، ومن استهلك كم يجب أن يُفصل على مستوى الشخص."
+        },
+        {
+          "text": "كم وحدة نحتاج؟ الجواب يعطيه نظام الورديات"
+        },
+        {
+          "text": "في موقف الموظفين يمكن لوحدة واحدة أن تخدم أكثر من سيارة خلال اليوم، لأن سيارة الموظف تبقى واقفة ساعات. في منشأة ذات وردية واحدة تصل فيها السيارة صباحاً وتغادر مساءً، تعطي وحدة بقدرة 7,4 كيلوواط خلال نافذة من 8 ساعات طاقة تفوق حاجة الاستخدام اليومي بكثير؛ فما يعمل هنا هو المدة لا السرعة. وفي منشأة بثلاث ورديات يمكن للوحدة نفسها أن تخدم ثلاثة سائقين بالتناوب. لذلك يُخطَّط عدد الوحدات وفق عدد السيارات الكهربائية الواقفة في الوقت نفسه لا وفق إجمالي عدد الموظفين."
+        },
+        {
+          "items": [
+            "احسب السيارات الكهربائية الواقفة في الوقت نفسه لا إجمالي عدد الموظفين.",
+            "سجّل أوقات تبديل الورديات؛ ففيها تُتقاسم الوحدات.",
+            "مدّ البنية التحتية لأجل 2-3 سنوات قادمة لا لرقم اليوم: الكابل واللوحة رخيصان عند الحفر الأول لا بعده.",
+            "خصّص نقطة منفصلة للزوار والموردين؛ وقد ترغب في إبقاء نقاط الموظفين خلف التفويض."
+          ]
+        },
+        {
+          "text": "الجانب الكهربائي في المنطقة الصناعية"
+        },
+        {
+          "text": "في المناطق الصناعية المنظمة يجري توزيع الكهرباء غالباً عبر الشخصية الاعتبارية للمنطقة نفسها؛ أي أن مخاطبكم عند إضافة حمل جديد قد يكون إدارة المنطقة لا شركة التوزيع الإقليمية. وفي المجمعات الصناعية الأصغر يخدم محوّل مشترك عدة منشآت، فيدخل تقاسم القدرة في الحساب. وفي الحالتين يبقى السؤال قبل التركيب واحداً: هل في محوّلكم ولوحتكم الرئيسية متسع للحمل المراد إضافته؟"
+        },
+        {
+          "text": "العنوان التقني الثاني هو تصحيح معامل القدرة. فالمشتركون الصناعيون تُحتسب عليهم الطاقة غير الفعّالة، وعند إضافة حمل جديد إلى المنشأة يجب مراجعة لوحة التصحيح وفق الوضع الجديد. وكيفية تأثير الشواحن في هذه الصورة ينبغي أن يقيّمها، بعد تحديد العدد والقدرة، من يعرف المخطط الكهربائي للمنشأة. وهذا من أهم بنود المعاينة قبل التركيب."
+        },
+        {
+          "text": "لا تمسّ ذروة حمل الإنتاج لديك"
+        },
+        {
+          "text": "الحمل الكهربائي للمصنع ليس ثابتاً على مدار اليوم؛ فهو يبلغ ذروته حين تعمل الآلات. وأسوأ سيناريو للشواحن هو سحب القدرة الكاملة معاً في هذه الذروة بالذات. والحل ليس تقليل عدد الوحدات بل الإدارة الديناميكية للحمل: يرى النظام الاستهلاك اللحظي للمنشأة فيخفض قدرة الشحن تلقائياً ثم يرفعها مجدداً عندما يخف الضغط. وتحمل سلسلتا Bemis Charger Plus 2 وCharger Pro 2 خاصية موازنة الحمل هذه؛ ولأن الأجهزة تعمل بدرجات ضمن نطاق 6-32 أمبير يجري التخفيض دون قطع الشحن."
+        },
+        {
+          "text": "من سيدفع ثمن الكهرباء؟ احسم القرار من البداية"
+        },
+        {
+          "text": "في موقف الموظفين هذا سؤال إداري لا تقني، والإجابة تأتي بثلاث صور: يُقدَّم الشحن مجاناً كميزة وظيفية، أو تُحمَّل التكلفة على الموظف، أو يُبنى نموذج مجاني حتى عدد معين من الكيلوواط ساعة ومدفوع بعده. ومهما اخترت، لا يمكنك إدارة ما لا تراه. في سلسلتي Charger Plus 2 وCharger Pro 2 يُقدَّم تفويض المستخدم ببطاقة RFID ولوحة إدارة المساحات المشتركة بتقارير على مستوى الشخص دون مقابل؛ ولا تظهر بعدها رسوم ترخيص أو اشتراك. وإذا أُريد للقياس أن يكون أساساً للفوترة، تُفضَّل الطرازات ذات عدّاد MID المدمج."
+        },
+        {
+          "text": "أي جهاز: تيار متردد أم مستمر؟"
+        },
+        {
+          "text": "في مواقف الموظفين والزوار تكون الإجابة الصحيحة تقريباً دائماً التيار المتردد. فلأن السيارة تبقى واقفة ساعات، تغطي وحدة جدارية بين 7,4 كيلوواط و22 كيلوواط الحاجة بوفرة وتكون كلفة البنية التحتية أدنى بكثير. أما الشحن السريع بالتيار المستمر فهو لحالات تبقى فيها المركبة دقائق فقط: دخول وخروج الشحنات، أو مبنى إداري بحركة زوار كثيفة، أو قرار وضع المنشأة كنقطة شحن عامة. وعدم الخلط بينهما هو أسهل وفر في الاستثمار كله."
+        },
+        {
+          "text": "لماذا المعاينة قبل التركيب ضرورية؟"
+        },
+        {
+          "text": "لا يمكن الإجابة عن أي من البنود أعلاه بالاختيار من كتالوج: اللوحة القائمة، وحمل المحوّل، والمسافة إلى الموقف، ومسار الكابل، وسطح التثبيت، كلها يجب أن تُرى في الموقع. وفي Bemis تجري هذه العملية عبر الموزّع المعتمد؛ ويتضح اختيار الجهاز بعد المعاينة، ويقوم بالتركيب كهربائي مؤهل، وتُسلَّم المنتجات بضمان مصنّع مدته 2 سنة."
+        },
+        {
+          "text": "لنحدّد معاً أي طراز وكم نقطة تحتاج منشأتك.",
+          "label": "أقرب موزّع معتمد إليك"
+        }
+      ],
+      "faq": [
+        {
+          "q": "ما المطلوب لتركيب محطة شحن في مصنع؟",
+          "a": "ثلاثة أمور يجب أن تتضح: كم سيارة كهربائية ستقف في الوقت نفسه، وهل في المحوّل واللوحة الرئيسية متسع للحمل المضاف، ومن سيدفع ثمن الكهرباء. وبعد تحديد هذه الثلاثة يُختار عدد الأجهزة وقدرتها. وفي التطبيق يسير الترتيب هكذا: معاينة ميدانية، تحديد عدد الأجهزة والنقاط، مراجعة اللوحة وجانب التصحيح عند الحاجة، مدّ مسار الكابل، ثم التركيب والتشغيل. واختيار الجهاز من الكتالوج دون معاينة يولّد مفاجآت مكلفة مثل تغيير اللوحة لاحقاً."
+        },
+        {
+          "q": "من يمنح الإذن لمحطة شحن في المنطقة الصناعية؟",
+          "a": "في المناطق الصناعية المنظمة تُدار شبكة الكهرباء غالباً عبر الشخصية الاعتبارية للمنطقة نفسها. وفي هذه الحالة يكون مخاطبكم لإبلاغ الحمل الجديد والسؤال عن القدرة هو إدارة المنطقة لا شركة التوزيع الإقليمية. وفي المجمعات الصناعية الأصغر يخدم محوّل مشترك عدة منشآت، لذا ينبغي مناقشة القدرة مع إدارة المجمع. وإذا كان للمنشأة محوّلها الخاص فالوضع أبسط، لكن يبقى تقييم الحمل القائم والتصحيح ضرورياً. ولأن الإجراء يختلف من منطقة لأخرى، فالخطوة الأولى هي السؤال كتابةً للإدارة التابعين لها."
+        },
+        {
+          "q": "كم شاحناً يلزم لموقف الموظفين؟",
+          "a": "الرقم الحاسم ليس إجمالي عدد الموظفين بل كم سيارة كهربائية تقف في الوقت نفسه. ولأن سيارة الموظف تبقى واقفة طوال الوردية، تستطيع نقطة واحدة خدمة أكثر من سيارة خلال اليوم؛ ففي نافذة من 8 ساعات تعطي 7,4 كيلوواط بسهولة الطاقة اللازمة للاستخدام اليومي. وفي منشأة بثلاث ورديات تخدم النقطة نفسها ثلاثة سائقين بالتناوب. والنهج العملي هو تركيب الأجهزة وفق عدد السيارات الكهربائية اليوم مع مدّ بنية الكابل واللوحة لسنوات قادمة؛ فإضافة الأجهزة لاحقاً سهلة ومدّ الكابل مكلف."
+        },
+        {
+          "q": "هل تُجهد الشواحن كهرباء المصنع؟",
+          "a": "قد تفعل دون إدارة للحمل، لأن الأجهزة في أسوأ الحالات تسحب القدرة الكاملة معاً في الساعة التي يبلغ فيها حمل الإنتاج ذروته. والموازنة الديناميكية تحل ذلك: يراقب النظام الاستهلاك اللحظي للمنشأة فيخفض قدرة الشحن تلقائياً ويرفعها مجدداً عندما يخف الضغط. وتحمل سلسلتا Bemis Charger Plus 2 وCharger Pro 2 هذه الخاصية، ولأن الأجهزة تعمل بدرجات ضمن نطاق 6-32 أمبير يجري التخفيض دون قطع الشحن. كما يمكن استخدام مؤقّت لنقل الشحن إلى ساعات خارج الإنتاج."
+        },
+        {
+          "q": "كيف نتابع الكهرباء التي يستهلكها الموظفون؟",
+          "a": "المتابعة على مستوى الشخص تحتاج أمرين: تفويض المستخدم والتسجيل. فببطاقة RFID يبدأ كل موظف الشحن ببطاقته الخاصة، ويسجّل النظام من استهلك كم كيلوواط ساعة. وفي Bemis تُقدَّم لوحة إدارة المساحات المشتركة دون مقابل في سلسلتي Charger Plus 2 وCharger Pro 2، دون رسوم اشتراك أو ترخيص منفصلة. وإذا أُريد للقياس أن يكون أساساً للفوترة تُختار الطرازات ذات عدّاد MID المدمج. وهذه البنية مهمة حتى حين يُقدَّم الشحن مجاناً كميزة وظيفية، ولو لمجرد رؤية التكلفة."
+        },
+        {
+          "q": "هل أشتري وحدة جدارية بالتيار المتردد أم شحناً سريعاً بالتيار المستمر لمنشأتي؟",
+          "a": "الحاسم هو مدة بقاء المركبة في المنشأة. ففي مواقف الموظفين والزوار تبقى السيارة واقفة ساعات، لذا تغطي وحدة جدارية في نطاق 7,4-22 كيلوواط الحاجة بوفرة وتكون كلفة البنية التحتية أدنى بوضوح. أما الشحن السريع بالتيار المستمر فلحالات تبقى فيها المركبة دقائق فقط: حركة زوار كثيفة، أو دخول وخروج الشحنات، أو قرار وضع المنشأة كنقطة شحن عامة. ولمعظم المنشآت الإنتاجية تكون الإجابة الصحيحة التيار المتردد؛ وإن لزم المستمر فعادةً في نقطة منفصلة وقليلة العدد."
+        }
+      ],
+      "related": [
+        {
+          "label": "محطة شحن منزلية (AC Wallbox)"
+        },
+        {
+          "label": "حلول شحن أساطيل المركبات"
+        },
+        {
+          "label": "ما هي إدارة الحمل؟"
+        },
+        {
+          "label": "لوحة إدارة الشحن في المساحات المشتركة"
+        },
+        {
+          "label": "دليل التركيب"
+        }
+      ]
+    },
+    "dc-sarj-unitesi-duvar-tipi-mi-direk-tipi-mi": {
+      "title": "وحدة الشحن بالتيار المستمر: جدارية أم على قاعدة؟",
+      "description": "الاختيار بين الجداري والقاعدة في وحدة الشحن بالتيار المستمر: سطح التثبيت وتخطيط الموقع والأبعاد والوزن. مقارنة على مثال 40 كيلوواط.",
+      "excerpt": "قد تأتي وحدة الشحن بالتيار المستمر بالقدرة نفسها في هيكلين مختلفين: واحد يُثبَّت على الجدار وآخر يقف على قاعدته الخاصة. الفرق ليس كهربائياً بل ميدانياً: مكان التثبيت وكيفية اصطفاف السيارة هما ما يحسمان.",
+      "category": "دليل",
+      "body": [
+        {
+          "text": "عند اختيار وحدة شحن سريع بالتيار المستمر يكون أول ما يُناقَش عادةً هو القدرة: 40 كيلوواط أم 80 كيلوواط أم 120 كيلوواط؟ وبعد وضوح القدرة يظهر قرار ثانٍ لا يتوقعه معظم المشترين: يمكن تقديم الوحدة نفسها بهيكلين مختلفين. أحدهما يُثبَّت على الجدار والآخر يقف على قاعدته الخاصة. وهما كهربائياً يؤديان العمل نفسه؛ والفرق كله في الموقع."
+        },
+        {
+          "text": "الفرق الحقيقي بين النوعين"
+        },
+        {
+          "text": "تُثبَّت الوحدة الجدارية على سطح حامل. فالجدار يحمل الوزن، ويرتفع الجهاز عن الأرض، وتبقى المساحة أمامه خالية تماماً. أما النوع ذو القاعدة فيقف بجسمه على قاعدة؛ ويمكن وضعه حيث لا يوجد جدار خلفه، مثل موقف مكشوف أو وسط جزيرة وقوف أو حافة منطقة مزروعة. ولهذا السبب يكون النوع ذو القاعدة أعمق وأثقل بوضوح."
+        },
+        {
+          "caption": "هيكلان على مثال Bemis BEVDC 40",
+          "headers": [
+            "",
+            "جداري",
+            "على قاعدة"
+          ],
+          "rows": [
+            [
+              "قدرة المخرج",
+              "40 كيلوواط",
+              "40 كيلوواط"
+            ],
+            [
+              "الموصّل",
+              "CCS2",
+              "CCS2"
+            ],
+            [
+              "العرض x العمق x الارتفاع",
+              "600 x 320 x 900 مم",
+              "600 x 425 x 1770 مم"
+            ],
+            [
+              "الوزن",
+              "80 كجم",
+              "105 كجم"
+            ],
+            [
+              "التثبيت",
+              "يُثبَّت على جدار حامل",
+              "على قاعدته الخاصة، مثبّت في الأرض"
+            ],
+            [
+              "المكان المعتاد",
+              "موقف مغطى، واجهة مبنى، جدار الموقع",
+              "موقف مكشوف، جزيرة وقوف، منطقة بلا جدار"
+            ]
+          ]
+        },
+        {
+          "text": "متى يكون الجداري الخيار الصحيح؟"
+        },
+        {
+          "text": "إذا وُجد في مكان التثبيت جدار أو عمود متين قادر على حمل وزن الوحدة، فالجداري هو الخيار الأعملي في أغلب الأحوال. فلا تُصبّ قاعدة، ولا تُثقب الأرضية، ويبقى الجهاز خارج خط اصطدام المركبات، ولا يُفقد مكان وقوف. والمواقف المغطاة وواجهات المباني وجدران أسوار المواقع هي الموضع الطبيعي لهذا النوع."
+        },
+        {
+          "text": "متى نحتاج النوع ذا القاعدة؟"
+        },
+        {
+          "text": "إذا لم يكن هناك جدار في النقطة التي تصطف عندها السيارة، فالقرار اتُّخذ من تلقاء نفسه. فوسط جزر الوقوف والممرات الوسطى في المواقف المكشوفة وحواف المساحات المزروعة بلا جدار؛ وهناك يجب أن تقف الوحدة على قاعدتها الخاصة. والميزة الثانية للنوع ذي القاعدة هي الظهور: جسم بارتفاع 1770 مم يُلحَظ من بعيد، وهذا مهم للمنشآت التي تضع موقعها كنقطة شحن عامة."
+        },
+        {
+          "text": "العامل الثالث: الكابل وطريقة الاصطفاف"
+        },
+        {
+          "text": "بصرف النظر عن نوع الهيكل، يجب أن تصل الوحدة إلى مقبس الشحن في المركبة. وكابلات التيار المستمر ثقيلة، لذا فالطول الزائد يُتعب المستخدم بينما الكابل القصير يُجبر على ركن السيارة باتجاه معيّن. ولهذا يُخطَّط اختيار الهيكل وترتيب الوقوف معاً: من أي اتجاه تقترب السيارة، وفي أي جانب منها يقع مقبس الشحن، وهل يصل الكابل دون أن يجرّ على الأرض، كلها تُقاس أثناء المعاينة."
+        },
+        {
+          "text": "كيف يُقيَّم السطح الحامل للنوع الجداري؟"
+        },
+        {
+          "text": "قبل اختيار النوع الجداري هناك سؤال بسيط لكنه كثيراً ما يُتجاوز: هل يستطيع هذا الجدار حمل وحدة وزنها 80 كيلوغراماً مع الكابل المعلّق عليها لسنوات؟ الجدران والأعمدة الخرسانية المسلّحة لا تواجه مشكلة مع هذا الحمل؛ أما القاطع الخفيف أو البناء بالبلوك المفرّغ أو سطح شُيِّد لاحقاً فلا يُعد حاملاً. وهنا يُحدَّد أيضاً ارتفاع التثبيت: منسوب يسهل عنده الوصول إلى الموصّل دون أن يجرّ الكابل على الأرض. وهذا التقييم لا يُجرى من الكتالوج بل بالنظر في الموقع."
+        },
+        {
+          "text": "عند القدرات الأعلى ينتهي نقاش الهيكل"
+        },
+        {
+          "text": "التمييز بين الجداري وذي القاعدة يخص فئة القدرة الأدنى. فمع ارتفاع القدرة يكبر المحوّل وحجم التبريد في الداخل، ويخرج الجهاز عن حدود هيكل يمكن تعليقه على جدار ويتحول إلى خزانة قائمة على الأرض. في سلسلة Bemis BEVDC تُقدَّم 40 كيلوواط بهيكلين، بينما تكون الفئات من 80 كيلوواط فما فوق من نوع الخزانة؛ وفي الطرازات من 120 كيلوواط فأعلى توجد إضافةً شاشة لمس سعوية 10 بوصات ومقاومة صدم IK10. أي أن اختيار الهيكل يضيق من تلقاء نفسه مع فئة القدرة."
+        },
+        {
+          "text": "المواصفات الكهربائية واحدة في النوعين"
+        },
+        {
+          "text": "لا تظن أن الاختيار حسب الهيكل يكلفك مزايا. ففي سلسلة Bemis BEVDC يحمل الهيكلان المنصة الكهربائية نفسها: موصّل CCS2، ودخل ثلاثي الطور AC 380-480 فولت، ومدى خرج 150-1000 فولت تيار مستمر، وفئة حماية IP54، ودرجة حرارة تشغيل من -25 °م إلى +55 °م، ودعم بروتوكول OCPP 1.6J / 2.0.1، والتحقق من المستخدم عبر بطاقة RFID والتطبيق المحمول. وتمتد السلسلة من 40 كيلوواط إلى 200 كيلوواط؛ وفي فئات القدرة الأعلى يصبح الهيكل من نوع الخزانة."
+        },
+        {
+          "text": "لنحدّد بالمعاينة أي هيكل يناسب تخطيط موقعك.",
+          "label": "اطّلع على وحدات الشحن السريع"
+        }
+      ],
+      "faq": [
+        {
+          "q": "ما هي وحدة الشحن بالتيار المستمر؟",
+          "a": "وحدة الشحن بالتيار المستمر جهاز شحن سريع يحوّل التيار المتردد المأخوذ من الشبكة إلى تيار مستمر داخل نفسه ويعطيه مباشرةً لبطارية المركبة. في الشحن بالتيار المتردد يقوم شاحن المركبة الداخلي بهذا التحويل وهو ما يحدّ من القدرة؛ أما في التيار المستمر فيجري التحويل داخل الجهاز فيُتجاوز الشاحن الداخلي وتصبح القدرات الأعلى بكثير ممكنة. لذلك توفّر هذه الوحدات شحناً بمقياس الدقائق وتُستخدم في المواضع التي تتوقف فيها المركبات لفترة قصيرة. وفي الميدان يُسمّى المنتج نفسه أيضاً شاحن تيار مستمر أو وحدة شحن سريع أو محطة شحن بالتيار المستمر."
+        },
+        {
+          "q": "هل هناك فرق في القدرة بين الوحدة الجدارية وذات القاعدة؟",
+          "a": "لا. فبالنسبة للطراز نفسه لا يغيّر نوع الهيكل المواصفات الكهربائية؛ فقدرة المخرج ونوع الموصّل وفئة الحماية ودرجة حرارة التشغيل ودعم البروتوكول متطابقة في الاثنين. ويظهر الفرق في الجانب المادي: النوع ذو القاعدة يحمل قاعدته الخاصة ولذلك يكون أعمق وأثقل. وفي مثال Bemis BEVDC 40 تبلغ أبعاد الجداري 600 x 320 x 900 مم ووزنه 80 كجم، بينما يأتي النوع ذو القاعدة بأبعاد 600 x 425 x 1770 مم ووزن 105 كجم. لذلك يُتخذ الاختيار بحسب سطح التثبيت وتخطيط الموقع لا بحسب الأداء."
+        },
+        {
+          "q": "هل تحتاج محطة الشحن ذات القاعدة إلى تجهيز للأرضية؟",
+          "a": "نعم. فلأن الوحدة ذات القاعدة تنقل وزنها إلى الأرض، يجب تجهيز موضع التثبيت لتحمّل هذا الحمل؛ وعملياً يعني ذلك عادةً قاعدة خرسانية ومثبتات. وإضافةً إلى ذلك، ولأن دخول الكابل يتم من الأسفل، ينبغي تخطيط المسار مع القاعدة؛ ففتح قناة الكابل لاحقاً أكثر كلفة بكثير. أما في النوع الجداري فلا توجد هذه الخطوة، إذ تُثبَّت الوحدة على سطح حامل. وفي الحالتين تُحدَّد الأرضية وتفصيلة التثبيت في الموقع أثناء المعاينة السابقة للتركيب."
+        },
+        {
+          "q": "أي فئة قدرة بالتيار المستمر أختار لمنشأتي؟",
+          "a": "الحاسم هو المدة التي ستبقى فيها المركبة في موقعك. فإذا توقفت السيارة نصف ساعة فأكثر، تغطي فئة 40 كيلوواط معظم السيناريوهات؛ وحيث تنخفض الزيارة إلى خمس عشرة دقيقة، في النقاط على الطريق، تبدأ الفئات الأعلى في أن تكون منطقية. ومع ارتفاع القدرة لا يكبر الجهاز وحده بل أيضاً وصلة الشبكة وجانب المحوّل، لذا لا ينبغي اتخاذ القرار بالنظر إلى سعر الجهاز وحده. وتغطي سلسلة Bemis BEVDC الفئات 40 و80 و120 و160 و180 و200 كيلوواط؛ وتُختار الفئة الصحيحة بتقييم مدة الزيارة والبنية الكهربائية القائمة معاً."
+        },
+        {
+          "q": "هل يمكن تركيب وحدة شحن بالتيار المستمر في الهواء الطلق؟",
+          "a": "نعم، فهذه الوحدات مصممة للتركيب الخارجي. لسلسلة Bemis BEVDC فئة حماية IP54 وهي محددة للعمل بين -25 °م و+55 °م؛ أي يمكن وضعها في موقف مكشوف معرضة للمطر ولدرجات حرارة الفصول. ومع ذلك يُنتبه في الموقع إلى أمرين: أن تبقى الوحدة وكابلها خارج خط مناورة المركبات، ويُفضَّل ألا تكون الشاشة تحت الشمس المباشرة طوال اليوم. ويُختار موضع التركيب أثناء المعاينة مع مراعاة هذه التفاصيل."
+        }
+      ],
+      "related": [
+        {
+          "label": "وحدات الشحن السريع بالتيار المستمر"
+        },
+        {
+          "label": "ما هي محطة الشحن 40 كيلوواط؟"
+        },
+        {
+          "label": "دليل الاستثمار في الشحن السريع للمنشآت"
+        },
+        {
+          "label": "الفرق بين الشحن بالتيار المتردد والمستمر"
+        },
+        {
+          "label": "اختيار كابل الشحن وموصّل CCS2"
         }
       ]
     }
@@ -28240,6 +29632,9 @@
         }
       ],
       "related": [
+        {
+          "label": "Зарядная станция для жилых домов и комплексов"
+        },
         {
           "label": "Регламент по зарядным станциям: что обязательно?"
         },
@@ -31562,6 +32957,9 @@
       ],
       "related": [
         {
+          "label": "Зарядная станция для жилых домов и комплексов"
+        },
+        {
           "label": "Зарядные станции AC wallbox"
         },
         {
@@ -32280,6 +33678,348 @@
         },
         {
           "label": "Переносное зарядное устройство: что это и сколько стоит"
+        }
+      ]
+    },
+    "sarj-istasyonu-bakim-periyodik-kontrol": {
+      "title": "Обслуживание зарядной станции и регулярная проверка",
+      "description": "Регулярная проверка зарядной станции: тест УЗО, износ коннектора, уплотнение и кабель, программная часть и журнал зарядок.",
+      "excerpt": "Зарядное устройство нельзя установить и забыть. Его единственная подвижная часть — коннектор, и именно там начинается износ. Регулярный чек-лист находит неисправность за столом, а не на площадке.",
+      "category": "Техника",
+      "body": [
+        {
+          "text": "Зарядная станция находится в лучшем состоянии в день установки; изнашивает её потом не электричество, а эксплуатация. Коннектор каждый день вставляют и вынимают, кабель падает на землю, уплотнение крышки живёт между солнцем и морозом. Эта статья даёт практический чек-лист, который одинаково подходит и домашней настенной станции, и устройству в общем паркинге. Любой шаг, связанный с электрическим вмешательством, относится к квалифицированному специалисту; список объясняет, за чем следить, и не предлагает пользователю вскрывать устройство."
+        },
+        {
+          "text": "Самая изнашиваемая часть: коннектор и кабель"
+        },
+        {
+          "text": "Единственная подвижная часть зарядного устройства — коннектор, и большинство неисправностей начинается там. Что смотреть, понятно: потемнение или следы нагара на контактах, трещины в пластиковом корпусе, люфт фиксирующей защёлки, замятия или порезы оболочки кабеля. Особенно внимательно проверяют место входа кабеля в устройство и в коннектор, потому что именно там кабель перегибается сильнее всего. Если коннектор падает на землю, держатель заметно уменьшает этот износ."
+        },
+        {
+          "text": "Сторона защиты: УЗО и щит"
+        },
+        {
+          "text": "Способ убедиться, что УЗО, защищающее зарядную линию, работает, — кнопка теста на нём; при нажатии устройство должно сработать. Это простая проверка, которую можно выполнить без вскрытия станции и которую электрики рекомендуют повторять регулярно. Со стороны щита квалифицированный специалист смотрит, не ослабли ли клеммные соединения и нет ли следов нагрева; ослабшее соединение со временем греется и порождает неисправность."
+        },
+        {
+          "text": "Вода и пыль на уличных устройствах"
+        },
+        {
+          "text": "На уличном устройстве степень защиты держат уплотнения и крышки не меньше, чем сам корпус. Что проверяют: уплотнение крышки не смято и не сдвинуто, кабельные вводы затянуты, вентиляция, если она есть, не перекрыта. Домашняя серия Bemis переменного тока указана с IP65, серия BEVDC — с IP54; эти степени действительны при закрытом корпусе и целых уплотнениях."
+        },
+        {
+          "text": "Программная часть и журнал"
+        },
+        {
+          "text": "На устройствах в общих зонах или на предприятии чек-лист не заканчивается физическими пунктами. На станции, управляемой по OCPP, нужно убедиться, что связь не оборвалась, что записи ведутся корректно и что карты авторизации актуальны. Карта уволившегося сотрудника, которая по-прежнему числится разрешённой, — проблема не техническая, но вполне реальная. Если используется панель управления с отчётами по пользователям, чтение месячного отчёта о потреблении тоже даёт ранний сигнал неисправности: если расход одной точки неожиданно упал, там может быть проблема."
+        },
+        {
+          "text": "Практический чек-лист"
+        },
+        {
+          "items": [
+            "Есть ли потемнение, следы нагара или трещины на контактах коннектора?",
+            "Есть ли замятия, порезы или резкие перегибы на оболочке кабеля?",
+            "Срабатывает ли УЗО при нажатии кнопки теста?",
+            "Целы ли уплотнение крышки и кабельные вводы, затянуты ли они?",
+            "Есть ли на корпусе следы удара, влаги или коррозии?",
+            "Нормально ли работают дисплей и индикаторы состояния?",
+            "Актуальны ли карты авторизации, удалены ли уволившиеся пользователи?",
+            "В ожидаемом ли диапазоне журнал зарядок и отчёт о потреблении?"
+          ]
+        },
+        {
+          "text": "Когда вызывать сервис?"
+        },
+        {
+          "text": "Если устройство не начинает зарядку, часто обрывает её само, показывает постоянную ошибку на дисплее, УЗО срабатывает раз за разом или коннектор ощутимо греется, со стороны пользователя действий больше не остаётся. В таких случаях станцию оставляют обесточенной и обращаются в авторизованный сервис. Продукция Bemis поставляется с гарантией производителя 2 года; на странице поддержки вы найдёте пошагово, что делать при каждом признаке и какие сведения понадобятся при обращении."
+        },
+        {
+          "text": "Если устройство не работает, начните с быстрой проверки здесь.",
+          "label": "Поддержка по неисправностям и гарантии"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Нужно ли обслуживание зарядной станции для электромобиля?",
+          "a": "Да, но это обслуживание — скорее регулярный осмотр, чем сложная процедура. Единственная подвижная часть устройства — коннектор, и износ в основном начинается там; потемнение контактов, замятия оболочки кабеля и люфт защёлки осматривают визуально. Кроме того, рекомендуется подтверждать работу УЗО кнопкой теста, а на уличных устройствах проверять уплотнение крышки и кабельные вводы. Любая работа, требующая вскрытия корпуса, относится к квалифицированному специалисту; на стороне пользователя остаётся только внешняя часть."
+        },
+        {
+          "q": "Как часто проверять зарядное устройство?",
+          "a": "Решающим фактором является интенсивность использования. Домашняя настенная станция, которой пользуются раз в день, и устройство в паркинге жилого комплекса, куда подключаются много раз за день, изнашиваются по-разному. Практический подход — повторять визуальную проверку коннектора и кабеля с периодичностью, подобранной под нагрузку, и не пропускать тест УЗО. На устройствах в общих зонах или на предприятии правильнее всего закрепить проверку за конкретным человеком; на бесхозных станциях небольшой износ незаметно превращается в неисправность."
+        },
+        {
+          "q": "Что будет, если зарядный коннектор износится, его меняют?",
+          "a": "Износ коннектора проявляется сначала не как мощность, а как качество контакта: зарядка часто прерывается, соединение ощущается разболтанным, контакты темнеют. Продолжать пользоваться при таких признаках опасно из-за нагрева и более серьёзных повреждений, поэтому оценку следует оставить авторизованному сервису. Держатель, поднимающий кабель над землёй, не даёт коннектору падать и заметно откладывает этот износ. На станциях постоянного тока кабельный комплект и так планируется как деталь, заменяемая в течение срока службы."
+        },
+        {
+          "q": "Обновляется ли программное обеспечение зарядного устройства?",
+          "a": "На устройствах, работающих в связке с системой управления по протоколу OCPP, программная часть тоже входит в чек-лист. Здесь важно не только обновление, но и то, что связь не оборвалась, а записи ведутся корректно, ведь при тарификации или учёте по пользователям потерянная запись сразу порождает проблему. На стороне авторизации список пользователей нужно держать актуальным; карта ушедшего сотрудника, всё ещё числящаяся разрешённой, — брешь нетехническая, но реальная. Эти операции выполняются через панель управления без вскрытия устройства."
+        }
+      ],
+      "related": [
+        {
+          "label": "Поддержка по неисправностям и гарантии"
+        },
+        {
+          "label": "Безопасна ли зарядка дома?"
+        },
+        {
+          "label": "Руководство по установке"
+        },
+        {
+          "label": "Кабели зарядки AC"
+        },
+        {
+          "label": "Домашняя зарядная станция (AC Wallbox)"
+        }
+      ]
+    },
+    "fabrika-osb-sanayi-sitesi-sarj-istasyonu": {
+      "title": "Зарядные станции на парковке персонала завода и промзоны",
+      "description": "Зарядные станции на парковке персонала завода и промзоны: существующий трансформатор, компенсация, число точек по сменам и учёт расхода.",
+      "excerpt": "Поставить зарядную станцию на заводе — не то же самое, что повесить настенную станцию дома. У предприятия уже есть трансформатор, щит компенсации и производственная нагрузка, меняющаяся по часам. Правильный монтаж строится на этих трёх фактах.",
+      "category": "Руководство",
+      "body": [
+        {
+          "text": "Каждый завод, склад и промышленная зона с растущим числом электромобилей у сотрудников приходит к одному вопросу: хотим поставить зарядки на парковке, с чего начать? Это не похоже на установку настенной станции дома. В жилом доме вопрос один — хватает ли ввода; на производстве уже есть трансформатор, щит компенсации и нагрузка, которая меняется от часа к часу. Зарядные точки добавляются поверх этой картины. Эта статья разбирает решение на стороне завода и промзоны по порядку."
+        },
+        {
+          "text": "Парковка персонала — это не автопарк компании"
+        },
+        {
+          "text": "Это различие нужно провести первым, потому что от него зависит каждое следующее решение. Если заряжается служебный автопарк, машины ваши, они стоят на территории ночью и планирование за вами; этот сценарий мы разобрали в отдельной статье. Парковка персонала устроена иначе: машины принадлежат сотрудникам, приезжают к началу смены и уезжают по её окончании. То есть окно зарядки — не вся ночь, а длительность смены, и кто сколько израсходовал, должно разделяться по людям."
+        },
+        {
+          "text": "Сколько точек нужно? Ответ даёт график смен"
+        },
+        {
+          "text": "На парковке персонала одна точка может обслужить за день несколько машин, потому что автомобиль сотрудника стоит часами. На односменном предприятии, где машина приезжает утром и уезжает вечером, точка на 7,4 кВт за окно в 8 часов отдаёт с запасом энергию, нужную для ежедневного пробега; здесь работает время, а не скорость. На трёхсменном предприятии та же точка может обслужить по очереди трёх водителей. Поэтому число точек планируют не по количеству машин, а по количеству электромобилей, стоящих одновременно."
+        },
+        {
+          "items": [
+            "Считайте электромобили, стоящие одновременно, а не общую численность персонала.",
+            "Запишите время пересменок; именно тогда точки делятся между водителями.",
+            "Закладывайте инфраструктуру на 2-3 года вперёд, а не под сегодняшнюю цифру: кабель и щит дёшевы при первой траншее, а не потом.",
+            "Предусмотрите отдельную точку для посетителей и поставщиков; точки персонала, возможно, стоит закрыть авторизацией."
+          ]
+        },
+        {
+          "text": "Электрическая сторона в промзоне"
+        },
+        {
+          "text": "В организованных промышленных зонах распределение электроэнергии часто идёт через юридическое лицо самой зоны; то есть при подключении новой нагрузки вашим собеседником может оказаться администрация зоны, а не региональная сетевая компания. В небольших промышленных посёлках общий трансформатор обслуживает несколько предприятий, поэтому возникает вопрос распределения мощности. В обоих случаях вопрос перед монтажом один и тот же: есть ли в вашем трансформаторе и главном щите место для добавляемой нагрузки?"
+        },
+        {
+          "text": "Вторая техническая тема — компенсация реактивной мощности. Промышленным потребителям реактивная энергия выставляется в счёт, и при добавлении новой нагрузки щит компенсации нужно пересмотреть под новую ситуацию. Как зарядные точки повлияют на эту картину, должен оценить, после определения количества и мощности, тот, кто знает электропроект предприятия. Это один из важнейших пунктов обследования перед монтажом."
+        },
+        {
+          "text": "Не трогайте пик производственной нагрузки"
+        },
+        {
+          "text": "Электрическая нагрузка завода в течение дня непостоянна; она даёт пик, когда включается оборудование. Худший сценарий для зарядных точек — тянуть полную мощность вместе именно в этот пик. Решение не в сокращении числа точек, а в динамическом управлении нагрузкой: система видит текущее потребление предприятия, автоматически снижает мощность зарядки и снова поднимает её, когда предприятие разгружается. Серии Bemis Charger Plus 2 и Charger Pro 2 имеют эту функцию выравнивания нагрузки; поскольку устройства работают ступенями в диапазоне 6-32 А, снижение происходит без прерывания зарядки."
+        },
+        {
+          "text": "Кто платит за электричество? Решите это заранее"
+        },
+        {
+          "text": "На парковке персонала это не технический, а организационный вопрос, и ответ бывает трёх видов: зарядка предлагается бесплатно как льгота, стоимость перекладывается на сотрудника, либо выстраивается модель, бесплатная до определённого числа кВтч и платная дальше. Что бы вы ни выбрали, нельзя управлять тем, чего не видно. В сериях Charger Plus 2 и Charger Pro 2 авторизация пользователя картой RFID и панель управления общей зоной с отчётами по людям предоставляются бесплатно; никакой лицензии или подписки после этого не возникает. Если измерение должно служить основанием для счёта, выбирают модели со встроенным счётчиком MID."
+        },
+        {
+          "text": "Какое устройство: AC или DC?"
+        },
+        {
+          "text": "На парковке персонала и посетителей правильный ответ почти всегда AC. Поскольку машина стоит часами, настенная станция переменного тока в диапазоне от 7,4 кВт до 22 кВт покрывает потребность с запасом, а стоимость инфраструктуры существенно ниже. Быстрая зарядка постоянным током нужна там, где автомобиль остаётся лишь на минуты: логистический въезд и выезд, административное здание с плотным потоком посетителей или решение позиционировать площадку как публичную зарядную точку. Не путать эти два случая — самая простая экономия во всём проекте."
+        },
+        {
+          "text": "Почему обследование перед монтажом обязательно?"
+        },
+        {
+          "text": "Ни один из пунктов выше нельзя закрыть выбором по каталогу: существующий щит, нагрузка трансформатора, расстояние до парковки, трасса кабеля и монтажная поверхность должны быть осмотрены на месте. В Bemis этот процесс идёт через авторизованного дилера; выбор устройства становится определённым после обследования, монтаж выполняет квалифицированный электрик, а продукция поставляется с гарантией производителя 2 года."
+        },
+        {
+          "text": "Давайте вместе определим, какая модель и сколько точек нужны вашему предприятию.",
+          "label": "Ближайший авторизованный дилер"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Что нужно, чтобы установить зарядную станцию на заводе?",
+          "a": "Должны проясниться три вещи: сколько электромобилей будет стоять одновременно, есть ли в существующем трансформаторе и главном щите место под добавляемую нагрузку, и кто будет платить за электричество. После этого выбирают количество и мощность устройств. На практике порядок такой: обследование на месте, определение числа устройств и точек, при необходимости пересмотр щита и компенсации, прокладка кабельной трассы, затем монтаж и ввод в эксплуатацию. Выбор устройства по каталогу без обследования оборачивается дорогими сюрпризами вроде последующей замены щита."
+        },
+        {
+          "q": "Кто выдаёт разрешение на зарядную станцию в промзоне?",
+          "a": "В организованных промышленных зонах распределением электроэнергии часто занимается юридическое лицо самой зоны. В этом случае вашим собеседником по уведомлению о новой нагрузке и вопросу мощности будет администрация зоны, а не региональная сетевая компания. В небольших промышленных посёлках общий трансформатор обслуживает несколько предприятий, поэтому мощность нужно обсуждать с администрацией посёлка. Если у предприятия свой трансформатор, ситуация проще, но существующую нагрузку и компенсацию всё равно надо оценить. Поскольку порядок отличается от региона к региону, первый шаг — письменно запросить свою администрацию."
+        },
+        {
+          "q": "Сколько зарядных устройств нужно для парковки персонала?",
+          "a": "Решающая цифра — не общая численность персонала, а сколько электромобилей стоит на парковке одновременно. Поскольку машина сотрудника стоит всю смену, одна точка может обслужить за день несколько автомобилей; за окно в 8 часов 7,4 кВт свободно отдают энергию, нужную для ежедневного пробега. На трёхсменном предприятии та же точка обслуживает по очереди трёх водителей. Практичный подход — ставить устройства по сегодняшнему числу электромобилей, но кабельную и щитовую инфраструктуру закладывать на несколько лет вперёд; добавить устройства легко, протянуть кабель дорого."
+        },
+        {
+          "q": "Не перегрузят ли зарядки электроснабжение завода?",
+          "a": "Без управления нагрузкой могут, ведь в худшем случае устройства тянут полную мощность вместе в тот час, когда производственная нагрузка даёт пик. Динамическое выравнивание решает это: система следит за текущим потреблением предприятия, автоматически снижает мощность зарядки и снова поднимает её, когда предприятие разгружается. Серии Bemis Charger Plus 2 и Charger Pro 2 имеют эту функцию, и поскольку устройства работают ступенями в диапазоне 6-32 А, снижение проходит без прерывания зарядки. Дополнительно таймером зарядку можно перенести на непроизводственные часы."
+        },
+        {
+          "q": "Как учитывать электричество, израсходованное сотрудниками?",
+          "a": "Для учёта по людям нужны две вещи: авторизация пользователя и запись. С картой RFID каждый сотрудник начинает зарядку своей картой, и система фиксирует, кто сколько кВтч израсходовал. В Bemis панель управления общей зоной предоставляется бесплатно в сериях Charger Plus 2 и Charger Pro 2, без отдельной подписки или лицензии. Если измерение должно служить основанием для счёта, выбирают модели со встроенным счётчиком MID. Такая схема важна даже тогда, когда зарядка предлагается бесплатно как льгота — хотя бы для того, чтобы видеть затраты."
+        },
+        {
+          "q": "Что брать для предприятия: настенную станцию AC или быструю DC?",
+          "a": "Решает то, сколько автомобиль находится на территории. На парковке персонала и посетителей машина стоит часами, поэтому настенная станция переменного тока в диапазоне 7,4-22 кВт покрывает потребность с запасом, а затраты на инфраструктуру заметно ниже. Быстрая зарядка постоянным током нужна там, где автомобиль остаётся лишь на минуты: плотный поток посетителей, логистический въезд и выезд или решение позиционировать площадку как публичную зарядную точку. Для большинства производств правильный ответ — AC; если DC всё же нужен, обычно это отдельная и немногочисленная точка."
+        }
+      ],
+      "related": [
+        {
+          "label": "Домашняя зарядная станция (AC Wallbox)"
+        },
+        {
+          "label": "Зарядные решения для автопарка"
+        },
+        {
+          "label": "Что такое управление нагрузкой?"
+        },
+        {
+          "label": "Панель управления зарядкой в общей зоне"
+        },
+        {
+          "label": "Руководство по установке"
+        }
+      ]
+    },
+    "dc-sarj-unitesi-duvar-tipi-mi-direk-tipi-mi": {
+      "title": "Зарядная станция постоянного тока: настенная или на стойке?",
+      "description": "Выбор между настенным исполнением и стойкой для станции постоянного тока: монтажная поверхность, планировка площадки, габариты и вес. На примере 40 кВт.",
+      "excerpt": "Станция постоянного тока одной и той же мощности может выпускаться в двух корпусах: настенном и напольном на собственной стойке. Разница не электрическая, а площадочная: решают место монтажа и то, как подъезжает автомобиль.",
+      "category": "Руководство",
+      "body": [
+        {
+          "text": "При выборе станции быстрой зарядки постоянным током первым обычно обсуждают мощность: 40 кВт, 80 кВт или 120 кВт? Когда мощность определена, появляется второе решение, которого большинство покупателей не ждёт: одна и та же станция может предлагаться в двух разных корпусах. Один монтируется на стену, другой стоит на собственной стойке. Электрически они делают одно и то же; разница целиком в площадке."
+        },
+        {
+          "text": "Настоящая разница между двумя исполнениями"
+        },
+        {
+          "text": "Настенная станция крепится к несущей поверхности. Вес принимает стена, устройство поднято над землёй, а площадь перед ним остаётся полностью свободной. Напольное исполнение стоит собственным корпусом на основании; его можно поставить там, где стены позади нет, — на открытой парковке, в середине парковочного острова или у края озеленения. Поэтому исполнение на стойке глубже и заметно тяжелее."
+        },
+        {
+          "caption": "Два корпуса на примере Bemis BEVDC 40",
+          "headers": [
+            "",
+            "Настенное",
+            "На стойке"
+          ],
+          "rows": [
+            [
+              "Выходная мощность",
+              "40 кВт",
+              "40 кВт"
+            ],
+            [
+              "Коннектор",
+              "CCS2",
+              "CCS2"
+            ],
+            [
+              "Ширина x Глубина x Высота",
+              "600 x 320 x 900 мм",
+              "600 x 425 x 1770 мм"
+            ],
+            [
+              "Вес",
+              "80 кг",
+              "105 кг"
+            ],
+            [
+              "Монтаж",
+              "Крепится к несущей стене",
+              "На собственной стойке, анкерится к полу"
+            ],
+            [
+              "Типичное место",
+              "Крытый паркинг, фасад здания, ограждающая стена",
+              "Открытая парковка, парковочный остров, зона без стены"
+            ]
+          ]
+        },
+        {
+          "text": "Когда настенное исполнение — правильный выбор?"
+        },
+        {
+          "text": "Если в месте монтажа есть прочная стена или колонна, способная принять вес станции, настенное исполнение почти всегда практичнее. Не льётся основание, не сверлится пол, устройство остаётся вне линии движения машин и не теряется парковочное место. Крытые паркинги, фасады зданий и ограждающие стены площадок — естественное место этого исполнения."
+        },
+        {
+          "text": "Когда нужна стойка?"
+        },
+        {
+          "text": "Если в точке подъезда автомобиля стены нет, решение принято за вас. Середина парковочных островов, средние ряды открытых парковок и края озеленения стены не имеют; там станция обязана стоять на собственной стойке. Второе преимущество стойки — заметность: корпус высотой 1770 мм виден издалека, что важно для предприятий, позиционирующих площадку как публичную зарядную точку."
+        },
+        {
+          "text": "Третий фактор: кабель и подъезд"
+        },
+        {
+          "text": "Независимо от типа корпуса станция должна дотянуться до зарядного разъёма автомобиля. Кабели постоянного тока тяжёлые, поэтому лишняя длина утомляет пользователя, а короткий кабель заставляет ставить машину в определённом направлении. Именно поэтому выбор корпуса и схему парковки планируют вместе: с какой стороны подъезжает автомобиль, с какой стороны у него зарядный разъём и дотягивается ли кабель, не волочась по земле, измеряют во время обследования."
+        },
+        {
+          "text": "Как оценить несущую поверхность для настенного исполнения?"
+        },
+        {
+          "text": "Перед выбором настенного исполнения стоит простой, но часто пропускаемый вопрос: выдержит ли эта стена станцию весом 80 килограммов вместе с висящим на ней кабелем в течение многих лет? Железобетонные стены и колонны с такой нагрузкой проблем не создают; лёгкая перегородка, кладка из пустотелых блоков или возведённая позже поверхность несущими не считаются. Здесь же определяется высота монтажа: отметка, на которой коннектор удобно достать, но кабель не волочится по земле. Эта оценка делается не по каталогу, а осмотром на месте."
+        },
+        {
+          "text": "На большей мощности вопрос корпуса исчезает"
+        },
+        {
+          "text": "Различие между стеной и стойкой относится к нижнему классу мощности. С ростом мощности увеличиваются преобразователь и объём охлаждения внутри, устройство перестаёт помещаться в корпус, который можно повесить на стену, и становится напольным шкафом. В серии Bemis BEVDC мощность 40 кВт предлагается в двух корпусах, тогда как 80 кВт и выше — шкафного типа; модели от 120 кВт дополнительно имеют ёмкостный сенсорный экран 10 дюймов и ударостойкость IK10. То есть выбор корпуса сужается сам собой вместе с классом мощности."
+        },
+        {
+          "text": "Электрические характеристики у обоих исполнений одинаковы"
+        },
+        {
+          "text": "Не думайте, что выбор по корпусу стоит вам функций. В серии Bemis BEVDC оба корпуса несут одну и ту же электрическую платформу: коннектор CCS2, трёхфазный вход AC 380-480 В, диапазон выхода 150-1000 В постоянного тока, класс защиты IP54, рабочая температура от -25 °C до +55 °C, поддержка протокола OCPP 1.6J / 2.0.1, а также авторизация пользователя картой RFID и через мобильное приложение. Серия простирается от 40 кВт до 200 кВт; в более высоких классах мощности корпус становится шкафным."
+        },
+        {
+          "text": "Давайте обследованием уточним, какой корпус подходит планировке вашей площадки.",
+          "label": "Посмотреть станции быстрой зарядки"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Что такое зарядная станция постоянного тока?",
+          "a": "Станция постоянного тока — это быстрое зарядное устройство, которое внутри себя преобразует взятый из сети переменный ток в постоянный и подаёт его прямо на батарею автомобиля. При зарядке переменным током это преобразование выполняет бортовое зарядное устройство машины, и именно оно ограничивает мощность; при постоянном токе преобразование происходит внутри станции, бортовое устройство обходится, и становятся возможны гораздо большие мощности. Поэтому такие станции дают зарядку в масштабе минут и применяются там, где автомобили стоят недолго. На площадке тот же продукт называют также зарядным устройством постоянного тока, станцией быстрой зарядки или быстрой зарядной станцией."
+        },
+        {
+          "q": "Есть ли разница в мощности между настенным исполнением и стойкой?",
+          "a": "Нет. Для одной и той же модели тип корпуса не меняет электрические характеристики; выходная мощность, тип коннектора, класс защиты, рабочая температура и поддержка протокола одинаковы в обоих. Разница проявляется на физической стороне: исполнение на стойке несёт собственное основание и потому глубже и тяжелее. На примере Bemis BEVDC 40 настенное исполнение имеет размеры 600 x 320 x 900 мм и вес 80 кг, тогда как исполнение на стойке — 600 x 425 x 1770 мм и 105 кг. Поэтому выбор делается не по производительности, а по монтажной поверхности и планировке площадки."
+        },
+        {
+          "q": "Нужна ли подготовка основания для станции на стойке?",
+          "a": "Да. Поскольку станция на стойке передаёт свой вес на грунт, место анкеровки должно быть подготовлено к этой нагрузке; на практике это обычно означает бетонное основание и анкеры. Кроме того, так как кабель вводится снизу, трассу нужно планировать вместе с основанием; вскрывать кабельный канал позже гораздо дороже. У настенного исполнения этого шага нет, станция крепится к несущей поверхности. В обоих случаях основание и узел монтажа определяются на месте во время обследования перед установкой."
+        },
+        {
+          "q": "Какой класс мощности постоянного тока выбрать для предприятия?",
+          "a": "Решает то, сколько автомобиль пробудет на вашей площадке. Если машина стоит полчаса и дольше, класс 40 кВт покрывает большинство сценариев; там, где визит сокращается до пятнадцати минут, на придорожных точках, начинают иметь смысл более высокие классы. С ростом мощности увеличивается не только станция, но и сетевое подключение с трансформаторной стороной, поэтому решение нельзя принимать по одной лишь цене устройства. Серия Bemis BEVDC охватывает классы 40, 80, 120, 160, 180 и 200 кВт; правильный класс выбирают, оценивая вместе длительность визита и существующую электрическую инфраструктуру."
+        },
+        {
+          "q": "Можно ли устанавливать станцию постоянного тока на улице?",
+          "a": "Да, эти станции рассчитаны на наружную установку. Серия Bemis BEVDC имеет класс защиты IP54 и заявлена для работы в диапазоне от -25 °C до +55 °C; то есть её можно разместить на открытой парковке под дождём и при сезонных температурах. Тем не менее на площадке следят за двумя вещами: станция и кабель должны оставаться вне линии манёвра автомобилей, и предпочтительно, чтобы экран не находился под прямым солнцем весь день. Место установки выбирают при обследовании с учётом этих деталей."
+        }
+      ],
+      "related": [
+        {
+          "label": "Станции быстрой зарядки постоянным током"
+        },
+        {
+          "label": "Что такое зарядная станция 40 кВт?"
+        },
+        {
+          "label": "Руководство по инвестициям в быструю зарядку"
+        },
+        {
+          "label": "Разница между зарядкой AC и DC"
+        },
+        {
+          "label": "Выбор кабеля постоянного тока и коннектора CCS2"
         }
       ]
     }
