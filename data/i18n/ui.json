@@ -4289,5 +4289,12 @@
   "ar": "معدّات متوافقة مع OCPP، DLM، مراقبة عن بُعد",
   "ru": "Оборудование с поддержкой OCPP, DLM, удалённый мониторинг",
   "nl": "OCPP-compatibele apparatuur, DLM, bewaking op afstand"
+ },
+ "User Manual": {
+  "de": "Bedienungsanleitung",
+  "es": "Manual de usuario",
+  "ar": "دليل المستخدم",
+  "ru": "Руководство пользователя",
+  "nl": "Gebruikershandleiding"
  }
 }

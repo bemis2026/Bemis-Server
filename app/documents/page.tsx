@@ -38,7 +38,7 @@ const CATEGORIES: { id: string; tr: string; en: string }[] = [
   { id: "all",          tr: "Tümü",            en: "All" },
   { id: "price-list",   tr: "Fiyat Listesi",   en: "Price List" },
   { id: "catalog",      tr: "Katalog",         en: "Catalog" },
-  { id: "installation", tr: "Kurulum Kılavuzu", en: "Installation Guide" },
+  { id: "installation", tr: "Kullanma Kılavuzu", en: "User Manual" },
   { id: "certificate",  tr: "Sertifikalar",    en: "Certificates" },
   { id: "technical",    tr: "Teknik Döküman",  en: "Technical Document" },
   { id: "other",        tr: "Diğer",           en: "Other" },

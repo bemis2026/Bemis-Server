@@ -181,7 +181,7 @@ const DOC_CATEGORIES: { id: string; label: { tr: string; en: string }; accent: s
   //    Fiyat listesi eskiden birinciydi ve otomatik açılıyordu; müşteri gözüne
   //    ilk çarpan o oluyordu. Kaldırılmadı, yalnız EN ALTA alındı.
   { id: "catalog",      label: { tr: "Katalog",          en: "Catalog" },            accent: "#3B82F6" },
-  { id: "installation", label: { tr: "Kurulum Kılavuzu", en: "Installation Guide" }, accent: "#10B981" },
+  { id: "installation", label: { tr: "Kullanma Kılavuzu", en: "User Manual" },       accent: "#10B981" },
   { id: "technical",    label: { tr: "Teknik Döküman",   en: "Technical Document" }, accent: "#EF4444" },
   { id: "certificate",  label: { tr: "Sertifikalar",     en: "Certificates" },       accent: "#8B5CF6" },
   { id: "other",        label: { tr: "Diğer",            en: "Other" },              accent: "#6B7280" },

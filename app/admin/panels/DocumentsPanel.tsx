@@ -20,7 +20,7 @@ type ProductCatLite = { id: string; name: string };
 const DOC_CATEGORIES = [
   { id: "price-list",   label: "Fiyat Listesi" },
   { id: "catalog",      label: "Katalog" },
-  { id: "installation", label: "Kurulum Kılavuzu" },
+  { id: "installation", label: "Kullanma Kılavuzu" },
   { id: "certificate",  label: "Sertifikalar" },
   { id: "technical",    label: "Teknik Döküman" },
   { id: "other",        label: "Diğer" },
