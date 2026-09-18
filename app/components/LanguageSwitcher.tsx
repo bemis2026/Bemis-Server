@@ -57,34 +57,52 @@ export default function LanguageSwitcher({
       if (code === "tr" || langSeg) { setLang(code); router.push(`/products${segment}`); return; }
     }
 
-    // 2026-09-09: Sözlük ve blog kollarında da dil = GERÇEK URL.
-    // ⚠️ Bu iki bölümün YALNIZ Arapça kolu var (de/es/ru/nl/en'de /sozluk ve /blog
-    // rotası YOK) → yalnız "ar" için adrese gidilir, diğer diller eskisi gibi
-    // istemci tarafında çevrilir.
+    // SÖZLÜK — YALNIZ Arapça kolu var (de/es/ru/nl/en'de /sozluk rotası YOK,
+    // ölçüldü: app/[lang]/sozluk generateStaticParams sadece "ar" üretir).
     const sozluk = (pathname ?? "").match(/^(?:\/ar)?(\/sozluk(?:\/[^/]+)?)$/);
-    const blogListe = (pathname ?? "").match(/^(?:\/ar)?(\/blog)$/);
-    const arKolYol = sozluk?.[1] ?? blogListe?.[1] ?? null;
-    if (arKolYol) {
-      if (code === "ar") { router.push(`/ar${arKolYol}`); return; }
-      if ((pathname ?? "").startsWith("/ar/")) { setLang(code); router.push(arKolYol); return; }
+    if (sozluk) {
+      const yol = sozluk[1];
+      if (code === "ar") { router.push(`/ar${yol}`); return; }
+      if ((pathname ?? "").startsWith("/ar/")) { setLang(code); router.push(yol); return; }
     }
 
-    // Blog YAZI sayfası — AR ↔ TR.
-    // AR → TR: TR karşılığı DAİMA vardır (kaynak dil), doğrudan gidilir.
-    const arBlogYazi = (pathname ?? "").match(/^\/ar(\/blog\/[^/]+)$/);
-    if (arBlogYazi && code !== "ar") { setLang(code); router.push(arBlogYazi[1]); return; }
+    // BLOG LİSTESİ — 2026-09-18: altı dilin de kendi adresi var
+    // (/en/blog · /de/blog · /es/blog · /ru/blog · /nl/blog · /ar/blog).
+    const blogListe = (pathname ?? "").match(/^(?:\/(en|de|es|ru|nl|ar))?\/blog$/);
+    if (blogListe) {
+      if (code === "tr") { setLang("tr"); router.push("/blog"); return; }
+      // Dil kolunda forcedLangForPath dili zaten zorlar → setLang gerekmez.
+      router.push(`/${code}/blog`);
+      return;
+    }
 
-    // TR → AR: 2026-09-10'a kadar KAPALIYDI (her yazının Arapçası yoktu → 404 riski).
-    // Artık 37/37 yazı tam çevrili; yine de slug listesi GÖMÜLMEZ — sayfanın KENDİ
-    // `hreflang="ar"` alternatifi okunur. O alternate `tamCevrildi()` kapısından geçer
-    // (app/blog/[slug]/page.tsx), yani Arapçası olmayan yazıda link HİÇ basılmaz →
-    // yeni yazı eklendiğinde de 404 imkânsız, elle bakım gerekmez.
+    // BLOG YAZI SAYFASI — dil kolu ↔ TR ↔ başka dil.
+    //
+    // ⚠️ SLUG LİSTESİ GÖMÜLMEZ: sayfanın KENDİ hreflang alternatifi okunur. O alternate
+    // `tamCevrildi()` kapısından geçer (blog rotaları), yani o dilde çevirisi olmayan
+    // yazıda link HİÇ basılmaz → 404 imkânsız ve yeni yazıda elle bakım gerekmez.
+    const altYol = (dil: string) => {
+      const a = document.querySelector(`link[rel="alternate"][hreflang="${dil}"]`)?.getAttribute("href") ?? "";
+      return a.startsWith("http") ? new URL(a).pathname : a;
+    };
+
+    const dilBlogYazi = (pathname ?? "").match(/^\/(en|de|es|ru|nl|ar)(\/blog\/[^/]+)$/);
+    if (dilBlogYazi) {
+      // Dil kolu → TR: TR karşılığı DAİMA vardır (kaynak dil), doğrudan gidilir.
+      if (code === "tr") { setLang("tr"); router.push(dilBlogYazi[2]); return; }
+      const yol = altYol(code);
+      if (yol.startsWith(`/${code}/blog/`)) { router.push(yol); return; }
+      // O dilde çevirisi yoksa: TR yazıya dön + istemci tarafında çevir.
+      setLang(code);
+      router.push(dilBlogYazi[2]);
+      return;
+    }
+
     const trBlogYazi = (pathname ?? "").match(/^\/blog\/[^/]+$/);
-    if (trBlogYazi && code === "ar") {
-      const alt = document.querySelector('link[rel="alternate"][hreflang="ar"]')?.getAttribute("href") ?? "";
-      const yol = alt.startsWith("http") ? new URL(alt).pathname : alt;
-      if (yol.startsWith("/ar/blog/")) { router.push(yol); return; }
-      // Arapçası yoksa eski davranış: istemci tarafında çevir (tam değilse gövde TR kalır).
+    if (trBlogYazi && code !== "tr") {
+      const yol = altYol(code);
+      if (yol.startsWith(`/${code}/blog/`)) { router.push(yol); return; }
+      // O dilde çevirisi yoksa eski davranış: istemci tarafında çevir (gövde TR kalır).
     }
 
     setLang(code);

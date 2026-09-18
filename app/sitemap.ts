@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getServerProducts } from "./lib/server-content";
 import { allPosts } from "./blog/posts";
-import { yazilarDilde } from "./lib/serverBlogLang";
+import { BLOG_LANGS, yazilarDilde } from "./lib/serverBlogLang";
 import { allPress } from "./blog/press";
 import { CITY_PAGES } from "./lib/cities";
 import { allTerms } from "./lib/glossary";
@@ -252,27 +252,50 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ),
   ]);
 
-  // Blog — TR + Arapça kol. ⚠️ ar alternate YALNIZ Arapçası tam olan yazıda
-  // (arSlug kümesi) verilir; çift yönlü olsun diye TR girişine de aynı küme yazılır.
-  const arSlug = new Set(yazilarDilde("ar").map((p) => p.slug));
-  const blogAlt = (yol: string) => ({ tr: `${BASE}${yol}`, ar: `${BASE}/ar${yol}` });
+  // Blog — TR + 6 yabancı dil kolu (en · de · es · ru · nl · ar).
+  //
+  // ⚠️ alternates YAZI BAZINDA hesaplanır: bir yazı yalnız TAM çevrildiği dillerde
+  //    adres alır (`tamCevrildi` kapısı, serverBlogLang.ts) → karşılıksız hreflang
+  //    oluşmaz. Küme çift yönlüdür: TR girişi de aynı dilleri listeler.
+  const dilYazilari = new Map<string, Set<string>>(
+    BLOG_LANGS.map((l) => [l, new Set(yazilarDilde(l).map((p) => p.slug))]),
+  );
+  const yaziDilleri = (slug: string) => BLOG_LANGS.filter((l) => dilYazilari.get(l)!.has(slug));
+  const blogAlt = (yol: string, diller: readonly string[]) => {
+    const k: Record<string, string> = { tr: `${BASE}${yol}` };
+    for (const l of diller) k[l] = `${BASE}/${l}${yol}`;
+    return k;
+  };
   const blogRoutes: MetadataRoute.Sitemap = [
-    { url: `${BASE}/blog`, lastModified: gt("/blog"), changeFrequency: "weekly", priority: 0.7, alternates: { languages: blogAlt("/blog") } },
-    ...allPosts().map((p) => ({
-      url: `${BASE}/blog/${p.slug}`,
-      lastModified: new Date(p.dateModified ?? p.datePublished),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-      ...(arSlug.has(p.slug) ? { alternates: { languages: blogAlt(`/blog/${p.slug}`) } } : {}),
-    })),
-    { url: `${BASE}/ar/blog`, lastModified: gt("/blog"), changeFrequency: "weekly", priority: 0.65, alternates: { languages: blogAlt("/blog") } },
-    ...allPosts().filter((p) => arSlug.has(p.slug)).map((p) => ({
-      url: `${BASE}/ar/blog/${p.slug}`,
-      lastModified: new Date(p.dateModified ?? p.datePublished),
-      changeFrequency: "monthly" as const,
-      priority: 0.55,
-      alternates: { languages: blogAlt(`/blog/${p.slug}`) },
-    })),
+    { url: `${BASE}/blog`, lastModified: gt("/blog"), changeFrequency: "weekly", priority: 0.7, alternates: { languages: blogAlt("/blog", BLOG_LANGS) } },
+    ...allPosts().map((p) => {
+      const diller = yaziDilleri(p.slug);
+      return {
+        url: `${BASE}/blog/${p.slug}`,
+        lastModified: new Date(p.dateModified ?? p.datePublished),
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+        ...(diller.length > 0 ? { alternates: { languages: blogAlt(`/blog/${p.slug}`, diller) } } : {}),
+      };
+    }),
+    ...BLOG_LANGS.flatMap((l) => [
+      {
+        url: `${BASE}/${l}/blog`,
+        lastModified: gt("/blog"),
+        changeFrequency: "weekly" as const,
+        priority: 0.65,
+        alternates: { languages: blogAlt("/blog", BLOG_LANGS) },
+      },
+      ...allPosts()
+        .filter((p) => dilYazilari.get(l)!.has(p.slug))
+        .map((p) => ({
+          url: `${BASE}/${l}/blog/${p.slug}`,
+          lastModified: new Date(p.dateModified ?? p.datePublished),
+          changeFrequency: "monthly" as const,
+          priority: 0.55,
+          alternates: { languages: blogAlt(`/blog/${p.slug}`, yaziDilleri(p.slug)) },
+        })),
+    ]),
     ...allPress().map((p) => ({
       url: `${BASE}/blog/haber/${p.id}`,
       lastModified: p.date ? new Date(p.date) : now,

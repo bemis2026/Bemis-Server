@@ -14,6 +14,10 @@ import { mergeBlogPost, type BlogTranslation } from "./blogI18n";
 
 const I18N = blogJson as unknown as Record<string, Record<string, BlogTranslation>>;
 
+/** Blog ADRESİ olan yabancı diller. `/en` ayrı statik ağaçta (app/en/blog). */
+export const BLOG_LANGS = ["en", "de", "es", "ru", "nl", "ar"] as const;
+export type BlogLang = (typeof BLOG_LANGS)[number];
+
 /** Yazıyı verilen dile çevir. Çeviri yoksa TR yazı aynen döner. */
 export function yaziDilde(post: BlogPost, lang: string): BlogPost {
   if (lang === "tr") return post;
@@ -24,9 +28,9 @@ export function yaziDilde(post: BlogPost, lang: string): BlogPost {
  * O dilde yazı GERÇEKTEN tam çevrildi mi?
  *
  * ⚠️ BU KAPI ŞART: `mergeBlogPost` dizi uzunlukları tutmazsa SESSİZCE TR'ye düşer.
- * Kapı olmadan, çevirisi bayat bir yazı için Arapça adres açılır ve o adreste
+ * Kapı olmadan, çevirisi bayat bir yazı için o dilde adres açılır ve o adreste
  * TÜRKÇE gövde yayınlanırdı. Kapı yeni yazı eklendiğinde de kendiliğinden korur:
- * çevirisi gelmemiş yazı Arapça adres ALMAZ (404), yarım çevrilmiş sayfa yayınlanmaz.
+ * çevirisi gelmemiş yazı o dilde adres ALMAZ (404), yarım çevrilmiş sayfa yayınlanmaz.
  */
 export function tamCevrildi(post: BlogPost, lang: string): boolean {
   const t = I18N[lang]?.[post.slug];
@@ -50,38 +54,53 @@ export function yaziBulDilde(slug: string, lang: string): BlogPost | null {
   return yaziDilde(p, lang);
 }
 
-// ── Arapça kolda iç linkler ─────────────────────────────────────────────────
-// TR adresleri Arapça karşılıklarına çevirir. Karşılığı OLMAYAN yerel/TR sayfalar
-// (üretici hikâyesi, OEM, bayilik, şehir sayfası) Arapça GİRİŞ sayfasına (/ar) bağlanır —
-// orada üretici anlatısı, ihracat/OEM iletişimi ve teklif formu zaten var.
-// ⚠️ Amaç: Arapça sayfadan TR köke sızıntı OLMAMASI (2026-09-09 /ar ürün kolu kuralı).
+/** Bir yazının hangi dillerde ADRESİ var (hreflang kümesi bunu kullanır). */
+export function yaziDilleri(post: BlogPost): BlogLang[] {
+  return BLOG_LANGS.filter((l) => tamCevrildi(post, l));
+}
 
-/** TR iç adresini Arapça koldaki karşılığına çevirir; karşılığı yoksa null
- *  (yalnız çevirisi olmayan blog yazısı) ya da Arapça giriş sayfası döner.
+// ── Dil kollarında iç linkler ───────────────────────────────────────────────
+// TR adreslerini o dilin koluna taşır. Karşılığı OLMAYAN yerel/TR sayfalar
+// (üretici hikâyesi, OEM, bayilik, şehir sayfası) o dilin GİRİŞ sayfasına bağlanır.
+// ⚠️ Amaç: dil kolundan TR köke sızıntı OLMAMASI (2026-09-09 /ar ürün kolu kuralı).
+
+/**
+ * ⚠️ SÖZLÜK YALNIZ ARAPÇADA VAR — ÖLÇÜLDÜ.
+ * `app/[lang]/sozluk/**` generateStaticParams YALNIZ "ar" üretir; /de/sozluk,
+ * /es/sozluk … HİÇ YOK. Bu yüzden başka dillerde sözlük linki VERİLMEZ (404 olurdu).
+ * Sözlük başka dillere açılırsa bu kümeye o dili de ekle.
+ */
+const SOZLUK_DILLERI = new Set<string>(["ar"]);
+
+/** TR iç adresini `lang` kolundaki karşılığına çevirir; karşılığı yoksa null
+ *  (çevirisi olmayan blog yazısı / o dilde olmayan sözlük) ya da giriş sayfası döner.
  *  ⚠️ Sözlük terim sayfası da BUNU kullanır — eşleme tek yerde kalsın. */
-export function arAdresi(href: string): string | null {
-  if (href.startsWith("/products")) return `/ar${href}`;
-  if (href === "/sozluk" || href.startsWith("/sozluk/")) return `/ar${href}`;
+export function dilAdresi(href: string, lang: string): string | null {
+  if (href.startsWith("/products")) return `/${lang}${href}`;
+  if (href === "/sozluk" || href.startsWith("/sozluk/")) {
+    return SOZLUK_DILLERI.has(lang) ? `/${lang}${href}` : null;
+  }
   const m = /^\/blog\/([^/#?]+)$/.exec(href);
   if (m) {
     const p = getPost(m[1]);
-    // Arapçası olmayan rehbere Arapça sayfadan link VERİLMEZ (Türkçe içeriğe düşerdi).
-    return p && tamCevrildi(p, "ar") ? `/ar/blog/${m[1]}` : null;
+    // O dilde çevirisi olmayan rehbere link VERİLMEZ (Türkçe içeriğe düşerdi).
+    return p && tamCevrildi(p, lang) ? `/${lang}/blog/${m[1]}` : null;
   }
-  return "/ar"; // /uretici · /b2b · /bayilik · /operator · /#dealer · şehir sayfaları
+  return `/${lang}`; // /uretici · /b2b · /bayilik · /operator · /#dealer · şehir sayfaları
 }
 
-/** Yazının related + cta linklerini Arapça kola taşı (karşılıksız related düşer). */
-export function arLinkleriDuzelt(post: BlogPost): BlogPost {
+/** Yazının related + cta linklerini `lang` koluna taşı (karşılıksız related düşer). */
+export function dilLinkleriDuzelt(post: BlogPost, lang: string): BlogPost {
   const body: BlogSection[] = post.body.map((s) =>
-    s.type === "cta" ? { ...s, href: arAdresi(s.href) ?? "/ar" } : s,
+    s.type === "cta" ? { ...s, href: dilAdresi(s.href, lang) ?? `/${lang}` } : s,
   );
 
   const gorulen = new Set<string>();
   const related = (post.related ?? [])
-    .map((r) => ({ r, h: arAdresi(r.href) }))
+    .map((r) => ({ r, h: dilAdresi(r.href, lang) }))
     .filter((x): x is { r: { label: string; href: string }; h: string } => x.h !== null)
-    // ⚠️ Birden çok TR adresi /ar'a düşebilir → aynı href iki çip olmasın (React key çakışması).
+    // ⚠️ Birden çok TR adresi giriş sayfasına düşebilir → aynı href iki çip olmasın
+    //    (React key çakışması).
     .filter((x) => (gorulen.has(x.h) ? false : (gorulen.add(x.h), true)))
     .map((x) => ({ ...x.r, href: x.h }));
 
@@ -89,22 +108,32 @@ export function arLinkleriDuzelt(post: BlogPost): BlogPost {
 }
 
 /**
- * Kategori sayfasındaki "İlgili Rehberler" çiplerinin ARAPÇA kol karşılığı.
+ * Kategori sayfasındaki "İlgili Rehberler" çiplerinin dil kolu karşılığı.
  *
- * ⚠️ Kural: yalnız Arapçası TAM olan blog yazısı kalır — başlığı Arapça, adresi
- * `/ar/blog/<slug>`. Arapça karşılığı olmayan rehber (çevirisi eksik yazı ya da
- * `/arac-sarj-uyumlulugu` gibi Arapça adresi hiç olmayan TR sayfa) LİSTEDEN DÜŞER.
- * `arAdresi`'nin genel yedeği burada KULLANILMAZ: "hangi araca hangi kablo uyar"
- * etiketli bir çipi Arapça giriş sayfasına bağlamak okuyucuyu yanıltırdı.
+ * ⚠️ Kural: yalnız o dilde TAM çevrilmiş blog yazısı kalır — başlığı o dilde, adresi
+ * `/<lang>/blog/<slug>`. Karşılığı olmayan rehber (çevirisi eksik yazı ya da
+ * `/arac-sarj-uyumlulugu` gibi o dilde adresi hiç olmayan TR sayfa) LİSTEDEN DÜŞER.
+ * `dilAdresi`'nin genel yedeği burada KULLANILMAZ: "hangi araca hangi kablo uyar"
+ * etiketli bir çipi giriş sayfasına bağlamak okuyucuyu yanıltırdı.
  */
-export function arRehberleri(rehberler: { label: string; href: string }[]): { label: string; href: string }[] {
+export function dilRehberleri(
+  rehberler: { label: string; href: string }[],
+  lang: string,
+): { label: string; href: string }[] {
   const cikti: { label: string; href: string }[] = [];
   for (const r of rehberler) {
     const m = /^\/blog\/([^/#?]+)$/.exec(r.href);
     if (!m) continue;
-    const p = yaziBulDilde(m[1], "ar");
+    const p = yaziBulDilde(m[1], lang);
     if (!p) continue;
-    cikti.push({ label: p.title, href: `/ar/blog/${m[1]}` });
+    cikti.push({ label: p.title, href: `/${lang}/blog/${m[1]}` });
   }
   return cikti;
 }
+
+// ── Geriye uyumlu Arapça sarmalayıcılar ─────────────────────────────────────
+// Mevcut çağıranlar (sözlük terim sayfası vb.) değişmeden çalışsın diye duruyor.
+export const arAdresi = (href: string) => dilAdresi(href, "ar");
+export const arLinkleriDuzelt = (post: BlogPost) => dilLinkleriDuzelt(post, "ar");
+export const arRehberleri = (rehberler: { label: string; href: string }[]) =>
+  dilRehberleri(rehberler, "ar");
