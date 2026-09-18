@@ -133,6 +133,75 @@
 > `_aksan_es.cjs` · `_aksan_es2.cjs`. ⚠️ Başlıklar değiştiği için **`npm run gen:blog-index`
 > yeniden çalıştırıldı** (indeks yabancı dil başlıklarını gömer).
 >
+> 🌍📰 **BLOG ADRESLERİ 6 DİLE AÇILDI + SON ÇEVİRİ BOŞLUĞU KAPANDI + 3 REFERANS GÖRSELİ
+> (2026-09-18, CANLI · commit'ler 3ce98f8 · 9a0a29e · c89a445 · 083770d):**
+> Kullanıcı seçmeli karar verdi: eksik çeviri **"5 dile de çevir"**, blog adresleri **"İngilizce + 4 dil, hepsi"**.
+>
+> **(1) ÇEVİRİ TAMAM — 46/46 × 6 DİL.** `dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir` yazısının
+> en/de/es/ru/ar çevirisi HİÇ yapılmamıştı (nl aynı gün eklenmişti) → beşi birden yazıldı;
+> `scratchpad/_blog_tam_yama.mts` 7 kapısı **ilk denemede** geçti. Artık altı dilin hepsi 46/46.
+>
+> **(2) 🌍 BLOG ADRESLERİ: TR + AR → TR + 6 DİL.** Çeviriler aylardır hazırdı ama indekslenebilir
+> ADRES yalnız TR ve AR'daydı; Google yazıları diğer dillerde HİÇ göremiyordu (ölçüldü: /en/blog
+> /de/blog /nl/blog /ru/blog hepsi **404**). **Build sonucu: 6 × 46 = 276 yeni sayfa · sitemap blog
+> adresi 337** (1 TR liste + 46 TR + 6×47 dil kolu + 8 haber — birebir tutuyor).
+> **YAPI:** `app/lib/blogLangSeo.ts` **(YENİ, TEK KAYNAK)** — 6 dilin başlık/açıklama/keywords/
+> og-locale'i + **karşılıklı hreflang üreteci** (`blogHreflang`); hem TR hem dil kolu rotaları BUNU
+> çağırır → iki taraf ayrışamaz. `app/[lang]/blog/**` ar → **de/es/ru/nl/ar**; `app/en/blog/**`
+> **YENİ** (⚠️ `app/en` STATİK ağaç, `[lang]` `en` ÜRETMEZ — aynı seviyede statik `en` segmenti
+> açmak dinamik kolu gölgeler, kayıtlı ders).
+> **⚠️ `serverBlogLang.ts` GENELLEŞTİRİLDİ, GERİYE UYUMLU:** `arAdresi`/`arLinkleriDuzelt`/
+> `arRehberleri` → `dilAdresi(href,lang)`/`dilLinkleriDuzelt(post,lang)`/`dilRehberleri(r,lang)`;
+> eski adlar **ince sarmalayıcı olarak KORUNDU** → 3 mevcut çağıran (sözlük terim sayfası, ürün
+> kategori sayfası) hiç değişmedi, regresyon riski sıfır.
+> **⚠️⚠️ YOL ÜSTÜNDE YAKALANAN TUZAK — SÖZLÜK YALNIZ ARAPÇADA VAR:** `app/[lang]/sozluk/**`
+> `generateStaticParams` **yalnız `ar` üretir**; `/de/sozluk` `/es/sozluk` … HİÇ YOK. İç link
+> eşlemesini körlemesine genelleştirseydim Almanca/İspanyolca blog sayfalarından **404'e link**
+> verirdim. `SOZLUK_DILLERI` kümesi ayrı tutuldu (sözlük başka dile açılırsa oraya ekle).
+> **⚠️ `tamCevrildi` KAPISI YERİNDE:** çevirisi eksik yazı o dilde adres ALMAZ (404) — yabancı
+> adreste Türkçe gövde yayınlamaktansa 404. Yeni yazı eklendiğinde de kendiliğinden korur.
+> **⚠️ `keywords` HER DİLDE AÇIKÇA VERİLİR:** Next'te bir metadata alanını vermemek onu gizlemez,
+> **kök yerleşimden TÜRKÇE listeyi miras alır** (Arapça kolda 2026-09-10'da ölçülmüştü).
+> **DİL SEÇİCİ:** blog 6 dile açıldı; **slug listesi GÖMÜLMEZ** — sayfanın KENDİ `hreflang`
+> alternatifi okunur, o da `tamCevrildi` kapısından geçer → yeni yazıda elle bakım YOK, 404 imkânsız.
+> Sözlük AR-only kaldı.
+> **⚠️⚠️ DÜRÜST ÇERÇEVE (kullanıcıya karar ÖNCESİ söylendi, yine de "hepsi" seçildi):** kayıtlı GSC
+> verisi bu sitede yabancı dil sayfalarının ZAYIF getirdiğini gösteriyor — **~800 yabancı dil ÜRÜN
+> sayfası 3 ayda toplam 18 tık (15'i /en)**. Bu yüzden ölçüm takvimine **2026-10-16** kontrol noktası
+> eklendi: indekslenme yoksa ya da "keşfedildi-eklenmedi" 867'den belirgin artıyorsa **genişleme değil
+> DARALTMA** konuşulur (yalnız /en tutulup 4 dil kapatılabilir).
+>
+> **(3) 🖼️ REFERANS PROJELERE 3 KURULUM GÖRSELİ** (site otoparkı 3 direk · kapalı otopark duvar tipi ·
+> dış alan 2 direk + pano kabini). Orijinal baytlarla Cloudinary'e (resize/recompress YOK).
+> **📌 KADRAJ TAHMİNLE SEÇİLMEZ:** kart 380×260, görseller 1080×1350 (4:5) → yüksekliğin **%54,7'si**
+> görünür; 3 aday odağın GERÇEK kırpması üretilip gözle seçildi (`scratchpad/_ref_kadraj3.cjs`):
+> site otoparkı **50% 50%** · kapalı otopark **50% 40%** (%50+ alttaki koyu bandı içeri alıyor) ·
+> dış alan **50% 50%**. ⓘ Bu görsellerde logo üstte / alan adı altta olduğu için kart kırpması
+> ikisini de doğal olarak dışarıda bırakıyor. Betik: `scratchpad/_referans_ekle3.cjs` (çoklu, tek R2
+> yazımı, mükerrer kapısı, yedekli). store cache **v131-referans → v132-referans3**.
+>
+> **(4) 🔴 REPO YEDEĞİ CANLIDAN BAYATTI — 4 BÖLÜM SENKRONLANDI (commit 3ce98f8).** `readBin("content")`
+> R2'yi okur, okunamazsa `data/content.json`'a düşer; yedek bayatsa o derlemede site eksik içerik
+> gösterir. Ölçülen sapma: **hero 11 → 19 alan** (⚠️ `heroImages` repoda HİÇ YOKTU → yedek devreye
+> girse hero slider 3 yerine 1 slaytla açılır, yani HİÇ dönmezdi) · **referenceProjectsSection
+> 4 → 11** · **contact.address** (mahalle eksikti, kanonik NAP) · **socialWallSection** repoda hiç
+> yoktu. ⚠️ `_translations` **TASARIM GEREĞİ dokunulmadı**: repoda yalnız `en` gömülü, diğer 5 dil
+> ayrı dosyalarda (`data/content-<dil>.json`, altısı da yerinde). R2'ye YAZILMADI → cache bump gerekmedi.
+> 📌 **Kalıcı sebep:** admin'den yüklenen görseller yalnız R2'ye gider, repo yedeği geride kalır —
+> bu sapma periyodik olarak tekrar birikir. Ölçüm betiği: `scratchpad/_content_fark.cjs` (salt okuma).
+>
+> **⚠️ ÖLÇÜM DERSLERİ (bu turda ikisi de yaşandı):**
+> **(a) Client bileşendeki sabit metni doğrularken ÖNCE sayfanın SSR HTML'ine bak.** Döküman
+> kategori etiketini canlı JS chunk'larında aradım (30 chunk, bulunamadı), yanlışlıkla **ui.json
+> sözlük chunk'ını** "kategori chunk'ı" sandım; ayrıca **yerel chunk adları canlıda 404** (hash
+> ortama bağlı, eşleştirme YAPILAMAZ). Oysa Next istemci bileşenini SSR ettiği için etiket ham
+> HTML'de duruyordu. Chunk indirmek SON çare.
+> **(b) JSON yazarken SONDA NEWLINE'ı ölç.** `data/olcum-takvimi.json` girinti 2 **+ sonda newline**;
+> `JSON.stringify` newline üretmez → gidiş-dönüş kapısı olmasaydı tüm dosya sahte fark gösterecekti.
+> Kapı yakaladı, betik düzeltildi (8 satır eklendi, dosya baştan biçimlenmedi).
+> **(c) Heredoc yine ters bölüleri yuttu** — Python heredoc'la betik yaması yapıldı, arama dizesi
+> eşleşmedi ama betik "güncellendi" dedi (sessiz başarısızlık). Kayıtlı kural: **betiği Write ile yaz.**
+>
 > 📄🖼️ **DÖKÜMAN KATEGORİ ETİKETİ + YENİ REFERANS GÖRSELİ (2026-09-18, CANLI · commit e6899e9):**
 > Kullanıcı: *"dökümanlarda ana başlık kullanma klavuzu yazıyor onu kullanma klavuzu yap"* (yazım kayması)
 > + ektekiyle yeni bir referans fotoğrafı.

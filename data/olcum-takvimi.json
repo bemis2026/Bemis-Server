@@ -179,6 +179,14 @@
       "hedef": "8 varyant TEK ürün kartında gruplanmış olmalı (ad hepsinde aynı). 6 yabancı dilde ad o dilde görünmeli (TÜRKÇEYE düşmemeli). Eski ürün URL'leri (dc-sarj-soketi-ccs2-...) 200 dönmeli — slug değişmedi.",
       "nasil": "(1) /products/charger-equipment'ta CCS2 kartı tek mi, alt başlıkta 8 sürüm var mı; (2) `/api/products?lang=de` ve `?lang=ar` → ürün adı Almanca/Arapça mı; (3) 8 ürün URL'ine tek tek 200 kontrolü; (4) `npm run check:seo` → 'veri katmanı kod haritasını eziyor' sınıfında bu 8 ürün ÇIKMAMALI.",
       "durum": "acik"
+    },
+    {
+      "tarih": "2026-10-16",
+      "is": "Blog adreslerinin 6 dile açılması (2026-09-18)",
+      "olcum": "Yeni 276 yabancı dil blog sayfası indekslendi mi, tık getiriyor mu — yoksa 'keşfedildi-eklenmedi' yığınına mı eklendi",
+      "hedef": "⚠️ DÜRÜST BEKLENTİ: kayıtlı GSC verisi yabancı dil sayfalarının bu sitede ZAYIF getirdiğini söylüyor (~800 yabancı dil ÜRÜN sayfası 3 ayda toplam 18 tık; 15'i /en). Kullanıcı bu uyarıyı bilerek 'hepsi' dedi. Başarı ölçütü mütevazı: /en/blog kolu 3-4 haftada en az birkaç gösterim + indekslenme almalı. Hiçbir dil kolu indekslenmediyse ya da 'keşfedildi-eklenmedi' 867'den belirgin artıyorsa GENİŞLEME DEĞİL DARALTMA konuşulur (yalnız /en tutulup diğer 4 dil kapatılabilir).",
+      "nasil": "(1) GSC → Sayfalar → 'Dizine eklendi' içinde /en/blog, /de/blog, /es/blog, /ru/blog, /nl/blog, /ar/blog var mı; (2) GSC → Performans → Sayfa filtresi '/blog' → dil kolu bazında gösterim/tık; (3) 'Keşfedildi - dizine eklenmedi' sayısı 867'den ne kadar arttı; (4) canlı kontrol: 6 dilin blog listesi + birer yazı 200 mü, hreflang kümesi karşılıklı mı.",
+      "durum": "acik"
     }
   ]
 }
