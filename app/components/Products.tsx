@@ -2,12 +2,13 @@
 import { bgUrl } from "../../lib/optimizedBg";
 import { pickText } from "../lib/ui";
 import { accentInk } from "../lib/accentInk";
+import { forcedLangForPath, urunYolu } from "../lib/languages";
 import { urunPngKategorisi, urunPngBosluk } from "../../lib/categoryVisual";
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import {
   RiChargingPile2Line,
   RiBatteryChargeLine,
@@ -159,6 +160,8 @@ export default function Products() {
   const { categories: catMeta, products: productSection, sectionBgs } = useContent();
   const { lang } = useLanguage();
   const router = useRouter();
+  // 2026-09-18: /de /en … anasayfalarinda urun linkleri o dilin koluna gider.
+  const urunKol = forcedLangForPath(usePathname());
   const d = theme === "dark";
   const [hovered, setHovered] = useState<string | null>(null);
   const [activeBanner, setActiveBanner] = useState(0);
@@ -281,7 +284,7 @@ export default function Products() {
                         ? `linear-gradient(135deg, ${cat.accent}22 0%, #0f0f12 55%, ${cat.accent}08 100%)`
                         : `linear-gradient(135deg, ${cat.accent}18 0%, #f0f0f4 55%, ${cat.accent}06 100%)`,
                     }}
-                    onClick={() => !cat.comingSoon && router.push(`/products/${cat.id}`)}
+                    onClick={() => !cat.comingSoon && router.push(urunYolu(`/products/${cat.id}`, urunKol))}
                   >
                     {/* Slider arka plan görseli — KARARTMA YOK (kullanıcı isteği):
                         görsel tam canlı gösterilir, metinler text-shadow ile okunur. */}
@@ -315,7 +318,7 @@ export default function Products() {
                           ile çalışıyordu; sayfada kategoriye giden <a href> yoktu. comingSoon ise
                           link YOK (hedef sayfa anlamlı değil). Görünüm birebir aynı. */}
                         {cat.comingSoon ? cat.name : (
-                          <Link href={`/products/${cat.id}`} onClick={(e) => e.stopPropagation()} style={{ color: "inherit" }}>
+                          <Link href={urunYolu(`/products/${cat.id}`, urunKol)} onClick={(e) => e.stopPropagation()} style={{ color: "inherit" }}>
                             {cat.name}
                           </Link>
                         )}
@@ -397,7 +400,7 @@ export default function Products() {
           className="flex justify-center mb-6"
         >
           <button
-            onClick={() => router.push("/products")}
+            onClick={() => router.push(urunYolu("/products", urunKol))}
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] hover:brightness-110 active:scale-95"
             style={{
               // Light mode'da daha açık mavi gradient (#60A5FA → #3B82F6),
@@ -460,7 +463,7 @@ export default function Products() {
                   card._tiltRect = undefined;
                   card.style.transform = "";
                 }}
-                onClick={() => !cat.comingSoon && router.push(`/products/${cat.id}`)}
+                onClick={() => !cat.comingSoon && router.push(urunYolu(`/products/${cat.id}`, urunKol))}
                 className={`relative rounded-2xl overflow-hidden ${cat.comingSoon ? "opacity-65 cursor-default" : "cursor-pointer"}`}
                 style={{
                   background: surface,
@@ -589,7 +592,7 @@ export default function Products() {
                   >
                     <p className="font-bold text-base leading-tight" style={{ color: overlayTitleColor }}>
                       {cat.comingSoon ? cat.name : (
-                        <Link href={`/products/${cat.id}`} onClick={(e) => e.stopPropagation()} style={{ color: "inherit" }}>
+                        <Link href={urunYolu(`/products/${cat.id}`, urunKol)} onClick={(e) => e.stopPropagation()} style={{ color: "inherit" }}>
                           {cat.name}
                         </Link>
                       )}

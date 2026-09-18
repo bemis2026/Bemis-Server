@@ -13,6 +13,108 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🌐🔴➡️✅ **SİTE HERKESE TÜRKÇE AÇILIYORDU + 5 DİLİN ANASAYFASI 404'TÜ — İKİSİ DE KAPANDI (2026-09-18):**
+> Kullanıcı: *"siteye yurtdışında girince o ülkenin dilinde açılmalı ama tr açılıyor."* **ÖLÇÜLDÜ, HAKLIYDI —
+> ama sorun sandığımdan bir kat derindi:**
+> | Ölçüm | Sonuç |
+> |---|---|
+> | `Accept-Language: de-DE / en-US / ar-AE` | üçünde de `<html lang="tr">` |
+> | Kodda tarayıcı dili okuması | **YOK** — `useState<Lang>("tr")` + yalnız `localStorage` |
+> | `middleware.ts` | yok |
+> | `/de` `/es` `/ru` `/nl` `/en` **anasayfaları** | **404** (yalnız `/ar` 200) |
+>
+> **KULLANICI KARARLARI (çoktan seçmeli, ikisi de daha iddialı seçenek):**
+> **(1) "Otomatik geç, İngilizce DAHİL"** · **(2) "Beşini birden aç"**.
+> ⚠️ **KABUL EDİLEN BEDEL — kullanıcıya AÇIKÇA söylendi, kararı öyle verdi:** coğrafi konum okunmuyor
+> (istemcide güvenilir ülke bilgisi yok) → **Türkiye'de İngilizce Windows/Chrome kullanan ziyaretçiler de
+> İngilizce açılır.** Trafiğin %98'i TR olduğu için hacim küçük ama dönüşüm riski GERÇEK. Şikâyet gelirse
+> tek satırlık geri dönüş: `detectBrowserLang()` içinde `en`'i eleme (bkz. `app/lib/languages.ts`).
+>
+> **(1) TARAYICI DİLİ ALGILAMA — `detectBrowserLang()` (`app/lib/languages.ts`):**
+> `navigator.languages` sırayla okunur, ilk TANIDIĞIMIZ dil kazanır; **Türkçe önde ise hiçbir şey yapılmaz**;
+> desteklenmeyen yabancı dil (fr/it/pl…) → **İngilizce**. `LanguageContext` bunu YALNIZ kayıtlı tercih
+> (`localStorage.lang`) YOKKEN çağırır.
+> ⚠️⚠️ **BOT KAPISI ŞART — YOKSA ANA SEO VARLIĞI ZARAR GÖRÜR:** Googlebot'un render servisi JS çalıştırır ve
+> `navigator.language` tipik olarak **en-US**'tur → kapı olmasaydı Google `/` adresinde **İNGİLİZCE** içerik
+> görürdü, oysa `/` Türkçe canonical + `hreflang tr`. `BOT_ISARETI` regex'i + `navigator.webdriver` ile
+> algılama devre dışı bırakılır. 📌 **Bu kapıyı gevşetme.**
+> ⚠️ **SONUÇ localStorage'a YAZILMAZ** — tercih değil, tercih yokken uygulanan varsayılan. Ziyaretçi seçiciden
+> Türkçe'yi seçerse o seçim kalıcıdır ve otomatik algılama bir daha devreye girmez.
+> 🔴 **YOL ÜSTÜNDE YAKALANAN SESSİZ KUSUR — `autoLang` bayrağı bu yüzden var:** `LanguageURLSync`
+> `lang==="en"` olunca adrese **`?lang=en` YAZIYOR**. Otomatik algılama İngilizce seçseydi adres `/?lang=en`
+> olacak, ziyaretçi yenileyince mount effect'i o parametreyi okuyup **`setLang("en")` → localStorage'a KALICI
+> tercih** yazacaktı. Yani "otomatik varsayılan" sessizce "kullanıcı tercihi"ne dönüşürdü ve Türkçe'ye dönüş
+> bozulurdu. `LanguageContext` artık `autoLang: boolean` yayınlıyor; `LanguageURLSync` **yalnız YAZMA
+> effect'ini** atlıyor (okuma effect'i duruyor → eski `?lang=en` linkleri çalışmaya devam eder).
+> 📌 **Ders: dili değiştiren yeni bir yol eklerken URL-senkron katmanını da gez** — oradaki yazma, kaynağı
+> ne olursa olsun dili KALICI hâle getirir.
+> ⛔ **OTOMATİK YÖNLENDİRME YAPILMADI** (`/` → `/de` gibi): Google'ın kendi kılavuzu *"algılanan dile göre
+> otomatik yönlendirme yapmayın"* diyor. Dil istemcide değişir, **adres değişmez**; `/de` vb. adresler ise
+> Google'a sitemap + hreflang ile ayrıca sunulur. Doğru ayrım budur.
+>
+> **(2) YABANCI DİL ANASAYFALARI — 5 yeni adres (`/en` `/de` `/es` `/ru` `/nl`):**
+> **Gövde TEK DOSYA: `app/components/LocalizedHomePage.tsx`** — `/en` (statik `app/en/page.tsx`) ve
+> `/de /es /ru /nl` (dinamik `app/[lang]/page.tsx`) AYNI bileşeni çağırır → kopya yok, ayrışamaz.
+> ⚠️ **NEDEN İKİ AYRI ROTA DOSYASI ZORUNLU:** `app/de/page.tsx` gibi **statik bir segment açmak
+> `app/[lang]/products` kolunu GÖLGELER** ve o dilin 159 ürün sayfasını kırar (kayıtlı ders). Ama `app/en/`
+> zaten statik bir ağaç (ürün sayfaları orada) → `/en`'in kökü orada olmak ZORUNDA. Bu yüzden `[lang]`
+> `generateStaticParams` = `ar + de + es + ru + nl` (en YOK).
+> ⚠️ **İÇ İÇE `ContentProvider` — BİLEREK:** kök yerleşimdeki provider sunucuda rotayı bilemez
+> (`usePathname` yok; `headers()` TÜM siteyi dinamikleştirir) ve içeriği DAİMA Türkçe basar → Google `/de`
+> adresinde **Türkçe gövde** görürdü. `LocalizedHomePage` o dilin içeriğini `getContentForLang(lang)` ile
+> SUNUCUDA verir; React'te iç provider kendi alt ağacı için dıştakini ezer. Bedeli `/api/content?lang=` iki
+> kez çekilir (kök + iç) — ikisi de aynı dili ister, SEO kazancı bu israftan büyük.
+> ⚠️ **`mergeContent(data, lang)` `lang`'i YOK SAYAR** (`void lang`) → zaten birleştirilmiş yerel içeriği
+> vermek güvenli, ikinci kez çevirmeye kalkmaz.
+> **SEO METNİ: `app/lib/homeSeo.ts`** (5 dil × title/description/keywords/ogLocale + `HOME_HREFLANG`).
+> Başlıklar **`{ absolute: … }`** ile verilir → layout şablonu atlanır, marka eki **iki kez basılmaz**
+> (kayıtlı tuzak). İçerikte uydurma YOK: 1994 · Bursa · 80+ ülke · CE · IP65 · Type 2 · CCS2 · OCPP ·
+> AC 3,7–22 kW · DC 40–200 kW. Yabancı dilde milliyetçi çerçeve YOK.
+> **🌐 HREFLANG KÜMESİ 3 → 7** (`tr / en / de / es / ru / nl / ar` + `x-default`) — **TEK KAYNAK
+> `HOME_HREFLANG`**; `app/page.tsx` · `app/en/page.tsx` · `app/[lang]/page.tsx` · `app/sitemap.ts` hepsi
+> oradan okur → sayfa metadata'sı ile sitemap **ayrışamaz**.
+> ⚠️ **`/export` KÜMEDEN ÇIKARILDI:** İngilizce anasayfa artık `/en`; iki sayfa aynı `en` etiketini iddia
+> ederse Google küme çakışması görür. `/export` sayfa olarak KALIYOR (ihracat/OEM masası + teklif formu,
+> reklam iniş sayfası) — yalnız self-canonical.
+> ⛔ **`categoryListSchema` yerel anasayfalara EKLENMEDİ:** `@id`'si TR kategori adresine sabitli
+> (`…/products/<id>#category`) → yedi adreste aynı `@id` = aynı varlığı iddia etmek olurdu. Organization +
+> WebSite şeması zaten kök yerleşimden her sayfada basılıyor.
+> **🔗 İÇ LİNKLER DİL KOLUNDA:** yeni `urunYolu(href, forced)` yardımcısı (`languages.ts`) → `Products.tsx`
+> (5 yer) · `FeaturedProducts.tsx` (2) · `Navbar.tsx` (kategori menüsü + 2 "Tüm Ürünler"). Footer'da eşleme
+> ZATEN vardı. ⚠️ Çevirisi olmayan sayfalar (**kurumsal · uretici · destek · documents · b2b · bayilik ·
+> şehir**) BİLEREK TR'de kalır — Footer'daki kuralın aynısı.
+> **🔤 DİL SEÇİCİ:** anasayfa kümesindeyken dil seçimi artık **ADRES değişimi** (`isHomePath` + `homePathFor`),
+> istemci tarafı çeviri değil → paylaşılan link o dilde açılır.
+> 📌 **YENİ DİL EKLERKEN:** `LANGS` + `URL_LANGS` + `HOME_HREFLANG` + `HOME_SEO` + `[lang]`
+> `generateStaticParams` + sitemap `GIRIS_DILLERI` — altısı birlikte.
+>
+> **🔴 DOĞRULAMANIN YAKALADIĞI KUSUR — `B2BCta` YEDEĞİ SAF TÜRKÇEYDİ:** üretilen HTML ölçülünce
+> `/de` içinde **8 Türkçe dize** çıktı; hepsi OEM/Kurumsal bandından. Sebep: bileşen
+> `/api/b2b?lang=` yanıtı gelene kadar **sabit Türkçe `DEFAULT_CTA`** basıyordu (`/` için doğru,
+> yeni dil adreslerinde yanlış). ⚠️ **ÇEVİRİ UYDURULMADI** — `data/b2b-<dil>.json` `cta` bloğunda
+> zaten vardı; `scratchpad/_b2bcta_ui.cjs` ile `ui.json`'a taşındı (7 yeni anahtar, 5'i zaten
+> vardı → **613**) ve yedek `pickText`e bağlandı. Artık `/de` bu bandı **Almanca** SSR ediyor.
+> 🔴 **AYNI TURDA İKİNCİ KUSUR:** yedek metin **canlı veriyle aynı değildi** (eski yer tutucu:
+> *"Üretici veya kurumsal alıcı mısınız?"*) → Türk ziyaretçi de ~300 ms başka metin görüp
+> sıçramasını izliyordu. TR yedeği `data/b2b.json` `cta` ile birebir hizalandı; **nihai görünen
+> metin DEĞİŞMEDİ**, yalnız sıçrama bitti. 📌 **Ders: "istemci sonra düzeltir" diyen her yedek
+> metin, statik HTML'de KALICIDIR — dil kolu açarken bu yer tutucuları da gez.**
+>
+> **⚠️ BİLİNEN SINIR (yeni DEĞİL, mimari — dokunulmadı):** SSR `<html lang="tr">` basar; `/de`
+> `/ar` dâhil TÜM dil kollarında böyle. `app/layout.tsx`'teki **`DIL_KOLU_SCRIPT`** ilk boyamadan
+> ÖNCE düzeltir (ziyaretçi sıçrama görmez, Googlebot JS çalıştırdığı için düzeltilmiş değeri okur).
+> Ham HTML'de doğru dili basmak kök yerleşimin rotayı bilmesini ister = route-group refactor'u.
+> Kanonik sinyaller (canonical + hreflang + gövde dili) zaten doğru.
+> **ⓘ KALAN TEK BOŞLUK — `/nl` anasayfasında 3 Türkçe REHBER BAŞLIĞI** (ölçüldü: /de /es /ru /en
+> temiz, yalnız /nl'de). Sebep yeni DEĞİL: **`data/i18n/blog.json` `nl` içermiyor** (blog katmanı
+> TR + en/de/es/ar/ru). `postsIndex` çevirisi olmayan başlığı TR'ye düşürür → Felemenkçe anasayfada
+> son 3 rehberin başlığı Türkçe görünür. Kapatmak = **46 yazının Felemenkçe çevirisi** (ayrı ve
+> büyük içerik işi); tek satırlık kod düzeltmesi yok. ⚠️ Anasayfa dışında etkisi yok (Felemenkçe
+> blog ADRESİ zaten hiç yok).
+> **✅ ÜRETİLEN HTML ÖLÇÜLDÜ:** 5 sayfa × hreflang **8/8** · canonical kendine · başlıklar o dilde
+> ve **marka eki TEK** · ürün linki **26'sı da dil kolunda, TR'ye sızıntı 0** · `/ru` gövdesinde
+> **6.566 Kiril harfi** · TR anasayfa kümesi 8 · `/export` hreflang **0** (kümeden çıktı).
+
 > 🔴🖼️ **BEVDC 40: DUVAR TİPİ SAYFASINDA AYAKLI ÜRÜN GÖRÜNÜYORDU (2026-09-18, `e1fb92d`):**
 > Kullanıcı sordu: *"DC direk tipi ile duvar tipi görseller aynı üründe gösteriliyor, karışıklık
 > oluşturmuyor mu?"* — **HAKLIYDI, ölçüldü.** Duvar tipinin (`bevdc-40-1`) galerisi

@@ -6,6 +6,8 @@ import { getProductsForLang } from "../lib/serverProductsLang";
 import { LOCALE_CATEGORY_SEO, LOCALE_UI, localeCategoryMeta } from "../lib/localeProductSeo";
 import { AR_SSS } from "./arIcerik";
 import ArLandingClient from "./ArLandingClient";
+import LocalizedHomePage from "../components/LocalizedHomePage";
+import { HOME_HREFLANG, HOME_SEO, isHomeLang } from "../lib/homeSeo";
 
 // Arapça giriş sayfası — /ar. Körfez/Orta Doğu ziyaretçisi için "üretici kimdir"
 // sayfası; /export'un Arapça muadili. Bu rota AÇILMADAN ÖNCE /ar adresi 404 veriyordu
@@ -16,16 +18,23 @@ import ArLandingClient from "./ArLandingClient";
 // Bu yüzden dinamik segment kullanılıp params YALNIZ "ar" ile sınırlandırıldı.
 // ⚠️ Bu dizine layout.tsx EKLEME — segment ayarları (dynamicParams) çocuklara da
 // iner ve /ar/products kolunu etkiler.
+// ⚠️ 2026-09-18: Bu rota artık İKİ işi birden yapıyor.
+//   · /ar  → Körfez/Orta Doğu iniş sayfası (ArLandingClient, aşağıdaki özgün metin)
+//   · /de /es /ru /nl → ANASAYFANIN o dildeki sürümü (LocalizedHomePage)
+// Beşi de tek dinamik segmentte: statik `app/de/page.tsx` açmak app/[lang]/products
+// kolunu gölgeler ve o dilin 159 ürün sayfasını kırardı (kayıtlı ders).
+// ⚠️ İngilizce anasayfa BURADA DEĞİL — `app/en/` zaten statik bir ağaç (ürün
+// sayfaları orada), dolayısıyla /en'in kendi page.tsx'i var ve aynı bileşeni çağırır.
 export const dynamicParams = false;
 export const revalidate = 86400;
 
 export function generateStaticParams() {
-  return [{ lang: "ar" }];
+  return [{ lang: "ar" }, { lang: "de" }, { lang: "es" }, { lang: "ru" }, { lang: "nl" }];
 }
 
-// /ar = anasayfa kümesinin Arapça sürümü (TR anasayfa · EN /export · AR /ar).
-// ⚠️ Küme KARŞILIKLI olmalı: app/page.tsx ve app/export/page.tsx da ar: "/ar" verir.
-const HREFLANG = { tr: "/", en: "/export", ar: "/ar", "x-default": "/" } as const;
+// Anasayfa kümesi TEK KAYNAK (app/lib/homeSeo.ts) — yedi sayfa da aynı kümeyi
+// basar. ⚠️ Küme KARŞILIKLI olmalı, yoksa Google resiprokallik hatası verir.
+const HREFLANG = HOME_HREFLANG;
 
 const TITLE = "مصنّع محطات شحن السيارات الكهربائية | Bemis E-V Charge";
 const DESC =
@@ -33,6 +42,28 @@ const DESC =
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
+
+  // /de /es /ru /nl — anasayfanın o dildeki sürümü.
+  if (isHomeLang(lang)) {
+    const s = HOME_SEO[lang];
+    return {
+      title: { absolute: s.title },
+      description: s.description,
+      keywords: s.keywords,
+      alternates: { canonical: `/${lang}`, languages: HREFLANG },
+      openGraph: {
+        title: s.title,
+        description: s.description,
+        type: "website",
+        url: `/${lang}`,
+        locale: s.ogLocale,
+        siteName: "Bemis E-V Charge",
+        images: ogImage(s.title),
+      },
+      twitter: { card: "summary_large_image", title: s.title, description: s.description, images: [OG_URL] },
+    };
+  }
+
   if (lang !== "ar") return {};
   return {
     title: { absolute: TITLE },
@@ -59,8 +90,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-export default async function ArLandingPage({ params }: { params: Promise<{ lang: string }> }) {
+export default async function LangRootPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
+
+  // /de /es /ru /nl → anasayfa gövdesi, o dilin içeriğiyle SUNUCUDA render edilir.
+  if (isHomeLang(lang)) return <LocalizedHomePage lang={lang} />;
+
   if (lang !== "ar") notFound();
 
   // Kategori adı/özeti Arapça SEO haritasından; sıra + hangi kategorilerin var olduğu

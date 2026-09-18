@@ -4240,5 +4240,54 @@
   "ar": "دعم الأعطال والضمان",
   "ru": "Поддержка по неисправностям и гарантии",
   "nl": "Storings- en garantieondersteuning"
+ },
+ "Enterprise Sales": {
+  "de": "Enterprise-Vertrieb",
+  "es": "Ventas Corporativas",
+  "ar": "مبيعات المؤسسات",
+  "ru": "Корпоративные продажи",
+  "nl": "OEM & zakelijke verkoop"
+ },
+ "Custom Solutions for Manufacturers, Operators and Dealers": {
+  "de": "Individuelle Lösungen für Hersteller, Betreiber und Händler",
+  "es": "Soluciones Personalizadas para Fabricantes, Operadores y Distribuidores",
+  "ar": "حلول مخصّصة للمصنّعين والمشغّلين والموزّعين",
+  "ru": "Индивидуальные решения для производителей, операторов и дилеров",
+  "nl": "Oplossingen op maat voor fabrikanten, operators en dealers"
+ },
+ "Custom color and marking options for manufacturers. Tailored solutions for operator CPOs. Get detailed information for an end-user-oriented product portfolio and many benefits.": {
+  "de": "Individuelle Farb- und Kennzeichnungsoptionen für Hersteller. Maßgeschneiderte Lösungen für Betreiber-CPOs. Erhalten Sie detaillierte Informationen zu einem endkundenorientierten Produktportfolio und zahlreichen Vorteilen.",
+  "es": "Opciones de color y marcado personalizadas para fabricantes. Soluciones a medida para CPO de operadores. Obtenga información detallada sobre un portafolio de productos orientado al usuario final y muchos beneficios.",
+  "ar": "خيارات ألوان وعلامات مخصّصة للمصنّعين. حلول مصمّمة خصيصاً لمشغّلي شبكات الشحن (CPO). احصل على معلومات تفصيلية عن محفظة منتجات موجّهة للمستخدم النهائي والعديد من المزايا.",
+  "ru": "Индивидуальные опции цвета и маркировки для производителей. Специализированные решения для операторов CPO. Получите подробную информацию об ориентированном на конечного пользователя ассортименте продукции и множестве преимуществ.",
+  "nl": "Eigen kleuren en branding voor fabrikanten. Speciale oplossingen voor CPO's. Vraag meer informatie over ons op de eindgebruiker gerichte productportfolio en de vele voordelen."
+ },
+ "OEMs & Manufacturers": {
+  "de": "OEMs & Hersteller",
+  "es": "OEM y Fabricantes",
+  "ar": "شركات OEM والمصنّعون",
+  "ru": "OEM и производители",
+  "nl": "OEM & fabrikanten"
+ },
+ "Technical portfolio, special price, engineering support": {
+  "de": "Technisches Portfolio, Sonderpreis, Engineering-Support",
+  "es": "Portafolio técnico, precio especial, soporte de ingeniería",
+  "ar": "محفظة تقنية، سعر خاص، دعم هندسي",
+  "ru": "Технический ассортимент, специальная цена, инженерная поддержка",
+  "nl": "Technisch portfolio, speciale prijzen, engineeringondersteuning"
+ },
+ "Join our dealer network, get zone protection": {
+  "de": "Treten Sie unserem Händlernetz bei, sichern Sie sich Gebietsschutz",
+  "es": "Únase a nuestra red de distribuidores y obtenga protección de zona",
+  "ar": "انضم إلى شبكة وكلائنا واحصل على حماية المنطقة",
+  "ru": "Присоединяйтесь к нашей дилерской сети, получите защиту территории",
+  "nl": "Sluit u aan bij ons dealernetwerk met regiobescherming"
+ },
+ "OCPP compliant equipment, DLM, remote monitoring": {
+  "de": "OCPP-konforme Ausrüstung, DLM, Fernüberwachung",
+  "es": "Equipos compatibles con OCPP, DLM, monitoreo remoto",
+  "ar": "معدّات متوافقة مع OCPP، DLM، مراقبة عن بُعد",
+  "ru": "Оборудование с поддержкой OCPP, DLM, удалённый мониторинг",
+  "nl": "OCPP-compatibele apparatuur, DLM, bewaking op afstand"
  }
 }

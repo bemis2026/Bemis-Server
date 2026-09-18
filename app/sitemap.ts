@@ -5,6 +5,7 @@ import { yazilarDilde } from "./lib/serverBlogLang";
 import { allPress } from "./blog/press";
 import { CITY_PAGES } from "./lib/cities";
 import { allTerms } from "./lib/glossary";
+import { HOME_HREFLANG } from "./lib/homeSeo";
 // ⚠️ GERÇEK lastmod. Eskiden 35 girdinin 32'si `now` idi = her build'de "bugün
 // değişti". Google SAHTE lastmod'u yok sayar, o yüzden GERÇEKTEN güncellenen
 // sayfa da öne çıkamıyordu. Tarihler: statik sayfalar → dosyanın son commit'i
@@ -66,12 +67,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /** kategori sayfası hem kategori metnini hem ürünleri gösterir → ikisinden YENİ olanı */
   const katT = new Date(Math.max(urunT.getTime(), icerikT.getTime()));
 
-  // TR anasayfa / EN /export / AR /ar aynı "giriş sayfası" kümesinin dil sürümleri.
-  const GIRIS_ALT = { tr: BASE, en: `${BASE}/export`, ar: `${BASE}/ar` };
+  // ⚠️ 2026-09-18: ANASAYFA KÜMESİ 3 → 7 adres. Öncesinde /de /es /ru /nl /en
+  // kökleri 404'tü; artık hepsi anasayfanın o dildeki sürümü (app/[lang]/page.tsx
+  // + app/en/page.tsx). Küme TEK KAYNAK'tan (app/lib/homeSeo.ts HOME_HREFLANG)
+  // türetilir → sayfa metadata'sı ile sitemap ayrışamaz.
+  const GIRIS_ALT = Object.fromEntries(
+    Object.entries(HOME_HREFLANG)
+      .filter(([k]) => k !== "x-default")
+      .map(([k, v]) => [k, v === "/" ? BASE : `${BASE}${v}`])
+  ) as Record<string, string>;
+  /** Anasayfa kümesinin TR dışındaki üyeleri — sitemap satırı üretmek için. */
+  const GIRIS_DILLERI = ["en", "de", "es", "ru", "nl"] as const;
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    // Giriş sayfası kümesi (TR anasayfa · EN /export · AR /ar) — üçü de aynı hreflang'i verir.
+    // Giriş sayfası kümesi — yedisi de AYNI hreflang kümesini verir (karşılıklılık).
     { url: BASE,                lastModified: gt("/"), changeFrequency: "weekly",  priority: 1.0, alternates: { languages: GIRIS_ALT } },
+    ...GIRIS_DILLERI.map((L) => ({
+      url: `${BASE}/${L}`, lastModified: gt("/"), changeFrequency: "weekly" as const, priority: 0.9,
+      alternates: { languages: GIRIS_ALT },
+    })),
     { url: `${BASE}/products`,  lastModified: katT, changeFrequency: "weekly",  priority: 0.9, alternates: { languages: { tr: `${BASE}/products`, en: `${BASE}/en/products`, de: `${BASE}/de/products`, es: `${BASE}/es/products`, ru: `${BASE}/ru/products`, nl: `${BASE}/nl/products`, ar: `${BASE}/ar/products` } } },
     { url: `${BASE}/uretici`,   lastModified: gt("/uretici"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/kurumsal`,  lastModified: gt("/kurumsal"), changeFrequency: "monthly", priority: 0.7 },
@@ -79,7 +93,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/b2b`,       lastModified: gt("/b2b"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/bayilik`,   lastModified: gt("/bayilik"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/operator`,  lastModified: gt("/operator"), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/export`,    lastModified: gt("/export"), changeFrequency: "monthly", priority: 0.85, alternates: { languages: GIRIS_ALT } },
+    // ⚠️ /export anasayfa kümesinden ÇIKARILDI (2026-09-18): İngilizce anasayfa
+    // artık /en. /export ayrı niyet (ihracat/OEM masası + teklif formu) → alternates YOK.
+    { url: `${BASE}/export`,    lastModified: gt("/export"), changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/ar`,        lastModified: gt("/ar"), changeFrequency: "monthly", priority: 0.85, alternates: { languages: GIRIS_ALT } },
     // Körfez + Mısır iniş sayfası — TR/EN karşılığı YOK, bu yüzden alternates verilmez
     // (karşılığı olmayan hreflang Google'da karşılıklılık hatası üretir).

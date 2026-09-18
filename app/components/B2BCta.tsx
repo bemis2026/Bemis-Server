@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage, type Lang } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import { useContent } from "../context/ContentContext";
 import {
   RiShieldCheckLine, RiBuilding2Line,
@@ -19,17 +20,46 @@ const CHANNEL_META = [
 type CtaChannel = { href: string; label: string; sub: string };
 type CtaData = { eyebrow: string; heading: string; description: string; tags: string[]; channels: CtaChannel[] };
 
-const DEFAULT_CTA: CtaData = {
-  eyebrow: "OEM & Kurumsal Satış",
-  heading: "Üretici veya kurumsal alıcı mısınız?",
-  description: "DC şarj üniteleri, şarj panoları, OEM elektronik kartlar ve profesyonel DC kablolar — EV altyapı çözümleri geliştiren şirketler için özel portföy.",
-  tags: ["OEM Üretici", "Şarj Ağı Operatörü", "Distribütör / Bayi"],
-  channels: [
-    { href: "/b2b",      label: "OEM & Üreticiler",       sub: "Teknik portföy, özel fiyat, mühendislik desteği" },
-    { href: "/bayilik",  label: "Bayilik Başvurusu",       sub: "Bayi ağımıza katılın, bölge koruması alın" },
-    { href: "/operator", label: "Şarj Ağı Operatörleri",  sub: "OCPP uyumlu ekipman, DLM, uzaktan izleme" },
-  ],
-};
+/**
+ * İstemci `/api/b2b?lang=` yanıtı gelene kadar basılan yedek.
+ *
+ * ⚠️ 2026-09-18 — İKİ KUSUR BİRDEN DÜZELTİLDİ:
+ * (1) Yedek SAF TÜRKÇEYDİ → 2026-09-18'de açılan /en /de /es /ru /nl
+ *     ANASAYFALARININ statik HTML'inde bu bant Türkçe kalıyordu (ölçüldü:
+ *     /de içinde 8 Türkçe dize). Artık `pickText` ile 7 dil; çeviriler
+ *     UYDURULMADI, `data/b2b-<dil>.json` cta bloğundan `ui.json`'a taşındı
+ *     (bkz. scratchpad/_b2bcta_ui.cjs).
+ * (2) Yedek metin CANLI VERİYLE AYNI DEĞİLDİ (eski bir yer tutucuydu:
+ *     "Üretici veya kurumsal alıcı mısınız?" · "DC şarj üniteleri, şarj
+ *     panoları…"). Türk ziyaretçi de ~300 ms boyunca BAŞKA bir metin görüp
+ *     sonra sıçramasını izliyordu. TR metni artık `data/b2b.json` cta ile
+ *     birebir → sıçrama yok. (Nihai görünen metin DEĞİŞMEDİ; yalnız yer
+ *     tutucu gerçeğe hizalandı.)
+ *
+ * 📌 `channels[].href` ÇEVRİLMEZ: /b2b · /bayilik · /operator sayfalarının
+ *    yabancı dil karşılığı yok, bilerek TR'de kalırlar (Footer kuralı).
+ */
+function varsayilanCta(lang: Lang): CtaData {
+  const t = (tr: string, en: string) => pickText(lang, tr, en);
+  return {
+    eyebrow: t("OEM & Kurumsal Satış", "Enterprise Sales"),
+    heading: t("Üreticiler, Operatörler ve Bayiler İçin Özel Çözümler", "Custom Solutions for Manufacturers, Operators and Dealers"),
+    description: t(
+      "Üreticiler için özel renk ve markalama seçenekleri. Operatör CPO'lar için özel çözümler. Son kullanıcı odaklı ürün portföyü ve birçok avantaj için detaylı bilgi alın.",
+      "Custom color and marking options for manufacturers. Tailored solutions for operator CPOs. Get detailed information for an end-user-oriented product portfolio and many benefits."
+    ),
+    tags: [
+      t("OEM Üretici", "OEM Manufacturer"),
+      t("Şarj Ağı Operatörü", "Charging Network Operator"),
+      t("Distribütör / Bayi", "Distributor / Dealer"),
+    ],
+    channels: [
+      { href: "/b2b",      label: t("OEM & Üreticiler", "OEMs & Manufacturers"),          sub: t("Teknik portföy, özel fiyat, mühendislik desteği", "Technical portfolio, special price, engineering support") },
+      { href: "/bayilik",  label: t("Bayilik Başvurusu", "Dealer Application"),           sub: t("Bayi ağımıza katılın, bölge koruması alın", "Join our dealer network, get zone protection") },
+      { href: "/operator", label: t("Şarj Ağı Operatörleri", "Charging Network Operators"), sub: t("OCPP uyumlu ekipman, DLM, uzaktan izleme", "OCPP compliant equipment, DLM, remote monitoring") },
+    ],
+  };
+}
 
 export default function B2BCta() {
   const { theme } = useTheme();
@@ -37,7 +67,10 @@ export default function B2BCta() {
   const { sectionBgs } = useContent();
   const d = theme === "dark";
   const router = useRouter();
-  const [cta, setCta] = useState<CtaData>(DEFAULT_CTA);
+  // ⚠️ Yedek dile BAĞLI → lang değişince yeniden kurulmalı; yoksa dil seçici
+  //    ile geçiş yapan ziyaretçi, /api/b2b yanıtı gelene dek ESKİ dilde kalırdı.
+  const varsayilan = useMemo(() => varsayilanCta(lang), [lang]);
+  const [cta, setCta] = useState<CtaData>(varsayilan);
 
   // Bölüm arka plan görseli (admin → Bölüm Arka Planları → OEM & Kurumsal Satış).
   // Boşsa bölüm ESKİ tasarımı aynen korur (tam geri-alınabilir). Görsel varken
@@ -48,14 +81,15 @@ export default function B2BCta() {
   useEffect(() => {
     // ⚠️ BAYAT YANIT KORUMASI — bkz. operator/page.tsx notu (2026-09-13).
     let iptal = false;
+    setCta(varsayilan); // dil değişti → önce o dilin yedeği, sonra CMS yanıtı
     fetch(`/api/b2b?lang=${lang}`).then(r => r.json()).then(data => {
       if (iptal) return;
       if (data?.cta) setCta(data.cta);
     }).catch(() => {});
     return () => { iptal = true; };
-  }, [lang]);
+  }, [lang, varsayilan]);
 
-  const channels = (cta.channels ?? DEFAULT_CTA.channels).map((ch, i) => ({
+  const channels = (cta.channels ?? varsayilan.channels).map((ch, i) => ({
     ...ch,
     ...CHANNEL_META[i % CHANNEL_META.length],
     href: ch.href || CHANNEL_META[i % CHANNEL_META.length].href,

@@ -8,7 +8,7 @@
 import { useState, useRef, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
-import { LANGS, type LangCode } from "../lib/languages";
+import { LANGS, type LangCode, isHomePath, homePathFor } from "../lib/languages";
 
 type Props = {
   compact?: boolean;
@@ -36,6 +36,12 @@ export default function LanguageSwitcher({
   // ziyaretçinin tercihi localStorage'a yazılmaz). Diğer sayfalarda client-side.
   function onPick(code: LangCode) {
     setOpen(false);
+
+    // ⚠️ 2026-09-18: ANASAYFA artık 7 GERÇEK adres (/ · /en · /de · /es · /ru · /nl · /ar).
+    // Anasayfadayken dil seçimi = ADRES değişimi (istemci tarafı çeviri DEĞİL) →
+    // Google her dili ayrı URL olarak indeksler, ziyaretçi paylaştığı link o dilde açılır.
+    // setLang'e gerek yok: hedef adres dili zaten zorlar (forcedLangForPath).
+    if (isHomePath(pathname)) { router.push(homePathFor(code)); return; }
     // {0,2} segment: /products · /products/<kategori> · /products/<kategori>/<ürün>
     // (ürün DETAY sayfaları da eşlensin — tek segmentte kalınca detayda dil
     // değiştirmek TR↔EN geçişi yapmıyordu).

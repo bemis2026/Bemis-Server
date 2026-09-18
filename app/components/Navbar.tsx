@@ -7,6 +7,8 @@ import { HiSun, HiMoon } from "react-icons/hi2";
 import { RiArrowRightLine, RiFileTextLine } from "react-icons/ri";
 import Image from "./Img";
 import { useRouter, usePathname } from "next/navigation";
+// 2026-09-18: /de /en … kollarinda urun linkleri o dilin koluna gider.
+import { forcedLangForPath, urunYolu } from "../lib/languages";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
@@ -287,6 +289,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const logoSrc = logos?.dark || "/logo-white.png";
   const router = useRouter();
   const pathname = usePathname();
+  const urunKol = forcedLangForPath(pathname);
 
   // Ana sayfada en tepede navbar şeffaf ve KOYU hero görselinin üstünde
   // durur → bu durumda (açık modda) ön plan, karanlık moddaki gibi BEYAZ
@@ -327,7 +330,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
         name: val.name,
         subtitle: val.subtitle ?? "",
         image: CATEGORY_MENU_IMAGE[key] || val.image?.trim() || "",
-        href: `/products/${key}`,
+        href: urunYolu(`/products/${key}`, urunKol),
         accent: CATEGORY_ACCENTS[key] ?? "#3B82F6",
       }))
     : [];
@@ -667,7 +670,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                               artık mavi aksan + kalın + hafif zemin ile belirgin bir aksiyon (mobil ile tutarlı). */}
                           <div style={{ borderTop: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}` }}>
                             <button
-                              onClick={() => { setActiveDropdown(null); router.push("/products"); }}
+                              onClick={() => { setActiveDropdown(null); router.push(urunYolu("/products", urunKol)); }}
                               className="w-full px-4 py-3 flex items-center justify-between text-[13px] font-bold transition-colors"
                               style={{ color: isDark ? "#93C5FD" : "#2563EB", background: isDark ? "rgba(59,130,246,0.06)" : "rgba(59,130,246,0.05)" }}
                               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "#BFDBFE" : "#1D4ED8"; (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(59,130,246,0.12)" : "rgba(59,130,246,0.10)"; }}
@@ -1000,7 +1003,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                             {cat.name}
                           </button>
                         ))}
-                        <button onClick={() => { setMobileOpen(false); router.push("/products"); }}
+                        <button onClick={() => { setMobileOpen(false); router.push(urunYolu("/products", urunKol)); }}
                           className={`block w-full text-left text-sm py-2 px-3 rounded-lg font-semibold ${isDark ? "text-blue-400" : "text-blue-600"}`}>
                           {byLang(NAV_STRINGS.urunlerFooterMobile, lang)}
                         </button>

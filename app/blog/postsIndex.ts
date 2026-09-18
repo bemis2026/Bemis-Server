@@ -7,18 +7,39 @@ export const POSTS_INDEX: PostIndexItem[] = [
   {
     "slug": "fabrika-osb-sanayi-sitesi-sarj-istasyonu",
     "title": "Fabrika, OSB ve Sanayi Sitesinde Personel Otoparkına Şarj İstasyonu",
+    "titleI18n": {
+      "en": "Charging Stations for Staff Car Parks at Factories and Industrial Estates",
+      "de": "Ladestationen fuer Mitarbeiterparkplaetze in Fabriken und Industriegebieten",
+      "es": "Estaciones de carga en aparcamientos de personal de fabricas y poligonos",
+      "ar": "محطات الشحن في مواقف موظفي المصانع والمناطق الصناعية",
+      "ru": "Зарядные станции на парковке персонала завода и промзоны"
+    },
     "category": "Rehber",
     "datePublished": "2026-09-18"
   },
   {
     "slug": "dc-sarj-unitesi-duvar-tipi-mi-direk-tipi-mi",
     "title": "DC Şarj Ünitesi: Duvar Tipi mi, Direk Tipi mi?",
+    "titleI18n": {
+      "en": "DC Charging Unit: Wall Mounted or Pedestal?",
+      "de": "DC-Ladeeinheit: Wandmontage oder Standsaeule?",
+      "es": "Unidad de carga DC: mural o con pedestal?",
+      "ar": "وحدة الشحن بالتيار المستمر: جدارية أم على قاعدة؟",
+      "ru": "Зарядная станция постоянного тока: настенная или на стойке?"
+    },
     "category": "Rehber",
     "datePublished": "2026-09-18"
   },
   {
     "slug": "sarj-istasyonu-bakim-periyodik-kontrol",
     "title": "Şarj İstasyonu Bakımı ve Periyodik Kontrol: Neye Bakılır?",
+    "titleI18n": {
+      "en": "Charging Station Maintenance and Periodic Checks",
+      "de": "Wartung und regelmaessige Kontrolle der Ladestation",
+      "es": "Mantenimiento y revision periodica de la estacion de carga",
+      "ar": "صيانة محطة الشحن والفحص الدوري",
+      "ru": "Обслуживание зарядной станции и регулярная проверка"
+    },
     "category": "Teknik",
     "datePublished": "2026-09-18"
   },

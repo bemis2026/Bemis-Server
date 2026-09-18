@@ -96,3 +96,88 @@ export function forcedLangForPath(pathname: string | null | undefined): LangCode
   for (const l of URL_LANGS) if (pathname === `/${l}` || pathname.startsWith(`/${l}/`)) return l;
   return null;
 }
+
+/**
+ * ⚠️ 2026-09-18: ANASAYFA KÜMESİ — 7 GERÇEK adres.
+ * TR `/` · EN `/en` · DE `/de` · ES `/es` · RU `/ru` · NL `/nl` · AR `/ar`.
+ * Öncesinde yalnız `/` ve `/ar` vardı; diğer beşi 404 veriyordu → Google o
+ * dillerde anasayfamızı HİÇ göremiyordu. hreflang kümesi KARŞILIKLI olmalı:
+ * yedi sayfanın hepsi aynı kümeyi basar (app/page.tsx · app/[lang]/page.tsx ·
+ * app/en/page.tsx · app/sitemap.ts).
+ * ⚠️ `/ar` bu kümede ama içerik olarak AYRI bir sayfadır (Körfez iniş sayfası,
+ * ArLandingClient) — diğer altısı anasayfanın o dildeki sürümüdür.
+ */
+export function homePathFor(code: LangCode): string {
+  return code === "tr" ? "/" : `/${code}`;
+}
+
+/**
+ * `/products…` yolunu geçerli dil koluna taşır (kol yoksa/TR ise aynen döner).
+ * ⚠️ Ürün kolu ALTI dilde de var (en/de/es/ru/nl/ar) — bu yüzden koşulsuz taşınır.
+ * Çevirisi olmayan sayfalar (kurumsal · uretici · destek · documents · b2b ·
+ * bayilik · şehir) BİLEREK TR'de kalır; Footer'daki eşlemeyle aynı kural.
+ */
+export function urunYolu(href: string, forced: LangCode | null): string {
+  if (!forced || forced === "tr") return href;
+  return href.startsWith("/products") ? `/${forced}${href}` : href;
+}
+
+/** Bir yol anasayfa kümesinin üyesi mi (dil seçicisi bunu kullanır). */
+export function isHomePath(pathname: string | null | undefined): boolean {
+  if (!pathname) return false;
+  if (pathname === "/") return true;
+  return URL_LANGS.some((l) => pathname === `/${l}`);
+}
+
+/**
+ * ⚠️ 2026-09-18: TARAYICI DİLİ ALGILAMA (kullanıcı kararı: "yurtdışından girince
+ * o ülkenin dilinde açılmalı"; İngilizce DAHİL).
+ *
+ * Kural: kayıtlı bir tercih (localStorage "lang") VARSA bu fonksiyon hiç
+ * çağrılmaz — ziyaretçinin kendi seçimi daima kazanır. Dönen değer localStorage'a
+ * YAZILMAZ: bu bir tercih değil, tercih yokken uygulanan varsayılan. Böylece
+ * ziyaretçi seçiciden Türkçe'yi seçerse o seçim kalıcıdır.
+ *
+ * ⚠️ KABUL EDİLEN BEDEL (kullanıcıya söylendi, kararı öyle verildi): Türkiye'de
+ * İngilizce Windows/Chrome kullanan ziyaretçiler de İngilizce açılır. Coğrafi
+ * konum okunmuyor (istemci tarafında güvenilir IP/ülke bilgisi yok).
+ *
+ * ⚠️ BOT KAPISI ŞART: Googlebot'un render servisi JS çalıştırır ve navigator.language
+ * tipik olarak en-US'tur. Kapı olmasaydı Google `/` adresinde İNGİLİZCE içerik
+ * görür, oysa `/` Türkçe canonical + hreflang tr. Tarayıcı/otomasyon işareti
+ * taşıyan her istemcide algılama DEVRE DIŞI → SSR'daki Türkçe aynen kalır.
+ */
+const BOT_ISARETI =
+  /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|embedly|preview|lighthouse|headless|pagespeed|gtmetrix|screaming\s?frog|semrush|ahrefs|yandex|duckduck|baidu|applebot|petalbot|whatsapp|telegram|discord|skype|vkshare|pinterest|linkedinbot|twitterbot|slackbot|python-requests|curl|wget|node-fetch|axios|okhttp|java\/|go-http/i;
+
+export function detectBrowserLang(): LangCode | null {
+  if (typeof navigator === "undefined") return null;
+  try {
+    // Otomasyon (Playwright/Puppeteer/Selenium) → algılama yok.
+    if ((navigator as Navigator & { webdriver?: boolean }).webdriver) return null;
+    if (BOT_ISARETI.test(navigator.userAgent || "")) return null;
+
+    const liste: string[] =
+      Array.isArray(navigator.languages) && navigator.languages.length
+        ? [...navigator.languages]
+        : navigator.language
+          ? [navigator.language]
+          : [];
+    if (!liste.length) return null;
+
+    // Sırayla bak: ilk TANIDIĞIMIZ dil kazanır. Türkçe öne çıkıyorsa (tr-TR ya da
+    // "en-US, tr" gibi listede önce geliyorsa) hiçbir şey yapma — site zaten Türkçe.
+    for (const ham of liste) {
+      const kok = String(ham || "").toLowerCase().split("-")[0];
+      if (!kok) continue;
+      if (kok === "tr") return null;
+      if (isLangCode(kok)) return kok;
+    }
+
+    // Desteklemediğimiz bir yabancı dil (fr, it, pl …) → İngilizce.
+    const ilk = String(liste[0] || "").toLowerCase().split("-")[0];
+    return ilk && ilk !== "tr" ? "en" : null;
+  } catch {
+    return null;
+  }
+}

@@ -3,6 +3,7 @@ import HomeClient from "./HomeClient";
 import JsonLd from "./components/JsonLd";
 import { featuredListSchema, categoryListSchema, categoryH1, videoObjectSchema, SITE_VIDEOS, SITE_URL } from "./lib/seo";
 import { getServerSiteContent, getServerProducts } from "./lib/server-content";
+import { HOME_HREFLANG } from "./lib/homeSeo";
 
 // Anasayfa SERVER sarmalayıcı — metadata + anasayfaya ÖZEL JSON-LD taşır; tüm UI
 // "use client" HomeClient'ta. ⚠️ Anasayfa "use client" olduğu için SAYFA-ÖZEL
@@ -12,8 +13,10 @@ import { getServerSiteContent, getServerProducts } from "./lib/server-content";
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
-    // ⚠️ Küme KARŞILIKLI: /export ve /ar da aynı üçlüyü verir (app/[lang]/page.tsx).
-    languages: { tr: "/", en: "/export", ar: "/ar", "x-default": "/" },
+    // ⚠️ 2026-09-18: Küme 3 → 7 adres. TEK KAYNAK app/lib/homeSeo.ts; app/en/page.tsx
+    // ve app/[lang]/page.tsx aynı kümeyi basar (karşılıklılık şartı). `en` artık
+    // /export DEĞİL /en — İngilizce anasayfa açıldı, /export ihracat masası olarak kaldı.
+    languages: HOME_HREFLANG,
   },
 };
 

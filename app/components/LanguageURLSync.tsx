@@ -6,7 +6,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { forcedLangForPath } from "../lib/languages";
 
 export default function LanguageURLSync() {
-  const { lang, setLang } = useLanguage();
+  const { lang, setLang, autoLang } = useLanguage();
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -28,8 +28,14 @@ export default function LanguageURLSync() {
   // When lang changes: update URL — but only if URL is actually out of sync.
   // Firing router.replace during in-flight navigation (e.g. after a router.push)
   // locks the app router in Next 16.
+  // ⚠️ 2026-09-18: `autoLang` (tarayıcıdan otomatik seçilen dil) URL'e YAZILMAZ.
+  // Yazsaydık: İngilizce tarayıcılı ziyaretçi `/` açtığında adres `/?lang=en`
+  // olur, sayfayı yenilediğinde yukarıdaki mount effect'i onu okuyup
+  // setLang("en") çağırır ve localStorage'a KALICI tercih yazardı. Böylece
+  // "tercih yoksa uygulanan varsayılan" sessizce kullanıcı tercihine dönüşür,
+  // ziyaretçi Türkçe'ye dönmek istediğinde de bir daha otomatik algılama çalışmazdı.
   useEffect(() => {
-    if (skip) return;
+    if (skip || autoLang) return;
     const currentLang = searchParams.get("lang");
     const urlInSync = lang === "en" ? currentLang === "en" : currentLang == null;
     if (urlInSync) return;
@@ -39,7 +45,7 @@ export default function LanguageURLSync() {
     else params.delete("lang");
     const newUrl = params.size > 0 ? `${pathname}?${params.toString()}` : pathname;
     router.replace(newUrl, { scroll: false });
-  }, [lang, pathname, searchParams]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [lang, pathname, searchParams, autoLang]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return null;
 }

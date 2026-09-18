@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
@@ -22,6 +22,7 @@ import { featureById } from "../../lib/productFeatures";
 import Image from "./Img";
 import E from "./E";
 import { accentInk } from "../lib/accentInk";
+import { forcedLangForPath, urunYolu } from "../lib/languages";
 
 // Map ProductFeatures icon strings → react-icons components.
 const FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties }>> = {
@@ -56,6 +57,8 @@ export default function FeaturedProducts() {
   const { featured, featuredSection, sectionBgs } = useContent();
   const { lang } = useLanguage();
   const router = useRouter();
+  // 2026-09-18: /de /en … anasayfalarinda urun linkleri o dilin koluna gider.
+  const urunKol = forcedLangForPath(usePathname());
   const d = theme === "dark";
 
   const [allProducts, setAllProducts] = useState<CategoryData[]>([]);
@@ -205,7 +208,7 @@ export default function FeaturedProducts() {
                 key={key}
                 onMouseEnter={() => setHovered(key)}
                 onMouseLeave={() => setHovered(null)}
-                onClick={() => router.push(`/products/${item.categoryId}/${item.productId}`)}
+                onClick={() => router.push(urunYolu(`/products/${item.categoryId}/${item.productId}`, urunKol))}
                 className="relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0"
                 style={{
                   width: "clamp(260px, 26vw, 320px)",
@@ -288,7 +291,7 @@ export default function FeaturedProducts() {
                                   Kartın tamamı <a> yapılamaz (içinde varyant butonları var =
                                   geçersiz HTML) → yalnız başlık link. stopPropagation çift
                                   gezinmeyi önler. Görünüm birebir aynı. */}
-                    <Link href={`/products/${item.categoryId}/${item.productId}`} onClick={(e) => e.stopPropagation()} style={{ color: "inherit" }}>
+                    <Link href={urunYolu(`/products/${item.categoryId}/${item.productId}`, urunKol)} onClick={(e) => e.stopPropagation()} style={{ color: "inherit" }}>
                       {item.prod?.name ?? item.productId}
                     </Link>
                   </h3>
