@@ -13,6 +13,45 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🚗📝 **SIRADAKİ İŞ — TOGG EVDE ŞARJ REHBERİ (kullanıcı kararı 2026-09-18, HENÜZ YAZILMADI):**
+> Kullanıcı: *"togg v2l ürün olarak eklemeyeceğiz sadece bilgi blog tarzı"* → ⛔ **KATALOĞA TOGG V2L
+> ADAPTÖRÜ EKLENMEYECEK.** Talep gerçek ve ölçülü (`togg v2l adaptör` 438 gös/59 tık/poz 4,4 · Togg
+> kümesi 1.244 gös/100 tık) ama karşılığı ürün değil **içerik** olacak. Bu maddeyi "ürün ekleyelim mi"
+> diye tekrar açma.
+> **SEÇİLEN KAPSAM (çoktan seçmeli): "İkisi de — önce yeni yazı, sonra mevcudu bağla".**
+>
+> **① YENİ YAZI: "Togg evde şarj rehberi" (V2L'DEN AYRI KONU).** Gerekçe: Togg sahipleri V2L dışında
+> **evde şarj · hangi kablo · kaç saatte dolar** arıyor ve bunların karşılığı **katalogda GERÇEKTEN var**
+> (Type 2 kablo, AC wallbox) — V2L adaptörünün aksine. Yani bu yazı hem trafiği hem gerçek ürün eşleşmesini
+> getirir.
+> **⚠️⚠️ UYDURMA SPEC YASAK — ELDE OLAN vs OLMAYAN:**
+> · **VAR (mevcut Togg yazısının tablosundan, doğrulanmış):** T10F ilk üretimden beri **11 kW OBC** ·
+>   T10X 2023–15 Haz 2026 **22 kW OBC** · T10X 15 Haz 2026 sonrası **LFP + 11 kW OBC**.
+> · **YOK:** batarya kapasitesi (kWh) repoda doğrulanmış DEĞİL → **"kaç saatte dolar" için kesin sayı
+>   YAZMA**; ya önce kapasiteyi doğrula (ev-database.org yolu kayıtlı, ⚠️ hız sınırı var) ya da formülle
+>   anlat (kapasite ÷ güç) ve okuyucuyu kendi aracının kılavuzuna yönlendir.
+> · Bemis tarafı: Type 2 kablo (16A/32A · tek/üç faz · 5-15 m) ve AC wallbox (3,7–22 kW) — bunlar katalogdan.
+> **⚠️ KANİBALİZASYON:** mevcut `togg-v2l-aractan-elektrik` yazısının konusunu TEKRARLAMA (V2L nedir,
+> hangi modelde var, adaptör) — tek cümle + link yeterli. Yeni yazı EVDE ŞARJ kararına odaklanır.
+> **② ÇAPRAZ BAĞ:** iki yazı birbirine `related` ile bağlanır. ⚠️ `related` dizisinin UZUNLUĞU değişirse
+> o yazının 6 dildeki çevirisi de birlikte güncellenmeli, yoksa `mergeBlogPost` sessizce TR'ye düşer ve
+> `tamCevrildi` kapısı o yazının **6 yabancı adresini 404 yapar**.
+>
+> **📌 YENİ BLOG YAZISI EKLEME ZİNCİRİ (2026-09-18 sonrası GÜNCEL — blog artık 6 dilde adresli):**
+> `app/blog/posts.ts` → **iki ayrı çeviri aracı**: `scratchpad/blogceviri/<slug>.json` (anahtarlar
+> **en/de/es/ru/ar**) + `npx tsx scratchpad/_blog_tam_yama.mts <slug>` · **nl AYRI**:
+> `scratchpad/nlceviri/_topluNN.json` + `npx tsx scratchpad/_nl_yama.mts` → sonra `npm run
+> gen:diagram-i18n` → `npm run gen:blog-index` → **llms.txt Rehberler + llms-full.txt `GUIDE_SLUGS`
+> (İKİSİ DE ELLE)** → `npx tsc --noEmit` → `npm run build` → canlı doğrula → commit + push.
+> ⚠️ 6 dilin HEPSİ tam çevrilmezse yazı yalnız TR adresi alır (kapı doğru çalışıyor, kusur değil).
+>
+> **⏸️ SÖZLÜK DİL KOLLARI — BİLEREK ERTELENDİ (kullanıcı kararı).** Sözlük 15 terim × 6 dil **TAM
+> çevrili** (`data/i18n/glossary.json`) ama adresi yalnız `/ar/sozluk`; blogda bugün kapatılan boşluğun
+> aynısı, şablon hazır (~80 sayfa, 1 tur). **16 Ekim ölçümü beklenecek:** blog dil kolları indeksleniyorsa
+> sözlük de aynı desenle açılır, indekslenmiyorsa hiç eklenmemiş olur. ⚠️ Açılırsa `serverBlogLang.ts`
+> içindeki **`SOZLUK_DILLERI` kümesine** o diller eklenmeli (şu an `["ar"]`), yoksa dil kolu blog
+> sayfalarından sözlüğe link HÂLÂ verilmez.
+
 > 🌐🔴➡️✅ **SİTE HERKESE TÜRKÇE AÇILIYORDU + 5 DİLİN ANASAYFASI 404'TÜ — İKİSİ DE KAPANDI (2026-09-18):**
 > Kullanıcı: *"siteye yurtdışında girince o ülkenin dilinde açılmalı ama tr açılıyor."* **ÖLÇÜLDÜ, HAKLIYDI —
 > ama sorun sandığımdan bir kat derindi:**
