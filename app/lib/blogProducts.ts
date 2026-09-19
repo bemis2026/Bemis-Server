@@ -52,6 +52,28 @@ const KURATORLU: Record<string, string[]> = {
     "charger-2-kablolu",
     "c2l-tekli-priz-uzatma-fisli-adaptor",
   ],
+
+  // Bu iki yazının `related` dizisinde ürün KATEGORİSİ linki yok → otomatik
+  // eşleme boş dönüyordu ve ikisi de ticari niyetli yazılar (ölçüldü: 46 yazının
+  // yalnız bu ikisi açıkta kalıyordu).
+  // ⚠️ Çözüm `related`e link EKLEMEK DEĞİL: dizi uzunluğu değişirse o yazının
+  //    6 dildeki çevirisi hizadan çıkar, `mergeBlogPost` sessizce TR'ye düşer ve
+  //    `tamCevrildi` kapısı yabancı adresleri 404 yapar. Burada çözmek veriye
+  //    hiç dokunmaz.
+  "isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi": [
+    "bevdc-40-1",
+    "bevdc-80-2",
+    "bevdc-120-1",
+    "bevdc-180",
+  ],
+  // Yazı "hangi kablo aracıma uyar" sorusunu akım/faz üzerinden cevaplıyor →
+  // dört farklı güç sınıfı gösterilir (3,7 / 7,4 / 11 / 22 kW), hepsi 5 m.
+  "hangi-sarj-kablosu-aracima-uyumlu-type-2": [
+    "sarj-seti-20a-monofaze-5m",
+    "sarj-seti-32a-monofaze-5m",
+    "sarj-seti-20a-trifaze-5m",
+    "sarj-seti-32a-trifaze-5m",
+  ],
 };
 
 /**

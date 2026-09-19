@@ -13,6 +13,73 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📰🛒 **BLOG YAZI SAYFALARI: SİTE GENİŞLİĞİ + ÜRÜN IZGARASI + İLETİŞİM BANDI + DİL KOLU LİNK KUSURU
+> (2026-09-19, commit'ler `8390c60` · `6987c45`):** Kullanıcı: *"togg v2l sayfamızda bölümler ortada
+> öbekleniyor, genel kurallarımıza uygun hale getir; ürünlerimizi de orda listele, öne çıkan ürünler
+> kısmını koy, bize ulaşın gibi pazarlama detayları ekle, gelenler görsün."*
+> **KULLANICI KARARLARI (çoktan seçmeli):** kapsam **"tüm blog yazıları"** · ürün seçimi **"Togg'a
+> gerçekten uyanlar"**.
+>
+> **(1) 📐 GENİŞLİK — ÖLÇÜLDÜ, KULLANICI HAKLIYDI.** Yazı sayfası **TÜM makaleyi** `max-w-3xl`
+> (768px) ile sarıyordu → 1728px ekranda iki yanda **475'er px boşluk**, ekranın yalnız **%44'ü**
+> kullanılıyordu. Blog **listesi** 2026-07-13'te 1600px'e çekilmiş ama **yazı sayfası atlanmış**.
+> Kap artık site standardı **`max-w-7xl 2xl:max-w-[1600px]`**.
+> **📌 GÖVDE METNİ YİNE DAR (820px) — BİLEREK:** satır uzunluğu okunabilirliğin temeli, 1600px'lik
+> paragraf okunmaz. Boşluğu **metin değil**, `lg+` yapışkan yan panel + alttaki tam genişlik blokları
+> doldurur. Ölçüm: kap **768 → 1600px (ekranın %93'ü)**, yatay taşma 0 (1728px ve 375px).
+>
+> **(2) 🛒 YENİ TİCARİ YÜZEYLER (46 yazının HEPSİNDE, 6 dilde):** `app/blog/ArticleExtras.tsx` (YENİ)
+> — **Öne Çıkan Ürünler** ızgarası (4 kart) · **iletişim/pazarlama bandı** (WhatsApp + Bize Ulaşın +
+> tel/e-posta + 3 olgu) · **yapışkan yan panel** (marka kartı + Ürünleri İncele + Hemen sorun).
+> ⚠️ **ÜRÜNLER SUNUCUDAN GELİR** (`getProductsForLang` → prop): istemciden çekilseydi Google boş
+> görürdü — kayıtlı `/en` dersi. Üç rota da bağlandı: `app/blog/[slug]` · `app/en/blog/[slug]` ·
+> `app/[lang]/blog/[slug]`.
+> ⚠️ **UYDURMA TİCARİ VAAT YOK:** banttaki üç olgu (1994'ten beri üretim · CE · 2 yıl garanti) sitede
+> zaten yazılı. **IP65 BİLEREK YAZILMADI** — katalog karma (DC üniteleri IP54), kategori-geneli koruma
+> iddiası site içi çelişki üretirdi.
+> ⚠️ **`opacity:0` KULLANILMADI:** bu depoda **beş** ayrı görünmezlik kusurunun tek sebebi oydu;
+> dönüşüm bandının görünmemesi doğrudan iş kaybı → yalnız `y` kaydırması animasyonlu.
+>
+> **(3) ⛔⛔ ÜRÜN SEÇİMİ KONUYA DEĞİL, GERÇEKTEN UYAN ÜRÜNE BAĞLI — `app/lib/blogProducts.ts`:**
+> Varsayılan eşleme yazının `related` linklerinden kategori türetir; **`KURATORLU` haritası bunu EZER.**
+> Togg yazısı için elle seçildi çünkü **katalogtaki 12 V2L adaptörünün HİÇBİRİ Togg'a uymuyor**
+> (araç tarafı ucu Hyundai·Kia·Ssangyong / MG / BYD·Skywell). Otomatik eşleme orada Togg sahibine
+> **alamayacağı ürünü** gösterirdi — 2026-09-17'de tam bu yüzden bir düzeltme yapılmıştı.
+> **Seçilen 4 ürün de Togg ile GERÇEKTEN çalışıyor** (Togg AC soketi Type 2, standart 11 kW —
+> `vehicleCharging.ts` + `Calculator.tsx`): `sarj-seti-20a-trifaze-5m` (16A trifaze = tam 11 kW) ·
+> `pro-mobile-2-11kw-5m` · `charger-2-kablolu` · `c2l-tekli-priz-uzatma-fisli-adaptor` (C2L enerjiyi
+> araçtan DEĞİL şarj cihazından alır → marka bağımsız).
+> 📌 **Başka yazıya küratörlü ürün eklerken kimliği `/api/products` ile DOĞRULA** — olmayan kimlik
+> sessizce atlanır, blok eksik görünür. Görselsiz ürün de bilerek atlanır (kartta boş kutu çıkar).
+>
+> **(4) 🔴 YOL ÜSTÜNDE BULUNAN GERÇEK KUSUR — DİL KOLU BLOG LİSTELERİ ÇIKMAZ SOKAKMIŞ (`6987c45`):**
+> Canlı `/de/blog` ölçüldü: **46 yazı linkinin 46'sı da Türkçe `/blog/<slug>`'a gidiyordu, `/de`
+> kolunda 0.** Yani 2026-09-18'de açılan 5 dilin blog listeleri işe yaramıyordu — Almanca listeye giren
+> ziyaretçi herhangi bir yazıya tıklayınca **Türkçe gövdeye** düşüyor, Google da dil koluna **iç link
+> akışı görmüyordu**. Yazı sayfasındaki "Blog" geri linki de aynı şekilde `/blog`'a gidiyordu.
+> **KÖK NEDEN:** `BlogShell`'deki `useTaban` yardımcısı blog **TR+AR iken** yazılmıştı, yalnız `ar`
+> için önek veriyordu; blog 6 dile açılınca **güncellenmemiş**.
+> **DÜZELTME — YARDIMCI İKİYE AYRILDI:** `useSozlukTaban` hâlâ **yalnız `/ar`** (sözlük gerçekten
+> AR-only; körlemesine genelleştirmek Almanca listeden **`/de/sozluk` 404'üne** link verirdi —
+> `SOZLUK_DILLERI` tuzağı) · `useBlogTaban` **6 dilin hepsi**. Güvenli çünkü listeler
+> `yazilarDilde(lang)` ile beslenir (yalnız TAM çevrilmiş yazılar) → listelenen her yazının o dilde
+> adresi VARDIR. Ölçüm: `/de/blog` **0 → 46** link kendi kolunda; sözlük `/sozluk` olarak kaldı.
+>
+> **⚠️ ÜÇ ÖLÇÜM DERSİ (üçü de bu turda beni yanılttı):**
+> **(a) React kesme işaretini `&#x27;` olarak kaçırır** → "1994'ten" ve "WhatsApp'tan" aramaları
+> "YOK" dedi, oysa sayfadaydılar. **Doğrulama dizelerinde kesme işareti KULLANMA.**
+> **(b) Ekran görüntüsünde başlık iki kez göründü → kusur DEĞİL:** blog **kapak görselinin üstünde
+> başlık zaten basılı** (2026-09-16 kapak tasarımı), altında `h1` geliyor. DOM ölçümü `h1` sayısını
+> **1** verdi.
+> **(c) Ürün linkleri "çift" göründü → 0 yükseklikli gizli streaming kabı** (kayıtlı artefakt);
+> `checkVisibility()` false. Ziyaretçi 4 kart görür.
+>
+> **ui.json 614 → 628** (14 anahtar × 5 dil, ELLE yazıldı). Mevcut **"Contact Us" · "Browse all
+> products" · "View Product"** anahtarları yeniden kullanıldı (aynı metne ikinci anahtar üretilmedi).
+> ⚠️ Marka adı ("Bemis E-V Charge") `pickText`'ten ÇIKARILDI — çevrilecek bir şey değil.
+> **Kapılar:** tsc 0 · `check:i18n` temiz · `check:brands` temiz · build **1565 sayfa**.
+> 📌 Doğrulama betiği: `scratchpad/_blog_canli_dogrula.cjs` (yeniden çalıştırılabilir).
+
 > 🚗📝 **SIRADAKİ İŞ — TOGG EVDE ŞARJ REHBERİ (kullanıcı kararı 2026-09-18, HENÜZ YAZILMADI):**
 > Kullanıcı: *"togg v2l ürün olarak eklemeyeceğiz sadece bilgi blog tarzı"* → ⛔ **KATALOĞA TOGG V2L
 > ADAPTÖRÜ EKLENMEYECEK.** Talep gerçek ve ölçülü (`togg v2l adaptör` 438 gös/59 tık/poz 4,4 · Togg
