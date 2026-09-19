@@ -24,8 +24,28 @@ import { usePathname } from "next/navigation";
 
 // ⚠️ İç linkler KENDİ dil kolunda kalmalı — /ar/blog'dan TR köke sızmasın.
 // Blog rotası YALNIZ tr + ar'da var (de/es/ru/nl/en'de blog adresi YOK) → yalnız "ar" öneklenir.
-function useTaban() {
+// ⚠️⚠️ İKİ AYRI TABAN — BİRLEŞTİRME (2026-09-19'da ölçülerek ayrıldı):
+//
+// `useSozlukTaban` SÖZLÜK içindir ve YALNIZ "/ar" döner: `app/[lang]/sozluk/**`
+// generateStaticParams yalnız `ar` üretir → `/de/sozluk` · `/es/sozluk` HİÇ YOK.
+// Körlemesine genelleştirmek Almanca blog listesinden 404'e link verirdi
+// (`SOZLUK_DILLERI`, serverBlogLang.ts). Sözlük başka dile açılırsa BURAYI da güncelle.
+//
+// `useBlogTaban` BLOG içindir ve 6 dilin hepsini döndürür.
+// 🔴 ÖLÇÜLEN KUSUR: blog 2026-09-18'de 6 dile açıldı ama bu yardımcı AR-only
+//    kalmıştı → canlı `/de/blog` sayfasındaki 46 yazı linkinin 46'sı da TÜRKÇE
+//    `/blog/<slug>`'a gidiyordu (/de kolunda 0). Yani Almanca/İspanyolca/Rusça/
+//    Felemenkçe listeler çıkmaz sokaktı: ziyaretçi Türkçe gövdeye düşüyor,
+//    Google da dil koluna iç link akışı görmüyordu.
+// ⚠️ Güvenli: listeler `yazilarDilde(lang)` ile beslenir (yalnız TAM çevrilmiş
+//    yazılar) → listelenen her yazının o dilde adresi VARDIR.
+function useSozlukTaban() {
   return forcedLangForPath(usePathname()) === "ar" ? "/ar" : "";
+}
+
+function useBlogTaban() {
+  const l = forcedLangForPath(usePathname());
+  return l && l !== "tr" ? `/${l}` : "";
 }
 
 const BLUE = "#3B82F6";
@@ -109,7 +129,8 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
   sadeceRehber?: boolean;
 }) {
   const { lang } = useLanguage();
-  const taban = useTaban();
+  const sozlukTaban = useSozlukTaban();
+  const blogTaban = useBlogTaban();
   const { theme } = useTheme();
   const d = theme === "dark";
   const press = trPressList(allPress(), lang);
@@ -189,7 +210,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
         </div>
           {/* Şarj Sözlüğü — sekmelerle aynı stil (pasif sekme görünümü) */}
           <Link
-            href={`${taban}/sozluk`}
+            href={`${sozlukTaban}/sozluk`}
             className="px-4 py-2 rounded-xl text-sm font-bold transition-all hover:opacity-80"
             style={{ background: surface, color: textMuted, border: `1px solid ${border}` }}
           >
@@ -205,7 +226,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
             {posts.map((p, i) => (
               <motion.div key={p.slug} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.06 }}>
-                <Link href={`${taban}/blog/${p.slug}`} className="group block rounded-2xl overflow-hidden h-full transition-transform hover:-translate-y-0.5"
+                <Link href={`${blogTaban}/blog/${p.slug}`} className="group block rounded-2xl overflow-hidden h-full transition-transform hover:-translate-y-0.5"
                   style={{ background: surface, border: `1px solid ${border}` }}>
                   {/* Kapak görseli — basın kartlarındaki 16:9 deseniyle aynı.
                       ⚠️ Koşullu: `cover` yoksa kart eski (salt metin) hâlinde kalır. */}
@@ -306,7 +327,7 @@ function Article({ post, urunler, urunHedefi, d, surface, border, textPrimary, t
   post: BlogPost; urunler: BlogUrun[]; urunHedefi: string; d: boolean; surface: string; border: string; textPrimary: string; textMuted: string; textFaint: string; fmtDate: (s: string) => string;
 }) {
   const { lang } = useLanguage();
-  const taban = useTaban();
+  const blogTaban = useBlogTaban();
   return (
     <article className="pt-28 pb-20 px-5 sm:px-6 lg:px-8">
       {/* ⚠️ GENİŞLİK (2026-09-19): eskiden TÜM makale `max-w-3xl mx-auto` (768px) idi →
@@ -317,7 +338,7 @@ function Article({ post, urunler, urunHedefi, d, surface, border, textPrimary, t
              temeli, 1600px'lik paragraf okunmaz. Boşluğu METİN değil, yandaki panel ve
              alttaki tam genişlik blokları doldurur. */}
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
-        <Link href={`${taban}/blog`} className="inline-flex items-center gap-2 mb-6 text-sm font-medium group" style={{ color: textMuted }}>
+        <Link href={`${blogTaban}/blog`} className="inline-flex items-center gap-2 mb-6 text-sm font-medium group" style={{ color: textMuted }}>
           <HiArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Blog
         </Link>
 
