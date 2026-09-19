@@ -18,6 +18,8 @@ import { allPress, type PressItem } from "./press";
 import { trPress, trPressList } from "../lib/pressI18n";
 import { trBlogPost, loadBlogI18n } from "../lib/blogI18n";
 import { forcedLangForPath } from "../lib/languages";
+import type { BlogUrun } from "../lib/blogProducts";
+import { UrunBlogu, IletisimBandi, YanPanel } from "./ArticleExtras";
 import { usePathname } from "next/navigation";
 
 // ⚠️ İç linkler KENDİ dil kolunda kalmalı — /ar/blog'dan TR köke sızmasın.
@@ -40,7 +42,14 @@ const pressLabel = (type: PressItem["type"], lang: string) =>
     : type === "social" ? (pickText(lang, "Sosyal", "Social"))
       : (pickText(lang, "Haber", "News"));
 
-export default function BlogShell({ post, posts, pressItem, sadeceRehber }: { post?: BlogPost; posts?: BlogPost[]; pressItem?: PressItem; sadeceRehber?: boolean }) {
+export default function BlogShell({ post, posts, pressItem, sadeceRehber, urunler, urunHedefi }: {
+  post?: BlogPost; posts?: BlogPost[]; pressItem?: PressItem; sadeceRehber?: boolean;
+  /** Yazı sayfasında gösterilecek ürünler — SUNUCUDAN gelir (SEO: ilk HTML'de olmalı).
+   *  Boş/verilmemişse ürün bloğu hiç render edilmez, yazı eskisi gibi çalışır. */
+  urunler?: BlogUrun[];
+  /** "Tüm ürünleri gör" hedefi (ör. /products/cables). */
+  urunHedefi?: string;
+}) {
   const { theme } = useTheme();
   const d = theme === "dark";
   const { lang } = useLanguage();
@@ -80,7 +89,7 @@ export default function BlogShell({ post, posts, pressItem, sadeceRehber }: { po
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {post ? (
-        <Article post={trBlogPost(post, lang)} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
+        <Article post={trBlogPost(post, lang)} urunler={urunler ?? []} urunHedefi={urunHedefi ?? "/products"} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
       ) : pressItem ? (
         <PressArticle item={trPress(pressItem, lang)} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
       ) : (
@@ -293,17 +302,27 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
 }
 
 // ── Makale görünümü ─────────────────────────────────────────────────────────
-function Article({ post, d, surface, border, textPrimary, textMuted, textFaint, fmtDate }: {
-  post: BlogPost; d: boolean; surface: string; border: string; textPrimary: string; textMuted: string; textFaint: string; fmtDate: (s: string) => string;
+function Article({ post, urunler, urunHedefi, d, surface, border, textPrimary, textMuted, textFaint, fmtDate }: {
+  post: BlogPost; urunler: BlogUrun[]; urunHedefi: string; d: boolean; surface: string; border: string; textPrimary: string; textMuted: string; textFaint: string; fmtDate: (s: string) => string;
 }) {
   const { lang } = useLanguage();
   const taban = useTaban();
   return (
     <article className="pt-28 pb-20 px-5 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
+      {/* ⚠️ GENİŞLİK (2026-09-19): eskiden TÜM makale `max-w-3xl mx-auto` (768px) idi →
+          1728px ekranda iki yanda 475'er px boşluk kalıyor, sayfa "ortada öbekleniyor"
+          görünüyordu (kullanıcı bildirdi, ölçüldü: ekranın yalnız %44'ü kullanılıyordu).
+          Kap artık SİTE STANDARDI `max-w-7xl 2xl:max-w-[1600px]`.
+          📌 Gövde metni yine DAR tutulur (`max-w-[820px]`): satır uzunluğu okunabilirliğin
+             temeli, 1600px'lik paragraf okunmaz. Boşluğu METİN değil, yandaki panel ve
+             alttaki tam genişlik blokları doldurur. */}
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
         <Link href={`${taban}/blog`} className="inline-flex items-center gap-2 mb-6 text-sm font-medium group" style={{ color: textMuted }}>
           <HiArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Blog
         </Link>
+
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_300px] xl:grid-cols-[minmax(0,1fr)_340px] lg:gap-10 xl:gap-14 lg:items-start">
+          <div className="min-w-0 max-w-[820px]">
 
         {/* ── Kapak görseli (2026-09-16) ──
             `cover` alanı ve OG/Twitter/Article şeması bağlantıları ZATEN vardı;
@@ -379,6 +398,17 @@ function Article({ post, d, surface, border, textPrimary, textMuted, textFaint, 
             </div>
           </div>
         )}
+          </div>
+
+          {/* Yapışkan yan panel — YALNIZ lg+; mobilde alttaki bloklar aynı işi görür. */}
+          <aside className="hidden lg:block">
+            <YanPanel d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} />
+          </aside>
+        </div>
+
+        {/* Tam genişlik ticari yüzeyler — ızgaranın ALTINDA, kabın tam enini kullanır. */}
+        <UrunBlogu urunler={urunler} hedef={urunHedefi} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} />
+        <IletisimBandi d={d} border={border} textPrimary={textPrimary} textMuted={textMuted} />
       </div>
     </article>
   );

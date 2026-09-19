@@ -7,6 +7,8 @@ import { dilLinkleriDuzelt, yaziBulDilde, yaziDilleri, yazilarDilde } from "../.
 import { BLOG_SEO, blogHreflang } from "../../../lib/blogLangSeo";
 import { LOCALE_LANGS } from "../../../lib/localeProductSeo";
 import BlogShell from "../../../blog/BlogShell";
+import { getProductsForLang } from "../../../lib/serverProductsLang";
+import { yaziUrunleri, urunBloguHedefi } from "../../../lib/blogProducts";
 
 // Yabancı dil rehber sayfası — /<lang>/blog/<slug> (de · es · ru · nl · ar).
 // İngilizce AYRI statik ağaçta: app/en/blog/[slug].
@@ -98,10 +100,14 @@ export default async function DilBlogYaziPage({ params }: { params: Promise<{ la
     //    basardı; bu yüzden dil kolunda HowTo şeması emit EDİLMEZ.
   ];
 
+  const kategoriler = await getProductsForLang(lang);
+  const urunler = yaziUrunleri(post, kategoriler);
+
   return (
     <>
       <JsonLd data={jsonLd} />
-      <BlogShell post={post} />
+      {/* Ürünler SUNUCUDAN: ilk HTML'de olmalı (istemciden çekilseydi Google boş görürdü). */}
+      <BlogShell post={post} urunler={urunler} urunHedefi={urunBloguHedefi(urunler)} />
     </>
   );
 }

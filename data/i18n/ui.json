@@ -4296,5 +4296,103 @@
   "ar": "دليل المستخدم",
   "ru": "Руководство пользователя",
   "nl": "Gebruikershandleiding"
+ },
+ "OUR PRODUCTS": {
+  "de": "UNSERE PRODUKTE",
+  "es": "NUESTROS PRODUCTOS",
+  "ar": "منتجاتنا",
+  "ru": "НАША ПРОДУКЦИЯ",
+  "nl": "ONZE PRODUCTEN"
+ },
+ "Featured Products": {
+  "de": "Ausgewählte Produkte",
+  "es": "Productos destacados",
+  "ar": "منتجات مختارة",
+  "ru": "Избранные товары",
+  "nl": "Uitgelichte producten"
+ },
+ "Solutions we manufacture in our own facility, related to this guide.": {
+  "de": "Lösungen aus unserer eigenen Fertigung, passend zum Thema dieses Ratgebers.",
+  "es": "Soluciones fabricadas en nuestras propias instalaciones, relacionadas con esta guía.",
+  "ar": "حلول نصنعها في منشأتنا الخاصة، ذات صلة بموضوع هذا الدليل.",
+  "ru": "Решения нашего собственного производства, связанные с темой этого руководства.",
+  "nl": "Oplossingen uit onze eigen fabriek, passend bij dit artikel."
+ },
+ "Manufacturing in our own facility since 1994": {
+  "de": "Seit 1994 Fertigung im eigenen Werk",
+  "es": "Fabricación en nuestras propias instalaciones desde 1994",
+  "ar": "التصنيع في منشأتنا الخاصة منذ عام 1994",
+  "ru": "Производство на собственном заводе с 1994 года",
+  "nl": "Sinds 1994 productie in eigen fabriek"
+ },
+ "CE-certified product family": {
+  "de": "CE-zertifizierte Produktfamilie",
+  "es": "Familia de productos con certificación CE",
+  "ar": "عائلة منتجات حاصلة على شهادة CE",
+  "ru": "Линейка продукции с сертификатом CE",
+  "nl": "CE-gecertificeerde productfamilie"
+ },
+ "2-year manufacturer warranty": {
+  "de": "2 Jahre Herstellergarantie",
+  "es": "2 años de garantía del fabricante",
+  "ar": "ضمان المصنّع لمدة 2 سنة",
+  "ru": "2 года гарантии производителя",
+  "nl": "2 jaar fabrieksgarantie"
+ },
+ "SUPPORT": {
+  "de": "UNTERSTÜTZUNG",
+  "es": "SOPORTE",
+  "ar": "الدعم",
+  "ru": "ПОДДЕРЖКА",
+  "nl": "ONDERSTEUNING"
+ },
+ "Let's choose the right product together": {
+  "de": "Finden wir gemeinsam das richtige Produkt",
+  "es": "Elijamos juntos el producto adecuado",
+  "ar": "لنختر المنتج المناسب معًا",
+  "ru": "Подберём подходящий продукт вместе",
+  "nl": "Laten we samen het juiste product kiezen"
+ },
+ "Not sure which product fits your vehicle and electrical installation? Get in touch and our authorised dealer or sales team will guide you.": {
+  "de": "Sie sind unsicher, welches Produkt zu Ihrem Fahrzeug und Ihrer Elektroinstallation passt? Schreiben Sie uns — unser Vertragshändler oder unser Vertriebsteam berät Sie.",
+  "es": "¿No está seguro de qué producto encaja con su vehículo y su instalación eléctrica? Escríbanos y nuestro distribuidor autorizado o nuestro equipo comercial le orientará.",
+  "ar": "لست متأكدًا من المنتج المناسب لسيارتك وتركيبك الكهربائي؟ تواصل معنا وسيرشدك الموزّع المعتمد أو فريق المبيعات لدينا.",
+  "ru": "Не уверены, какой продукт подходит вашему автомобилю и электропроводке? Напишите нам — наш авторизованный дилер или отдел продаж поможет с выбором.",
+  "nl": "Weet u niet zeker welk product bij uw auto en elektrische installatie past? Neem contact op; onze erkende dealer of ons salesteam helpt u verder."
+ },
+ "Message on WhatsApp": {
+  "de": "Über WhatsApp schreiben",
+  "es": "Escríbanos por WhatsApp",
+  "ar": "راسلنا عبر واتساب",
+  "ru": "Написать в WhatsApp",
+  "nl": "Stuur een WhatsApp-bericht"
+ },
+ "MADE IN TÜRKİYE": {
+  "de": "HERGESTELLT IN TÜRKIYE",
+  "es": "FABRICADO EN TÜRKIYE",
+  "ar": "صناعة تركيا",
+  "ru": "ПРОИЗВЕДЕНО В ТУРЦИИ",
+  "nl": "GEMAAKT IN TÜRKIYE"
+ },
+ "EV charging cables, portable devices and wallbox stations — designed and tested in our own facility.": {
+  "de": "Ladekabel, mobile Ladegeräte und Wallbox-Stationen — Entwicklung und Endprüfung im eigenen Werk.",
+  "es": "Cables de carga, dispositivos portátiles y estaciones wallbox: diseño y pruebas finales en nuestras instalaciones.",
+  "ar": "كابلات الشحن والأجهزة المحمولة ومحطات الشحن الجداري — التصميم والاختبار النهائي في منشأتنا.",
+  "ru": "Зарядные кабели, портативные устройства и настенные станции — разработка и финальные испытания на собственном заводе.",
+  "nl": "Laadkabels, draagbare laders en wallbox-stations — ontwerp en eindtest in onze eigen fabriek."
+ },
+ "Explore Products": {
+  "de": "Produkte entdecken",
+  "es": "Ver productos",
+  "ar": "استعرض المنتجات",
+  "ru": "Смотреть продукцию",
+  "nl": "Producten bekijken"
+ },
+ "Ask us now": {
+  "de": "Jetzt fragen",
+  "es": "Pregúntenos ahora",
+  "ar": "اسألنا الآن",
+  "ru": "Спросить сейчас",
+  "nl": "Stel uw vraag"
  }
 }

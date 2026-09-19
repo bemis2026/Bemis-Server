@@ -6,6 +6,8 @@ import type { BlogPost } from "../../../blog/posts";
 import { dilLinkleriDuzelt, yaziBulDilde, yaziDilleri, yazilarDilde } from "../../../lib/serverBlogLang";
 import { BLOG_SEO, blogHreflang } from "../../../lib/blogLangSeo";
 import BlogShell from "../../../blog/BlogShell";
+import { getProductsForLang } from "../../../lib/serverProductsLang";
+import { yaziUrunleri, urunBloguHedefi } from "../../../lib/blogProducts";
 
 // İngilizce rehber sayfası — /en/blog/<slug>.
 //
@@ -86,10 +88,14 @@ export default async function EnBlogYaziPage({ params }: { params: Promise<{ slu
     // ⚠️ howTo TR kaynaktan gelir → İngilizce sayfada Türkçe adım basardı, emit EDİLMEZ.
   ];
 
+  const kategoriler = await getProductsForLang("en");
+  const urunler = yaziUrunleri(post, kategoriler);
+
   return (
     <>
       <JsonLd data={jsonLd} />
-      <BlogShell post={post} />
+      {/* Ürünler SUNUCUDAN: ilk HTML'de olmalı (istemciden çekilseydi Google boş görürdü). */}
+      <BlogShell post={post} urunler={urunler} urunHedefi={urunBloguHedefi(urunler)} />
     </>
   );
 }

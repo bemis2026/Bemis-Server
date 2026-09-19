@@ -6,6 +6,8 @@ import { allPosts, getPost, type BlogPost } from "../posts";
 import { yaziDilleri } from "../../lib/serverBlogLang";
 import { blogHreflang } from "../../lib/blogLangSeo";
 import BlogShell from "../BlogShell";
+import { getProductsForLang } from "../../lib/serverProductsLang";
+import { yaziUrunleri, urunBloguHedefi } from "../../lib/blogProducts";
 
 export const dynamicParams = false;
 
@@ -83,10 +85,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     ...(post.faq && post.faq.length > 0 ? [faqSchema(post.faq)] : []),
     ...(post.howTo ? [howToSchema(post.howTo)] : []),
   ];
+  const kategoriler = await getProductsForLang("tr");
+  const urunler = yaziUrunleri(post, kategoriler);
+
   return (
     <>
       <JsonLd data={jsonLd} />
-      <BlogShell post={post} />
+      {/* Ürünler SUNUCUDAN: ilk HTML'de olmalı (istemciden çekilseydi Google boş görürdü). */}
+      <BlogShell post={post} urunler={urunler} urunHedefi={urunBloguHedefi(urunler)} />
     </>
   );
 }
